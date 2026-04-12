@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkareaDiskon — Affiliate Marketing Platform</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:{50:'#FFF7ED',100:'#FFEDD5',200:'#FED7AA',300:'#FDBA74',400:'#FB923C',500:'#FF6B2C',600:'#EA580C',700:'#C2410C',800:'#9A3412',900:'#7C2D12'},mint:{400:'#34D399',500:'#22D3A0',600:'#10B981'},dk:{50:'#F9FAFB',100:'#F3F4F6',200:'#E5E7EB',300:'#D1D5DB',400:'#9CA3AF',500:'#6B7280',600:'#4B5563',700:'#374151',800:'#1F2937',850:'#172033',900:'#111827',950:'#0B0E14'}},fontFamily:{display:['Space Grotesk','sans-serif'],body:['DM Sans','sans-serif']}}}}
+</script>
+<style>
+:root{--bg:#0B0E14;--bg2:#111827;--card:#1A1F2E;--card2:#222839;--border:#2A3042;--text:#F0F1F5;--muted:#8B92A5;--brand:#FF6B2C;--brand2:#FF8A55;--mint:#22D3A0;--danger:#EF4444;--warn:#FBBF24;--info:#60A5FA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+/* Auth Background */
+.auth-bg{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.auth-bg::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg at 50% 50%,#FF6B2C22,#22D3A015,#60A5FA11,#FF6B2C22);animation:authSpin 20s linear infinite}
+@keyframes authSpin{to{transform:rotate(360deg)}}
+.auth-bg .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;animation:orbFloat 8s ease-in-out infinite}
+.auth-bg .orb-1{width:400px;height:400px;background:#FF6B2C;top:10%;left:10%;animation-delay:0s}
+.auth-bg .orb-2{width:300px;height:300px;background:#22D3A0;bottom:10%;right:15%;animation-delay:-3s}
+.auth-bg .orb-3{width:250px;height:250px;background:#60A5FA;top:50%;left:60%;animation-delay:-5s}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.1)}}
+
+.glass{background:rgba(26,31,46,.75);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.06)}
+.input-field{background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:12px 16px;width:100%;font-size:14px;transition:.2s;outline:none;font-family:'DM Sans',sans-serif}
+.input-field:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(255,107,44,.15)}
+.input-field::placeholder{color:var(--muted)}
+.btn-primary{background:linear-gradient(135deg,#FF6B2C,#EA580C);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,107,44,.3)}
+.btn-secondary{background:var(--card2);color:var(--text);border:1px solid var(--border);padding:10px 20px;border-radius:10px;font-weight:500;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--brand);color:var(--brand)}
+.btn-sm{padding:6px 14px;font-size:12px;border-radius:8px}
+.btn-danger{background:rgba(239,68,68,.15);color:#EF4444;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-success{background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.2)}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.btn-warn{background:rgba(251,191,36,.15);color:#FBBF24;border:1px solid rgba(251,191,36,.2)}
+.btn-warn:hover{background:rgba(251,191,36,.25)}
+
+/* Sidebar */
+.sidebar{width:260px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--border);position:fixed;left:0;top:0;z-index:40;transition:transform .3s}
+.sidebar .nav-item{display:flex;align-items:center;gap:12px;padding:10px 20px;margin:2px 12px;border-radius:10px;color:var(--muted);cursor:pointer;transition:.2s;font-size:14px;font-weight:500}
+.sidebar .nav-item:hover{background:rgba(255,107,44,.08);color:var(--text)}
+.sidebar .nav-item.active{background:rgba(255,107,44,.12);color:var(--brand)}
+.sidebar .nav-item.active i{color:var(--brand)}
+.sidebar .nav-item i{width:20px;text-align:center;font-size:15px}
+.main-content{margin-left:260px;min-height:100vh}
+
+/* Stat Cards */
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:.3s}
+.stat-card:hover{border-color:rgba(255,107,44,.3);transform:translateY(-2px)}
+.stat-card .stat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.stat-card::after{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;opacity:.06}
+
+/* Table */
+.data-table{width:100%;border-collapse:separate;border-spacing:0}
+.data-table th{background:var(--bg2);color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.data-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text);vertical-align:middle}
+.data-table tr:hover td{background:rgba(255,107,44,.03)}
+.data-table th:first-child{border-radius:10px 0 0 0}
+.data-table th:last-child{border-radius:0 10px 0 0}
+
+/* Badge */
+.badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:4px}
+.badge-pending{background:rgba(251,191,36,.12);color:#FBBF24}
+.badge-approved{background:rgba(16,185,129,.12);color:#10B981}
+.badge-paid{background:rgba(96,165,250,.12);color:#60A5FA}
+.badge-admin{background:rgba(255,107,44,.12);color:#FF6B2C}
+.badge-affiliate{background:rgba(34,211,160,.12);color:#22D3A0}
+.badge-user{background:rgba(156,163,175,.12);color:#9CA3AF}
+.badge-percent{background:rgba(96,165,250,.1);color:#60A5FA}
+.badge-fixed{background:rgba(168,85,247,.1);color:#A855F7}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s}
+.modal-overlay.show{opacity:1;pointer-events:auto}
+.modal-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;width:90%;max-width:540px;transform:scale(.95) translateY(10px);transition:.3s;max-height:85vh;overflow-y:auto}
+.modal-overlay.show .modal-box{transform:scale(1) translateY(0)}
+
+/* Toast */
+.toast-container{position:fixed;top:24px;right:24px;z-index:200;display:flex;flex-direction:column;gap:8px}
+.toast{padding:14px 20px;border-radius:12px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;animation:toastIn .3s ease;min-width:300px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.toast-success{background:#065F46;border:1px solid #10B981;color:#D1FAE5}
+.toast-error{background:#7F1D1D;border:1px solid #EF4444;color:#FEE2E2}
+.toast-info{background:#1E3A5F;border:1px solid #3B82F6;color:#DBEAFE}
+@keyframes toastIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes toastOut{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}
+
+/* Code Block */
+.code-block{background:#0D1117;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.code-block .code-header{background:#161B22;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.code-block pre{padding:16px;overflow-x:auto;font-size:12.5px;line-height:1.7;color:#C9D1D9;font-family:'Fira Code',monospace}
+.code-block pre .kw{color:#FF7B72}.code-block pre .str{color:#A5D6FF}.code-block pre .fn{color:#D2A8FF}.code-block pre .cm{color:#8B949E}.code-block pre .num{color:#79C0FF}.code-block pre .type{color:#7EE787}.code-block pre .dec{color:#FFA657}
+
+/* Tab */
+.tab-btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:.2s;border:1px solid transparent;background:transparent}
+.tab-btn.active{background:rgba(255,107,44,.1);color:var(--brand);border-color:rgba(255,107,44,.2)}
+.tab-btn:hover:not(.active){color:var(--text);background:var(--card2)}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .5s ease forwards}
+.fade-up-d1{animation-delay:.1s;opacity:0}.fade-up-d2{animation-delay:.2s;opacity:0}.fade-up-d3{animation-delay:.3s;opacity:0}.fade-up-d4{animation-delay:.4s;opacity:0}
+
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.pulse-dot{width:8px;height:8px;border-radius:50%;animation:pulse-dot 2s ease-in-out infinite}
+
+@media(max-width:768px){
+.sidebar{transform:translateX(-100%)}
+.sidebar.open{transform:translateX(0)}
+.main-content{margin-left:0}
+.mobile-toggle{display:flex !important}
+}
+
+/* Link display */
+.link-display{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;font-family:'Fira Code',monospace;word-break:break-all}
+</style>
+</head>
+<body>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+<div class="modal-box" id="modalBox"></div>
+</div>
+
+<!-- ============ AUTH SCREEN ============ -->
+<div class="auth-bg" id="authScreen">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="glass rounded-3xl p-8 w-full max-w-md relative z-10 fade-up" id="authCard">
+<div class="text-center mb-8">
+<div class="inline-flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+<i class="fas fa-link text-white text-xl"></i>
+</div>
+<span class="font-display text-2xl font-bold tracking-tight">Linkarea<span class="text-brand-500">Diskon</span></span>
+</div>
+<p class="text-sm" style="color:var(--muted)">Monetisasi Setiap Klik, Raih Komisi Tanpa Batas</p>
+</div>
+<!-- Login Form -->
+<div id="loginForm">
+<div class="mb-4"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">EMAIL</label><input type="email" id="loginEmail" class="input-field" placeholder="email@contoh.com" value="rina@email.com"></div>
+<div class="mb-4"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">PASSWORD</label><input type="password" id="loginPass" class="input-field" placeholder="Masukkan password" value="password123"></div>
+<div class="mb-6"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">MASUK SEBAGAI</label>
+<div class="flex gap-3">
+<button class="flex-1 py-3 rounded-xl text-sm font-semibold border-2 transition role-btn active-role" data-role="affiliate" style="border-color:var(--brand);background:rgba(255,107,44,.1);color:var(--brand)"><i class="fas fa-user-tag mr-2"></i>Affiliate</button>
+<button class="flex-1 py-3 rounded-xl text-sm font-semibold border-2 transition role-btn" data-role="admin" style="border-color:var(--border);color:var(--muted)"><i class="fas fa-shield-halved mr-2"></i>Admin</button>
+</div></div>
+<button class="btn-primary w-full justify-center text-base" onclick="handleLogin()"><i class="fas fa-arrow-right-to-bracket"></i> Masuk</button>
+<div class="text-center mt-5 text-sm" style="color:var(--muted)">Belum punya akun? <a href="#" class="text-brand-500 font-semibold hover:underline" onclick="showRegister(event)">Daftar Sekarang</a></div>
+</div>
+<!-- Register Form -->
+<div id="registerForm" class="hidden">
+<div class="mb-4"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NAMA LENGKAP</label><input type="text" id="regName" class="input-field" placeholder="Nama Anda"></div>
+<div class="mb-4"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">EMAIL</label><input type="email" id="regEmail" class="input-field" placeholder="email@contoh.com"></div>
+<div class="mb-4"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">PASSWORD</label><input type="password" id="regPass" class="input-field" placeholder="Min. 6 karakter"></div>
+<div class="mb-6"><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">DAFTAR SEBAGAI</label>
+<div class="flex gap-3">
+<button class="flex-1 py-3 rounded-xl text-sm font-semibold border-2 transition reg-role-btn active-role" data-role="affiliate" style="border-color:var(--brand);background:rgba(255,107,44,.1);color:var(--brand)"><i class="fas fa-user-tag mr-2"></i>Affiliate</button>
+<button class="flex-1 py-3 rounded-xl text-sm font-semibold border-2 transition reg-role-btn" data-role="user" style="border-color:var(--border);color:var(--muted)"><i class="fas fa-user mr-2"></i>User</button>
+</div></div>
+<button class="btn-primary w-full justify-center text-base" onclick="handleRegister()"><i class="fas fa-user-plus"></i> Daftar</button>
+<div class="text-center mt-5 text-sm" style="color:var(--muted)">Sudah punya akun? <a href="#" class="text-brand-500 font-semibold hover:underline" onclick="showLogin(event)">Masuk</a></div>
+</div>
+</div>
+</div>
+
+<!-- ============ MAIN APP ============ -->
+<div id="appScreen" class="hidden">
+<!-- Mobile Toggle -->
+<button class="mobile-toggle hidden fixed top-4 left-4 z-50 w-10 h-10 rounded-xl bg-dk-800 border border-dk-700 items-center justify-center text-dk-300" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+<div class="p-5 border-b" style="border-color:var(--border)">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center"><i class="fas fa-link text-white"></i></div>
+<div><span class="font-display text-lg font-bold">Linkarea<span class="text-brand-500">Diskon</span></span><div class="text-[10px] font-semibold tracking-wider" style="color:var(--muted)">AFFILIATE PLATFORM</div></div>
+</div>
+</div>
+<nav class="py-4" id="sidebarNav"></nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t" style="border-color:var(--border)">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-full bg-dk-700 flex items-center justify-center text-sm font-bold text-brand-500" id="sidebarAvatar">R</div>
+<div><div class="text-sm font-semibold" id="sidebarName">Rina Affiliate</div><div class="text-[11px]" style="color:var(--muted)" id="sidebarRole">Affiliate</div></div>
+</div>
+<button class="btn-secondary btn-sm w-full justify-center" onclick="handleLogout()"><i class="fas fa-right-from-bracket"></i> Keluar</button>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+<!-- Top Bar -->
+<header class="sticky top-0 z-30 px-8 py-4 flex items-center justify-between border-b" style="background:rgba(11,14,20,.85);backdrop-filter:blur(12px);border-color:var(--border)">
+<div><h1 class="font-display text-xl font-bold" id="pageTitle">Dashboard</h1><p class="text-xs mt-0.5" style="color:var(--muted)" id="pageSubtitle">Selamat datang kembali!</p></div>
+<div class="flex items-center gap-4">
+<div class="relative"><button class="w-10 h-10 rounded-xl bg-dk-800 border border-dk-700 flex items-center justify-center text-dk-400 hover:text-brand-500 transition"><i class="fas fa-bell"></i></button><div class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-brand-500 text-[9px] font-bold flex items-center justify-center text-white">3</div></div>
+<div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500 to-mint-500 flex items-center justify-center text-sm font-bold text-white cursor-pointer" id="headerAvatar">R</div>
+</div>
+</header>
+
+<!-- Pages Container -->
+<div class="p-8" id="pagesContainer">
+
+<!-- Affiliate Dashboard -->
+<div class="page" id="page-dashboard"></div>
+<!-- Affiliate Links -->
+<div class="page hidden" id="page-links"></div>
+<!-- Commission History -->
+<div class="page hidden" id="page-commissions"></div>
+<!-- Withdraw -->
+<div class="page hidden" id="page-withdraw"></div>
+<!-- Admin Dashboard -->
+<div class="page hidden" id="page-admin-dashboard"></div>
+<!-- Admin Products -->
+<div class="page hidden" id="page-admin-products"></div>
+<!-- Admin Users -->
+<div class="page hidden" id="page-admin-users"></div>
+<!-- Admin Commissions -->
+<div class="page hidden" id="page-admin-commissions"></div>
+<!-- Admin Traffic -->
+<div class="page hidden" id="page-admin-traffic"></div>
+<!-- Admin Settings -->
+<div class="page hidden" id="page-admin-settings"></div>
+<!-- Backend Code -->
+<div class="page hidden" id="page-backend"></div>
+
+</div>
+</main>
+</div>
+
+<script>
+/* ================================================================
+   DATA STORE — Simulasi Database
+================================================================ */
+const DB = {
+users: [
+{id:'u1',name:'Admin Utama',email:'admin@linkareadiskon.com',password:'hashed_pw',role:'admin',referral_code:null,created_at:'2024-01-01T08:00:00Z'},
+{id:'u2',name:'Rina Susanti',email:'rina@email.com',password:'hashed_pw',role:'affiliate',referral_code:'RINA001',created_at:'2024-02-15T10:30:00Z'},
+{id:'u3',name:'Budi Hartono',email:'budi@email.com',password:'hashed_pw',role:'affiliate',referral_code:'BUDI002',created_at:'2024-03-01T14:00:00Z'},
+{id:'u4',name:'Sari Dewi',email:'sari@email.com',password:'hashed_pw',role:'affiliate',referral_code:'SARI003',created_at:'2024-03-20T09:15:00Z'},
+{id:'u5',name:'Andi Pratama',email:'andi@email.com',password:'hashed_pw',role:'user',referral_code:null,created_at:'2024-04-05T16:45:00Z'},
+{id:'u6',name:'Maya Putri',email:'maya@email.com',password:'hashed_pw',role:'user',referral_code:null,created_at:'2024-04-10T11:20:00Z'}
+],
+affiliates: [
+{user_id:'u2',balance:425000,total_earnings:1875000},
+{user_id:'u3',balance:180000,total_earnings:920000},
+{user_id:'u4',balance:95000,total_earnings:510000}
+],
+products: [
+{id:'p1',name:'Ebook Digital Marketing Mastery',price:249000,commission_type:'percent',commission_value:20,image:'https://picsum.photos/seed/dmm/400/250',status:'active',created_at:'2024-01-15T08:00:00Z'},
+{id:'p2',name:'Course Web Development Pro',price:599000,commission_type:'fixed',commission_value:100000,image:'https://picsum.photos/seed/wdp/400/250',status:'active',created_at:'2024-01-20T08:00:00Z'},
+{id:'p3',name:'Template Landing Page Bundle',price:149000,commission_type:'percent',commission_value:30,image:'https://picsum.photos/seed/lpb/400/250',status:'active',created_at:'2024-02-01T08:00:00Z'},
+{id:'p4',name:'Tools SEO Premium (1 Tahun)',price:399000,commission_type:'percent',commission_value:15,image:'https://picsum.photos/seed/seop/400/250',status:'active',created_at:'2024-02-10T08:00:00Z'},
+{id:'p5',name:'Ebook Copywriting Formula',price:179000,commission_type:'percent',commission_value:25,image:'https://picsum.photos/seed/cwf/400/250',status:'active',created_at:'2024-02-20T08:00:00Z'},
+{id:'p6',name:'Course UI/UX Design Complete',price:449000,commission_type:'fixed',commission_value:75000,image:'https://picsum.photos/seed/uiux/400/250',status:'active',created_at:'2024-03-01T08:00:00Z'},
+{id:'p7',name:'Plugin WordPress SEO Pro',price:199000,commission_type:'percent',commission_value:20,image:'https://picsum.photos/seed/wpseo/400/250',status:'active',created_at:'2024-03-15T08:00:00Z'},
+{id:'p8',name:'Membership Komunitas Premium',price:99000,commission_type:'percent',commission_value:40,image:'https://picsum.photos/seed/mkp/400/250',status:'active',created_at:'2024-04-01T08:00:00Z'}
+],
+clicks: [],
+conversions: [],
+withdrawals: [
+{id:'w1',user_id:'u2',amount:500000,status:'paid',bank:'BCA',account:'****4521',created_at:'2024-05-01T08:00:00Z',paid_at:'2024-05-03T10:00:00Z'},
+{id:'w2',user_id:'u2',amount:950000,status:'paid',bank:'BCA',account:'****4521',created_at:'2024-06-01T08:00:00Z',paid_at:'2024-06-02T14:00:00Z'},
+{id:'w3',user_id:'u3',amount:500000,status:'paid',bank:'Mandiri',account:'****7832',created_at:'2024-06-15T08:00:00Z',paid_at:'2024-06-17T09:00:00Z'},
+{id:'w4',user_id:'u3',amount:240000,status:'pending',bank:'Mandiri',account:'****7832',created_at:'2024-07-01T08:00:00Z',paid_at:null},
+{id:'w5',user_id:'u4',amount:300000,status:'pending',bank:'BNI',account:'****1256',created_at:'2024-07-05T08:00:00Z',paid_at:null},
+{id:'w6',user_id:'u2',amount:425000,status:'pending',bank:'BCA',account:'****4521',created_at:'2024-07-10T08:00:00Z',paid_at:null}
+]
+};
+
+// Generate clicks data
+(function generateClicks(){
+const ips=['103.45.67.89','182.1.234.56','114.79.21.88','36.78.12.45','202.134.56.78','120.188.34.90','39.102.45.67','61.94.123.45','110.137.56.78','198.7.89.12'];
+const uas=['Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/125','Mozilla/5.0 (iPhone; CPU iPhone OS 17_0) Safari/604','Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) Chrome/124','Mozilla/5.0 (Linux; Android 14) Chrome/125','Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/126','Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4) Safari/17','Mozilla/5.0 (Linux; Android 13) Firefox/125','Mozilla/5.0 (iPad; CPU OS 17_0) Safari/604'];
+const affIds=['u2','u3','u4'];
+const prodIds=['p1','p2','p3','p4','p5','p6','p7','p8'];
+let id=1;
+for(let d=30;d>=0;d--){
+const date=new Date();date.setDate(date.getDate()-d);
+const count=Math.floor(Math.random()*8)+3;
+for(let i=0;i<count;i++){
+const h=Math.floor(Math.random()*14)+8;
+const m=Math.floor(Math.random()*60);
+date.setHours(h,m,0,0);
+DB.clicks.push({id:'c'+(id++),affiliate_id:affIds[Math.floor(Math.random()*affIds.length)],product_id:prodIds[Math.floor(Math.random()*prodIds.length)],ip_address:ips[Math.floor(Math.random()*ips.length)],user_agent:uas[Math.floor(Math.random()*uas.length)],created_at:date.toISOString()});
+}}})();
+
+// Generate conversions data
+(function generateConversions(){
+const affIds=['u2','u3','u4'];
+const prodIds=['p1','p2','p3','p4','p5','p6','p7','p8'];
+const statuses=['pending','approved','paid'];
+let id=1;
+for(let d=30;d>=0;d--){
+const date=new Date();date.setDate(date.getDate()-d);
+const count=Math.floor(Math.random()*3);
+for(let i=0;i<count;i++){
+const h=Math.floor(Math.random()*14)+8;
+const m=Math.floor(Math.random()*60);
+date.setHours(h,m,0,0);
+const affId=affIds[Math.floor(Math.random()*affIds.length)];
+const prodId=prodIds[Math.floor(Math.random()*prodIds.length)];
+const prod=DB.products.find(p=>p.id===prodId);
+const amount=prod.price;
+const commission=prod.commission_type==='percent'?Math.round(amount*prod.commission_value/100):prod.commission_value;
+const dayIdx=30-d;
+const status=dayIdx>7?'paid':dayIdx>3?'approved':'pending';
+DB.conversions.push({id:'cv'+(id++),affiliate_id:affId,product_id:prodId,amount,commission,status,created_at:date.toISOString()});
+}}})();
+
+/* ================================================================
+   STATE
+================================================================ */
+let currentUser = null;
+let currentPage = 'dashboard';
+let loginRole = 'affiliate';
+let regRole = 'affiliate';
+let charts = {};
+
+/* ================================================================
+   UTILITY FUNCTIONS
+================================================================ */
+function formatRupiah(n){return 'Rp '+Number(n).toLocaleString('id-ID')}
+function formatDate(d){if(!d)return'-';const dt=new Date(d);return dt.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}
+function formatDateTime(d){if(!d)return'-';const dt=new Date(d);return dt.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})}
+function getUser(id){return DB.users.find(u=>u.id===id)}
+function getAffiliate(userId){return DB.affiliates.find(a=>a.user_id===userId)}
+function getProduct(id){return DB.products.find(p=>p.id===id)}
+function genId(){return 'id_'+Date.now()+'_'+Math.random().toString(36).substr(2,6)}
+
+function toast(msg,type='success'){
+const c=document.getElementById('toastContainer');
+const t=document.createElement('div');
+t.className=`toast toast-${type}`;
+const icons={success:'fa-check-circle',error:'fa-times-circle',info:'fa-info-circle'};
+t.innerHTML=`<i class="fas ${icons[type]||icons.info}"></i><span>${msg}</span>`;
+c.appendChild(t);
+setTimeout(()=>{t.style.animation='toastOut .3s ease forwards';setTimeout(()=>t.remove(),300)},3000);
+}
+
+function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('modalOverlay').classList.add('show')}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show')}
+
+function animateCounter(el,target,duration=1200){
+let start=0;const step=target/(duration/16);
+const timer=setInterval(()=>{start+=step;if(start>=target){start=target;clearInterval(timer)}el.textContent=formatRupiah(Math.round(start))},16);
+}
+
+/* ================================================================
+   AUTH
+================================================================ */
+// Role toggle buttons
+document.querySelectorAll('.role-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.role-btn').forEach(b=>{b.style.borderColor='var(--border)';b.style.background='transparent';b.style.color='var(--muted)';b.classList.remove('active-role')});
+btn.style.borderColor='var(--brand)';btn.style.background='rgba(255,107,44,.1)';btn.style.color='var(--brand)';btn.classList.add('active-role');
+loginRole=btn.dataset.role;
+});
+});
+document.querySelectorAll('.reg-role-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.reg-role-btn').forEach(b=>{b.style.borderColor='var(--border)';b.style.background='transparent';b.style.color='var(--muted)';b.classList.remove('active-role')});
+btn.style.borderColor='var(--brand)';btn.style.background='rgba(255,107,44,.1)';btn.style.color='var(--brand)';btn.classList.add('active-role');
+regRole=btn.dataset.role;
+});
+});
+
+function showRegister(e){e.preventDefault();document.getElementById('loginForm').classList.add('hidden');document.getElementById('registerForm').classList.remove('hidden')}
+function showLogin(e){e.preventDefault();document.getElementById('registerForm').classList.add('hidden');document.getElementById('loginForm').classList.remove('hidden')}
+
+function handleLogin(){
+const email=document.getElementById('loginEmail').value.trim();
+const pass=document.getElementById('loginPass').value.trim();
+if(!email||!pass){toast('Isi email dan password','error');return}
+let user;
+if(loginRole==='admin'){user=DB.users.find(u=>u.email==='admin@linkareadiskon.com')}
+else{user=DB.users.find(u=>u.email===email&&u.role==='affiliate')}
+if(!user){toast('Akun tidak ditemukan','error');return}
+currentUser=user;enterApp();
+}
+
+function handleRegister(){
+const name=document.getElementById('regName').value.trim();
+const email=document.getElementById('regEmail').value.trim();
+const pass=document.getElementById('regPass').value.trim();
+if(!name||!email||!pass){toast('Lengkapi semua field','error');return}
+if(pass.length<6){toast('Password min. 6 karakter','error');return}
+if(DB.users.find(u=>u.email===email)){toast('Email sudah terdaftar','error');return}
+const code=name.substring(0,4).toUpperCase()+String(DB.users.length+1).padStart(3,'0');
+const newUser={id:genId(),name,email,password:'hashed_pw',role:regRole,referral_code:regRole==='affiliate'?code:null,created_at:new Date().toISOString()};
+DB.users.push(newUser);
+if(regRole==='affiliate')DB.affiliates.push({user_id:newUser.id,balance:0,total_earnings:0});
+toast('Registrasi berhasil! Silakan login','success');
+showLogin(new Event('click'));
+document.getElementById('loginEmail').value=email;
+}
+
+function handleLogout(){currentUser=null;document.getElementById('appScreen').classList.add('hidden');document.getElementById('authScreen').classList.remove('hidden');Object.values(charts).forEach(c=>{if(c&&c.destroy)c.destroy()});charts={}}
+
+function enterApp(){
+document.getElementById('authScreen').classList.add('hidden');
+document.getElementById('appScreen').classList.remove('hidden');
+const initial=currentUser.name.charAt(0).toUpperCase();
+document.getElementById('sidebarAvatar').textContent=initial;
+document.getElementById('headerAvatar').textContent=initial;
+document.getElementById('sidebarName').textContent=currentUser.name;
+document.getElementById('sidebarRole').textContent=currentUser.role==='admin'?'Administrator':'Affiliate';
+buildSidebar();
+navigate(currentUser.role==='admin'?'admin-dashboard':'dashboard');
+}
+
+/* ================================================================
+   SIDEBAR & NAVIGATION
+================================================================ */
+function buildSidebar(){
+const nav=document.getElementById('sidebarNav');
+let items=[];
+if(currentUser.role==='affiliate'){
+items=[
+{id:'dashboard',icon:'fa-chart-pie',label:'Dashboard'},
+{id:'links',icon:'fa-link',label:'Link Affiliate'},
+{id:'commissions',icon:'fa-coins',label:'Riwayat Komisi'},
+{id:'withdraw',icon:'fa-wallet',label:'Penarikan Dana'},
+{id:'backend',icon:'fa-code',label:'Kode Backend'}
+];
+}else{
+items=[
+{id:'admin-dashboard',icon:'fa-gauge-high',label:'Dashboard'},
+{id:'admin-products',icon:'fa-box-open',label:'Kelola Produk'},
+{id:'admin-users',icon:'fa-users-gear',label:'Kelola User'},
+{id:'admin-commissions',icon:'fa-receipt',label:'Komisi'},
+{id:'admin-traffic',icon:'fa-chart-line',label:'Trafik & Konversi'},
+{id:'admin-settings',icon:'fa-sliders',label:'Pengaturan'},
+{id:'backend',icon:'fa-code',label:'Kode Backend'}
+];
+}
+nav.innerHTML=items.map(i=>`<div class="nav-item" data-page="${i.id}" onclick="navigate('${i.id}')"><i class="fas ${i.icon}"></i><span>${i.label}</span></div>`).join('');
+}
+
+const pageTitles={
+'dashboard':['Dashboard','Ringkasan performa affiliate Anda'],
+'links':['Link Affiliate','Generate dan kelola link referral Anda'],
+'commissions':['Riwayat Komisi','Detail komisi dari setiap konversi'],
+'withdraw':['Penarikan Dana','Ajukan penarikan saldo komisi'],
+'admin-dashboard':['Admin Dashboard','Monitoring keseluruhan platform'],
+'admin-products':['Kelola Produk','CRUD produk dan setting komisi'],
+'admin-users':['Kelola User','Manage user dan affiliate'],
+'admin-commissions':['Manajemen Komisi','Approve dan monitor komisi'],
+'admin-traffic':['Trafik & Konversi','Analitik klik dan konversi'],
+'admin-settings':['Pengaturan','Konfigurasi global platform'],
+'backend':['Kode Backend','Referensi lengkap backend siap deploy']
+};
+
+function navigate(page){
+currentPage=page;
+document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+const el=document.getElementById('page-'+page);
+if(el)el.classList.remove('hidden');
+document.querySelectorAll('.nav-item').forEach(n=>{n.classList.toggle('active',n.dataset.page===page)});
+const[t,s]=pageTitles[page]||['',''];
+document.getElementById('pageTitle').textContent=t;
+document.getElementById('pageSubtitle').textContent=s;
+// Tutup sidebar mobile
+document.getElementById('sidebar').classList.remove('open');
+// Render
+const renderers={
+'dashboard':renderAffDashboard,'links':renderAffLinks,'commissions':renderAffCommissions,'withdraw':renderAffWithdraw,
+'admin-dashboard':renderAdminDashboard,'admin-products':renderAdminProducts,'admin-users':renderAdminUsers,
+'admin-commissions':renderAdminCommissions,'admin-traffic':renderAdminTraffic,'admin-settings':renderAdminSettings,
+'backend':renderBackend
+};
+if(renderers[page])renderers[page]();
+}
+
+/* ================================================================
+   AFFILIATE DASHBOARD
+================================================================ */
+function renderAffDashboard(){
+const aff=getAffiliate(currentUser.id);
+const myClicks=DB.clicks.filter(c=>c.affiliate_id===currentUser.id);
+const myConv=DB.conversions.filter(c=>c.affiliate_id===currentUser.id);
+const totalClicks=myClicks.length;
+const totalConv=myConv.length;
+const convRate=totalClicks?((totalConv/totalClicks)*100).toFixed(1):0;
+const pending=myConv.filter(c=>c.status==='pending').reduce((s,c)=>s+c.commission,0);
+const approved=myConv.filter(c=>c.status==='approved').reduce((s,c)=>s+c.commission,0);
+
+// Last 7 days data
+const last7=[];const conv7=[];
+for(let i=6;i>=0;i--){
+const d=new Date();d.setDate(d.getDate()-i);const ds=d.toISOString().split('T')[0];
+last7.push(myClicks.filter(c=>c.created_at.startsWith(ds)).length);
+conv7.push(myConv.filter(c=>c.created_at.startsWith(ds)).length);
+}
+const labels7=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);labels7.push(d.toLocaleDateString('id-ID',{day:'numeric',month:'short'}))}
+
+const el=document.getElementById('page-dashboard');
+el.innerHTML=`
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+<div class="stat-card fade-up"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(255,107,44,.12)"><i class="fas fa-mouse-pointer text-brand-500"></i></div><span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(255,107,44,.08);color:var(--brand)">30 hari</span></div><div class="text-2xl font-display font-bold mb-1" id="statClicks">0</div><div class="text-xs" style="color:var(--muted)">Total Klik</div></div>
+<div class="stat-card fade-up fade-up-d1"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(34,211,160,.12)"><i class="fas fa-chart-line text-mint-500"></i></div><span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(34,211,160,.08);color:var(--mint)">rate</span></div><div class="text-2xl font-display font-bold mb-1"><span id="statRate">0</span>%</div><div class="text-xs" style="color:var(--muted)">Conversion Rate</div></div>
+<div class="stat-card fade-up fade-up-d2"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(251,191,36,.12)"><i class="fas fa-coins text-yellow-400"></i></div><span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(251,191,36,.08);color:#FBBF24">total</span></div><div class="text-2xl font-display font-bold mb-1" id="statEarnings">0</div><div class="text-xs" style="color:var(--muted)">Total Penghasilan</div></div>
+<div class="stat-card fade-up fade-up-d3"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(239,68,68,.12)"><i class="fas fa-clock text-red-400"></i></div><span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(239,68,68,.08);color:#EF4444">pending</span></div><div class="text-2xl font-display font-bold mb-1" id="statPending">0</div><div class="text-xs" style="color:var(--muted)">Komisi Pending</div></div>
+</div>
+
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-5 mb-8">
+<div class="xl:col-span-2 p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="flex items-center justify-between mb-5"><h3 class="font-display font-semibold">Klik & Konversi — 7 Hari Terakhir</h3>
+<div class="flex gap-4 text-xs"><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>Klik</span><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-mint-500"></span>Konversi</span></div>
+</div>
+<canvas id="chartAff7d" height="200"></canvas>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-5">Saldo</h3>
+<div class="text-center mb-5">
+<div class="text-xs mb-1" style="color:var(--muted)">Saldo Tersedia</div>
+<div class="text-3xl font-display font-bold text-mint-500" id="statBalance">0</div>
+<div class="text-xs mt-2" style="color:var(--muted)">+ ${formatRupiah(approved)} menunggu approval</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Total Dicairkan</span><span class="font-semibold">${formatRupiah(aff?aff.total_earnings-(aff?aff.balance:0):0)}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Pending Approval</span><span class="font-semibold text-yellow-400">${formatRupiah(approved)}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Menunggu Konversi</span><span class="font-semibold text-red-400">${formatRupiah(pending)}</span></div>
+<hr style="border-color:var(--border)">
+<div class="flex justify-between text-sm font-semibold"><span>Total Penghasilan</span><span class="text-brand-500">${formatRupiah(aff?aff.total_earnings:0)}</span></div>
+</div>
+<button class="btn-primary w-full justify-center mt-5" onclick="navigate('withdraw')"><i class="fas fa-wallet"></i> Tarik Dana</button>
+</div>
+</div>
+
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="flex items-center justify-between mb-5"><h3 class="font-display font-semibold">Konversi Terbaru</h3><button class="text-xs text-brand-500 font-semibold hover:underline" onclick="navigate('commissions')">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></button></div>
+<div class="overflow-x-auto">
+<table class="data-table"><thead><tr><th>Produk</th><th>Amount</th><th>Komisi</th><th>Status</th><th>Tanggal</th></tr></thead><tbody>
+ ${myConv.slice(-5).reverse().map(cv=>{
+const p=getProduct(cv.product_id);
+return`<tr><td class="font-medium">${p?p.name:'-'}</td><td>${formatRupiah(cv.amount)}</td><td class="text-mint-500 font-semibold">${formatRupiah(cv.commission)}</td><td><span class="badge badge-${cv.status}">${cv.status.charAt(0).toUpperCase()+cv.status.slice(1)}</span></td><td style="color:var(--muted)">${formatDate(cv.created_at)}</td></tr>`;
+}).join('')}
+</tbody></table></div>
+</div>`;
+
+// Animasi counter
+setTimeout(()=>{
+animateCounter(document.getElementById('statClicks'),totalClicks);
+animateCounter(document.getElementById('statEarnings'),aff?aff.total_earnings:0);
+animateCounter(document.getElementById('statPending'),pending);
+animateCounter(document.getElementById('statBalance'),aff?aff.balance:0);
+document.getElementById('statRate').textContent=convRate;
+},200);
+
+// Chart
+if(charts.aff7d)charts.aff7d.destroy();
+const ctx=document.getElementById('chartAff7d');
+if(ctx){
+charts.aff7d=new Chart(ctx,{type:'bar',data:{labels:labels7,datasets:[{label:'Klik',data:last7,backgroundColor:'rgba(255,107,44,.5)',borderColor:'#FF6B2C',borderWidth:1,borderRadius:6,barPercentage:.4},{label:'Konversi',data:conv7,backgroundColor:'rgba(34,211,160,.5)',borderColor:'#22D3A0',borderWidth:1,borderRadius:6,barPercentage:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8B92A5',font:{size:11}}},y:{grid:{color:'rgba(42,48,66,.5)'},ticks:{color:'#8B92A5',font:{size:11},stepSize:1},beginAtZero:true}}}});
+}
+}
+
+/* ================================================================
+   AFFILIATE LINKS
+================================================================ */
+function renderAffLinks(){
+const code=currentUser.referral_code;
+const el=document.getElementById('page-links');
+el.innerHTML=`
+<div class="p-6 rounded-2xl border mb-6" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4"><i class="fas fa-wand-magic-sparkles text-brand-500 mr-2"></i>Generate Link Affiliate</h3>
+<p class="text-sm mb-4" style="color:var(--muted)">Kode referral Anda: <span class="font-mono font-bold text-brand-500">${code}</span></p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">PILIH PRODUK</label><select id="linkProduct" class="input-field">${DB.products.filter(p=>p.status==='active').map(p=>`<option value="${p.id}">${p.name}</option>`).join('')}</select></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">KOMISI</label><div id="linkCommInfo" class="input-field flex items-center" style="cursor:default"></div></div>
+<div class="flex items-end"><button class="btn-primary w-full justify-center" onclick="generateLink()"><i class="fas fa-link"></i> Generate Link</button></div>
+</div>
+<div id="generatedLinks" class="space-y-3"></div>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4"><i class="fas fa-box-open text-mint-500 mr-2"></i>Katalog Produk</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+ ${DB.products.filter(p=>p.status==='active').map(p=>{
+const comm=p.commission_type==='percent'?`${p.commission_value}%`:`${formatRupiah(p.commission_value)}`;
+return`<div class="rounded-xl border overflow-hidden" style="background:var(--bg2);border-color:var(--border)">
+<img src="${p.image}" alt="${p.name}" class="w-full h-36 object-cover" loading="lazy">
+<div class="p-4"><h4 class="font-semibold text-sm mb-1">${p.name}</h4><div class="flex items-center justify-between"><span class="font-display font-bold text-brand-500">${formatRupiah(p.price)}</span><span class="badge badge-${p.commission_type}"><i class="fas ${p.commission_type==='percent'?'fa-percent':'fa-tag'} mr-1"></i>${comm}</span></div></div></div>`;
+}).join('')}
+</div></div>`;
+updateLinkCommInfo();
+document.getElementById('linkProduct').addEventListener('change',updateLinkCommInfo);
+}
+
+function updateLinkCommInfo(){
+const sel=document.getElementById('linkProduct');
+const p=getProduct(sel.value);
+if(!p)return;
+const comm=p.commission_type==='percent'?`${p.commission_value}% dari ${formatRupiah(p.price)} = ${formatRupiah(Math.round(p.price*p.commission_value/100))}`:`Fixed ${formatRupiah(p.commission_value)}`;
+const color=p.commission_type==='percent'?'text-blue-400':'text-purple-400';
+document.getElementById('linkCommInfo').innerHTML=`<span class="${color} font-semibold"><i class="fas ${p.commission_type==='percent'?'fa-percent':'fa-tag'} mr-2"></i>${comm}</span>`;
+}
+
+function generateLink(){
+const prodId=document.getElementById('linkProduct').value;
+const p=getProduct(prodId);const code=currentUser.referral_code;
+const link=`https://linkareadiskon.com/product/${p.id}?ref=${code}`;
+const container=document.getElementById('generatedLinks');
+const div=document.createElement('div');
+div.className='link-display fade-up';
+div.innerHTML=`<i class="fas fa-link text-brand-500 flex-shrink-0"></i><span class="flex-1">${link}</span><button class="btn-primary btn-sm flex-shrink-0" onclick="copyLink(this,'${link}')"><i class="fas fa-copy"></i> Copy</button>`;
+container.prepend(div);
+toast('Link berhasil di-generate!');
+}
+
+function copyLink(btn,link){
+navigator.clipboard.writeText(link).then(()=>{btn.innerHTML='<i class="fas fa-check"></i> Copied!';setTimeout(()=>{btn.innerHTML='<i class="fas fa-copy"></i> Copy'},2000)}).catch(()=>toast('Gagal copy','error'));
+}
+
+/* ================================================================
+   AFFILIATE COMMISSIONS
+================================================================ */
+function renderAffCommissions(){
+const myConv=DB.conversions.filter(c=>c.affiliate_id===currentUser.id).reverse();
+const el=document.getElementById('page-commissions');
+el.innerHTML=`
+<div class="flex flex-wrap gap-3 mb-6">
+<button class="tab-btn active" onclick="filterComm(this,'all')">Semua (${myConv.length})</button>
+<button class="tab-btn" onclick="filterComm(this,'pending')">Pending (${myConv.filter(c=>c.status==='pending').length})</button>
+<button class="tab-btn" onclick="filterComm(this,'approved')">Approved (${myConv.filter(c=>c.status==='approved').length})</button>
+<button class="tab-btn" onclick="filterComm(this,'paid')">Paid (${myConv.filter(c=>c.status==='paid').length})</button>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="overflow-x-auto"><table class="data-table" id="commTable"><thead><tr><th>#</th><th>Produk</th><th>Amount</th><th>Komisi</th><th>Status</th><th>Tanggal</th></tr></thead><tbody>
+ ${myConv.map((cv,i)=>{
+const p=getProduct(cv.product_id);
+return`<tr data-status="${cv.status}"><td class="text-xs" style="color:var(--muted)">${cv.id}</td><td class="font-medium">${p?p.name:'-'}</td><td>${formatRupiah(cv.amount)}</td><td class="text-mint-500 font-semibold">${formatRupiah(cv.commission)}</td><td><span class="badge badge-${cv.status}">${cv.status.charAt(0).toUpperCase()+cv.status.slice(1)}</span></td><td style="color:var(--muted)">${formatDateTime(cv.created_at)}</td></tr>`;
+}).join('')}
+</tbody></table></div></div>`;
+}
+
+function filterComm(btn,status){
+document.querySelectorAll('#page-commissions .tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('#commTable tbody tr').forEach(tr=>{
+tr.style.display=(status==='all'||tr.dataset.status===status)?'':'none';
+});
+}
+
+/* ================================================================
+   AFFILIATE WITHDRAW
+================================================================ */
+function renderAffWithdraw(){
+const aff=getAffiliate(currentUser.id);
+const myWD=DB.withdrawals.filter(w=>w.user_id===currentUser.id).reverse();
+const el=document.getElementById('page-withdraw');
+el.innerHTML=`
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<div class="lg:col-span-1 p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Ajukan Penarikan</h3>
+<div class="text-center mb-5 p-4 rounded-xl" style="background:var(--bg2)">
+<div class="text-xs mb-1" style="color:var(--muted)">Saldo Tersedia</div>
+<div class="text-2xl font-display font-bold text-mint-500">${formatRupiah(aff?aff.balance:0)}</div>
+</div>
+<div class="space-y-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">JUMLAH (Rp)</label><input type="number" id="wdAmount" class="input-field" placeholder="Min. 100.000" min="100000"></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">BANK</label><select id="wdBank" class="input-field"><option>BCA</option><option>Mandiri</option><option>BNI</option><option>BRI</option><option>Dana</option><option>GoPay</option></select></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NOMOR REKENING / AKUN</label><input type="text" id="wdAccount" class="input-field" placeholder="Contoh: 1234567890"></div>
+<button class="btn-primary w-full justify-center" onclick="submitWithdraw()"><i class="fas fa-paper-plane"></i> Ajukan Penarikan</button>
+</div></div>
+<div class="lg:col-span-2 p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Riwayat Penarikan</h3>
+<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>ID</th><th>Jumlah</th><th>Bank</th><th>Rekening</th><th>Status</th><th>Tanggal</th></tr></thead><tbody>
+ ${myWD.map(w=>`<tr><td class="text-xs" style="color:var(--muted)">${w.id}</td><td class="font-semibold">${formatRupiah(w.amount)}</td><td>${w.bank}</td><td class="font-mono text-xs">${w.account}</td><td><span class="badge badge-${w.status}">${w.status.charAt(0).toUpperCase()+w.status.slice(1)}</span></td><td style="color:var(--muted)">${formatDate(w.created_at)}</td></tr>`).join('')}
+ ${myWD.length===0?'<tr><td colspan="6" class="text-center py-8" style="color:var(--muted)">Belum ada riwayat penarikan</td></tr>':''}
+</tbody></table></div></div></div>`;
+}
+
+function submitWithdraw(){
+const amount=parseInt(document.getElementById('wdAmount').value);
+const bank=document.getElementById('wdBank').value;
+const account=document.getElementById('wdAccount').value.trim();
+const aff=getAffiliate(currentUser.id);
+if(!amount||amount<100000){toast('Minimum penarikan Rp 100.000','error');return}
+if(!account){toast('Isi nomor rekening','error');return}
+if(!aff||amount>aff.balance){toast('Saldo tidak mencukupi','error');return}
+aff.balance-=amount;
+DB.withdrawals.push({id:'w'+Date.now(),user_id:currentUser.id,amount,status:'pending',bank,account:'****'+account.slice(-4),created_at:new Date().toISOString(),paid_at:null});
+toast('Penarikan berhasil diajukan!');
+renderAffWithdraw();
+}
+
+/* ================================================================
+   ADMIN DASHBOARD
+================================================================ */
+function renderAdminDashboard(){
+const totalClicks=DB.clicks.length;
+const totalConv=DB.conversions.length;
+const convRate=totalClicks?((totalConv/totalClicks)*100).toFixed(1):0;
+const totalRev=DB.conversions.reduce((s,c)=>s+c.amount,0);
+const totalComm=DB.conversions.reduce((s,c)=>s+c.commission,0);
+const activeAff=DB.affiliates.length;
+const pendingComm=DB.conversions.filter(c=>c.status==='pending').length;
+
+const el=document.getElementById('page-admin-dashboard');
+el.innerHTML=`
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+<div class="stat-card fade-up"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(255,107,44,.12)"><i class="fas fa-mouse-pointer text-brand-500"></i></div></div><div class="text-2xl font-display font-bold mb-1" id="astatClicks">0</div><div class="text-xs" style="color:var(--muted)">Total Klik</div></div>
+<div class="stat-card fade-up fade-up-d1"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(34,211,160,.12)"><i class="fas fa-cart-shopping text-mint-500"></i></div></div><div class="text-2xl font-display font-bold mb-1" id="astatConv">0</div><div class="text-xs" style="color:var(--muted)">Total Konversi</div></div>
+<div class="stat-card fade-up fade-up-d2"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(96,165,250,.12)"><i class="fas fa-money-bill-trend-up text-blue-400"></i></div></div><div class="text-2xl font-display font-bold mb-1" id="astatRev">0</div><div class="text-xs" style="color:var(--muted)">Total Revenue</div></div>
+<div class="stat-card fade-up fade-up-d3"><div class="flex items-center justify-between mb-4"><div class="stat-icon" style="background:rgba(251,191,36,.12)"><i class="fas fa-users text-yellow-400"></i></div></div><div class="text-2xl font-display font-bold mb-1">${activeAff}</div><div class="text-xs" style="color:var(--muted)">Affiliate Aktif</div></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+<div class="stat-card"><div class="text-xs mb-2" style="color:var(--muted)">Conversion Rate</div><div class="text-2xl font-display font-bold">${convRate}%</div></div>
+<div class="stat-card"><div class="text-xs mb-2" style="color:var(--muted)">Total Komisi Dibayarkan</div><div class="text-2xl font-display font-bold text-mint-500" id="astatComm">0</div></div>
+<div class="stat-card"><div class="text-xs mb-2" style="color:var(--muted)">Komisi Pending</div><div class="text-2xl font-display font-bold text-yellow-400">${pendingComm}</div></div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-5 mb-8">
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Trafik 14 Hari Terakhir</h3>
+<canvas id="chartAdminTraffic" height="220"></canvas></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Top Affiliate</h3>
+<div class="space-y-4">${DB.affiliates.map(a=>{
+const u=getUser(a.user_id);
+const clicks=DB.clicks.filter(c=>c.affiliate_id===a.user_id).length;
+const convs=DB.conversions.filter(c=>c.affiliate_id===a.user_id).length;
+return`<div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-dk-700 flex items-center justify-center font-bold text-brand-500">${u?u.name[0]:'?'}</div><div class="flex-1"><div class="font-semibold text-sm">${u?u.name:'-'}</div><div class="text-xs" style="color:var(--muted)">${clicks} klik &middot; ${convs} konversi</div></div><div class="text-right"><div class="font-display font-bold text-mint-500 text-sm">${formatRupiah(a.total_earnings)}</div><div class="text-xs" style="color:var(--muted)">earnings</div></div></div>`;
+}).join('')}</div></div>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Top Produk</h3>
+<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Produk</th><th>Harga</th><th>Klik</th><th>Konversi</th><th>Rate</th><th>Total Komisi</th></tr></thead><tbody>
+ ${DB.products.map(p=>{
+const clicks=DB.clicks.filter(c=>c.product_id===p.id).length;
+const convs=DB.conversions.filter(c=>c.product_id===p.id);
+const rate=clicks?((convs.length/clicks)*100).toFixed(1):0;
+const commTotal=convs.reduce((s,c)=>s+c.commission,0);
+return`<tr><td class="font-medium">${p.name}</td><td>${formatRupiah(p.price)}</td><td>${clicks}</td><td>${convs.length}</td><td>${rate}%</td><td class="text-mint-500 font-semibold">${formatRupiah(commTotal)}</td></tr>`;
+}).join('')}
+</tbody></table></div></div>`;
+
+setTimeout(()=>{
+animateCounter(document.getElementById('astatClicks'),totalClicks);
+animateCounter(document.getElementById('astatConv'),totalConv);
+animateCounter(document.getElementById('astatRev'),totalRev);
+animateCounter(document.getElementById('astatComm'),totalComm);
+},200);
+
+// Chart trafik 14 hari
+if(charts.adminTraffic)charts.adminTraffic.destroy();
+const labels14=[];const clickData=[];const convData14=[];
+for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const ds=d.toISOString().split('T')[0];labels14.push(d.toLocaleDateString('id-ID',{day:'numeric',month:'short'}));clickData.push(DB.clicks.filter(c=>c.created_at.startsWith(ds)).length);convData14.push(DB.conversions.filter(c=>c.created_at.startsWith(ds)).length)}
+const ctx2=document.getElementById('chartAdminTraffic');
+if(ctx2){charts.adminTraffic=new Chart(ctx2,{type:'line',data:{labels:labels14,datasets:[{label:'Klik',data:clickData,borderColor:'#FF6B2C',backgroundColor:'rgba(255,107,44,.1)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:'#FF6B2C'},{label:'Konversi',data:convData14,borderColor:'#22D3A0',backgroundColor:'rgba(34,211,160,.1)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:'#22D3A0'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8B92A5',font:{size:11},usePointStyle:true,pointStyle:'circle'}}},scales:{x:{grid:{display:false},ticks:{color:'#8B92A5',font:{size:10},maxRotation:45}},y:{grid:{color:'rgba(42,48,66,.5)'},ticks:{color:'#8B92A5',font:{size:11}},beginAtZero:true}}}})}
+}
+
+/* ================================================================
+   ADMIN PRODUCTS
+================================================================ */
+function renderAdminProducts(){
+const el=document.getElementById('page-admin-products');
+el.innerHTML=`
+<div class="flex justify-between items-center mb-6">
+<div class="text-sm" style="color:var(--muted)">${DB.products.length} produk terdaftar</div>
+<button class="btn-primary" onclick="openProductModal()"><i class="fas fa-plus"></i> Tambah Produk</button>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="overflow-x-auto"><table class="data-table"><thead><tr><th>Produk</th><th>Harga</th><th>Komisi</th><th>Klik</th><th>Konversi</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="prodTableBody">
+ ${DB.products.map(p=>{
+const clicks=DB.clicks.filter(c=>c.product_id===p.id).length;
+const convs=DB.conversions.filter(c=>c.product_id===p.id).length;
+const comm=p.commission_type==='percent'?`${p.commission_value}%`:`${formatRupiah(p.commission_value)}`;
+return`<tr>
+<td><div class="flex items-center gap-3"><img src="${p.image}" class="w-10 h-10 rounded-lg object-cover flex-shrink-0" loading="lazy"><span class="font-medium text-sm">${p.name}</span></div></td>
+<td class="font-semibold">${formatRupiah(p.price)}</td>
+<td><span class="badge badge-${p.commission_type}">${comm}</span></td>
+<td>${clicks}</td><td>${convs}</td>
+<td><span class="badge ${p.status==='active'?'badge-approved':'badge-pending'}">${p.status==='active'?'Aktif':'Nonaktif'}</span></td>
+<td class="flex gap-2"><button class="btn-secondary btn-sm" onclick="openProductModal('${p.id}')"><i class="fas fa-pen"></i></button><button class="btn-danger btn-sm" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i></button></td>
+</tr>`;}).join('')}
+</tbody></table></div></div>`;
+}
+
+function openProductModal(id){
+const p=id?getProduct(id):null;
+openModal(`
+<h3 class="font-display text-lg font-bold mb-6">${p?'Edit':'Tambah'} Produk</h3>
+<div class="space-y-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NAMA PRODUK</label><input type="text" id="pmName" class="input-field" value="${p?p.name:''}"></div>
+<div class="grid grid-cols-2 gap-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">HARGA (Rp)</label><input type="number" id="pmPrice" class="input-field" value="${p?p.price:''}"></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">STATUS</label><select id="pmStatus" class="input-field"><option value="active" ${p&&p.status==='active'?'selected':''}>Aktif</option><option value="inactive" ${p&&p.status==='inactive'?'selected':''}>Nonaktif</option></select></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">TIPE KOMISI</label><select id="pmCommType" class="input-field" onchange="document.getElementById('pmCommVal').placeholder=this.value==='percent'?'Persentase (contoh: 20)':'Nominal Fixed (contoh: 100000)'"><option value="percent" ${p&&p.commission_type==='percent'?'selected':''}>Persentase (%)</option><option value="fixed" ${p&&p.commission_type==='fixed'?'selected':''}>Fixed (Rp)</option></select></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NILAI KOMISI</label><input type="number" id="pmCommVal" class="input-field" value="${p?p.commission_value:''}" placeholder="${p?(p.commission_type==='percent'?'20':'100000'):'20'}"></div>
+</div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">IMAGE URL</label><input type="text" id="pmImage" class="input-field" value="${p?p.image:''}" placeholder="https://picsum.photos/seed/xxx/400/250"></div>
+<div class="flex gap-3 pt-2"><button class="btn-primary flex-1 justify-center" onclick="saveProduct('${id||''}')"><i class="fas fa-save"></i> Simpan</button><button class="btn-secondary flex-1 justify-center" onclick="closeModal()">Batal</button></div>
+</div>`);
+}
+
+function saveProduct(id){
+const name=document.getElementById('pmName').value.trim();
+const price=parseInt(document.getElementById('pmPrice').value);
+const status=document.getElementById('pmStatus').value;
+const commType=document.getElementById('pmCommType').value;
+const commVal=parseFloat(document.getElementById('pmCommVal').value);
+const image=document.getElementById('pmImage').value.trim()||`https://picsum.photos/seed/${Date.now()}/400/250`;
+if(!name||!price||!commVal){toast('Lengkapi semua field','error');return}
+if(id){
+const p=getProduct(id);if(p){Object.assign(p,{name,price,status,commission_type:commType,commission_value:commVal,image})}
+toast('Produk berhasil diperbarui!');
+}else{
+DB.products.push({id:'p'+Date.now(),name,price,commission_type:commType,commission_value:commVal,image,status,created_at:new Date().toISOString()});
+toast('Produk berhasil ditambahkan!');
+}
+closeModal();renderAdminProducts();
+}
+
+function deleteProduct(id){
+openModal(`<h3 class="font-display text-lg font-bold mb-3">Hapus Produk?</h3><p class="text-sm mb-6" style="color:var(--muted)">Produk yang dihapus tidak dapat dikembalikan. Semua data klik dan konversi terkait akan hilang.</p><div class="flex gap-3"><button class="btn-danger flex-1 justify-center" onclick="confirmDeleteProduct('${id}')"><i class="fas fa-trash"></i> Hapus</button><button class="btn-secondary flex-1 justify-center" onclick="closeModal()">Batal</button></div>`);
+}
+function confirmDeleteProduct(id){
+DB.products=DB.products.filter(p=>p.id!==id);
+DB.clicks=DB.clicks.filter(c=>c.product_id!==id);
+DB.conversions=DB.conversions.filter(c=>c.product_id!==id);
+closeModal();toast('Produk berhasil dihapus!');renderAdminProducts();
+}
+
+/* ================================================================
+   ADMIN USERS
+================================================================ */
+function renderAdminUsers(){
+const el=document.getElementById('page-admin-users');
+el.innerHTML=`
+<div class="flex flex-wrap gap-3 mb-6">
+<button class="tab-btn active" onclick="filterUsers(this,'all')">Semua (${DB.users.length})</button>
+<button class="tab-btn" onclick="filterUsers(this,'admin')">Admin (${DB.users.filter(u=>u.role==='admin').length})</button>
+<button class="tab-btn" onclick="filterUsers(this,'affiliate')">Affiliate (${DB.users.filter(u=>u.role==='affiliate').length})</button>
+<button class="tab-btn" onclick="filterUsers(this,'user')">User (${DB.users.filter(u=>u.role==='user').length})</button>
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="overflow-x-auto"><table class="data-table" id="userTable"><thead><tr><th>User</th><th>Email</th><th>Role</th><th>Referral Code</th><th>Balance</th><th>Total Earnings</th><th>Bergabung</th></tr></thead><tbody>
+ ${DB.users.map(u=>{
+const aff=getAffiliate(u.id);
+return`<tr data-role="${u.role}">
+<td><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-dk-700 flex items-center justify-center font-bold text-brand-500 text-sm">${u.name[0]}</div><span class="font-medium">${u.name}</span></div></td>
+<td class="text-sm" style="color:var(--muted)">${u.email}</td>
+<td><span class="badge badge-${u.role}">${u.role.charAt(0).toUpperCase()+u.role.slice(1)}</span></td>
+<td class="font-mono text-xs">${u.referral_code||'-'}</td>
+<td class="font-semibold">${aff?formatRupiah(aff.balance):'-'}</td>
+<td class="font-semibold text-mint-500">${aff?formatRupiah(aff.total_earnings):'-'}</td>
+<td class="text-xs" style="color:var(--muted)">${formatDate(u.created_at)}</td>
+</tr>`;}).join('')}
+</tbody></table></div></div>`;
+}
+
+function filterUsers(btn,role){
+document.querySelectorAll('#page-admin-users .tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('#userTable tbody tr').forEach(tr=>{tr.style.display=(role==='all'||tr.dataset.role===role)?'':'none'});
+}
+
+/* ================================================================
+   ADMIN COMMISSIONS
+================================================================ */
+function renderAdminCommissions(){
+const convs=DB.conversions.slice().reverse();
+const pendingCount=convs.filter(c=>c.status==='pending').length;
+const el=document.getElementById('page-admin-commissions');
+el.innerHTML=`
+<div class="flex flex-wrap gap-3 items-center mb-6">
+<button class="tab-btn active" onclick="filterAdminComm(this,'all')">Semua (${convs.length})</button>
+<button class="tab-btn" onclick="filterAdminComm(this,'pending')">Pending (${pendingCount})</button>
+<button class="tab-btn" onclick="filterAdminComm(this,'approved')">Approved (${convs.filter(c=>c.status==='approved').length})</button>
+<button class="tab-btn" onclick="filterAdminComm(this,'paid')">Paid (${convs.filter(c=>c.status==='paid').length})</button>
+ ${pendingCount>0?`<button class="btn-success btn-sm ml-auto" onclick="approveAllPending()"><i class="fas fa-check-double"></i> Approve Semua Pending</button>`:''}
+</div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<div class="overflow-x-auto"><table class="data-table" id="adminCommTable"><thead><tr><th>ID</th><th>Affiliate</th><th>Produk</th><th>Amount</th><th>Komisi</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead><tbody>
+ ${convs.map(cv=>{
+const aff=getUser(cv.affiliate_id);const p=getProduct(cv.product_id);
+const actions=cv.status==='pending'?`<button class="btn-success btn-sm" onclick="approveComm('${cv.id}')"><i class="fas fa-check"></i></button><button class="btn-danger btn-sm" onclick="rejectComm('${cv.id}')"><i class="fas fa-times"></i></button>`:cv.status==='approved'?`<button class="btn-sm" style="background:rgba(96,165,250,.12);color:#60A5FA;border:1px solid rgba(96,165,250,.2)" onclick="payComm('${cv.id}')"><i class="fas fa-money-bill"></i> Bayar</button>`:`<span class="text-xs" style="color:var(--muted)">Selesai</span>`;
+return`<tr data-status="${cv.status}">
+<td class="text-xs font-mono" style="color:var(--muted)">${cv.id}</td>
+<td class="font-medium text-sm">${aff?aff.name:'-'}</td>
+<td class="text-sm">${p?p.name:'-'}</td>
+<td>${formatRupiah(cv.amount)}</td>
+<td class="text-mint-500 font-semibold">${formatRupiah(cv.commission)}</td>
+<td><span class="badge badge-${cv.status}">${cv.status.charAt(0).toUpperCase()+cv.status.slice(1)}</span></td>
+<td class="text-xs" style="color:var(--muted)">${formatDateTime(cv.created_at)}</td>
+<td class="flex gap-1">${actions}</td>
+</tr>`;}).join('')}
+</tbody></table></div></div>`;
+}
+
+function approveComm(id){
+const cv=DB.conversions.find(c=>c.id===id);if(!cv)return;
+cv.status='approved';
+const aff=getAffiliate(cv.affiliate_id);if(aff)aff.balance+=cv.commission;
+toast('Komisi di-approve!');renderAdminCommissions();
+}
+function rejectComm(id){const cv=DB.conversions.find(c=>c.id===id);if(!cv)return;cv.status='rejected';toast('Komisi ditolak','info');renderAdminCommissions()}
+function payComm(id){
+const cv=DB.conversions.find(c=>c.id===id);if(!cv)return;
+cv.status='paid';const aff=getAffiliate(cv.affiliate_id);
+if(aff){aff.balance=Math.max(0,aff.balance-cv.commission);aff.total_earnings+=cv.commission}
+toast('Komisi berhasil dibayarkan!');renderAdminCommissions();
+}
+function approveAllPending(){
+DB.conversions.filter(c=>c.status==='pending').forEach(cv=>{cv.status='approved';const aff=getAffiliate(cv.affiliate_id);if(aff)aff.balance+=cv.commission});
+toast('Semua komisi pending di-approve!');renderAdminCommissions();
+}
+function filterAdminComm(btn,status){
+document.querySelectorAll('#page-admin-commissions .tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('#adminCommTable tbody tr').forEach(tr=>{tr.style.display=(status==='all'||tr.dataset.status===status)?'':'none'});
+}
+
+/* ================================================================
+   ADMIN TRAFFIC
+================================================================ */
+function renderAdminTraffic(){
+const el=document.getElementById('page-admin-traffic');
+el.innerHTML=`
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-5 mb-6">
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Klik per Hari — 30 Hari</h3>
+<canvas id="chartClicks30" height="250"></canvas></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Konversi per Hari — 30 Hari</h3>
+<canvas id="chartConv30" height="250"></canvas></div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Distribusi per Perangkat</h3>
+<canvas id="chartDevice" height="250"></canvas></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-4">Klik per Affiliate</h3>
+<canvas id="chartAffClicks" height="250"></canvas></div>
+</div>`;
+
+const labels30=[];const clickData30=[];const convData30=[];
+for(let i=29;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const ds=d.toISOString().split('T')[0];labels30.push(d.toLocaleDateString('id-ID',{day:'numeric',month:'short'}));clickData30.push(DB.clicks.filter(c=>c.created_at.startsWith(ds)).length);convData30.push(DB.conversions.filter(c=>c.created_at.startsWith(ds)).length)}
+
+// Hitung device
+const devices={Desktop:0,Mobile:0,Tablet:0};
+DB.clicks.forEach(c=>{if(c.user_agent.includes('iPhone')||c.user_agent.includes('Android')){c.user_agent.includes('iPad')?devices.Tablet++:devices.Mobile++}else if(c.user_agent.includes('iPad')){devices.Tablet++}else{devices.Desktop++}});
+
+const affClicks=DB.affiliates.map(a=>{const u=getUser(a.user_id);return{name:u?u.name:'?',count:DB.clicks.filter(c=>c.affiliate_id===a.user_id).length}});
+
+['chartClicks30','chartConv30','chartDevice','chartAffClicks'].forEach(k=>{if(charts[k])charts[k].destroy()});
+
+const c1=document.getElementById('chartClicks30');
+if(c1)charts.chartClicks30=new Chart(c1,{type:'bar',data:{labels:labels30,datasets:[{data:clickData30,backgroundColor:'rgba(255,107,44,.6)',borderRadius:4,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8B92A5',font:{size:9},maxRotation:60}},y:{grid:{color:'rgba(42,48,66,.5)'},ticks:{color:'#8B92A5'},beginAtZero:true}}}});
+
+const c2=document.getElementById('chartConv30');
+if(c2)charts.chartConv30=new Chart(c2,{type:'line',data:{labels:labels30,datasets:[{data:convData30,borderColor:'#22D3A0',backgroundColor:'rgba(34,211,160,.1)',fill:true,tension:.4,pointRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8B92A5',font:{size:9},maxRotation:60}},y:{grid:{color:'rgba(42,48,66,.5)'},ticks:{color:'#8B92A5',stepSize:1},beginAtZero:true}}}});
+
+const c3=document.getElementById('chartDevice');
+if(c3)charts.chartDevice=new Chart(c3,{type:'doughnut',data:{labels:Object.keys(devices),datasets:[{data:Object.values(devices),backgroundColor:['#FF6B2C','#22D3A0','#60A5FA'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#8B92A5',font:{size:12},usePointStyle:true,padding:16}}},cutout:'65%'}});
+
+const c4=document.getElementById('chartAffClicks');
+if(c4)charts.chartAffClicks=new Chart(c4,{type:'bar',data:{labels:affClicks.map(a=>a.name),datasets:[{data:affClicks.map(a=>a.count),backgroundColor:['rgba(255,107,44,.6)','rgba(34,211,160,.6)','rgba(96,165,250,.6)'],borderRadius:6,barPercentage:.5}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(42,48,66,.5)'},ticks:{color:'#8B92A5'}},y:{grid:{display:false},ticks:{color:'#F0F1F5',font:{size:12,weight:'bold'}}}}}});
+}
+
+/* ================================================================
+   ADMIN SETTINGS
+================================================================ */
+function renderAdminSettings(){
+const el=document.getElementById('page-admin-settings');
+el.innerHTML=`
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-5"><i class="fas fa-globe text-brand-500 mr-2"></i>Pengaturan Umum</h3>
+<div class="space-y-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NAMA PLATFORM</label><input type="text" class="input-field" value="LinkareaDiskon"></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">DOMAIN</label><input type="text" class="input-field" value="linkareadiskon.com"></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">COOKIE REFERRAL EXPIRY (HARI)</label><input type="number" class="input-field" value="30"></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">MINIMUM WITHDRAW (Rp)</label><input type="number" class="input-field" value="100000"></div>
+<button class="btn-primary" onclick="toast('Pengaturan berhasil disimpan!')"><i class="fas fa-save"></i> Simpan Pengaturan</button>
+</div></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-5"><i class="fas fa-percent text-mint-500 mr-2"></i>Komisi Global (Default)</h3>
+<div class="space-y-4">
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">TIPE KOMISI DEFAULT</label><select class="input-field"><option>Persentase (%)</option><option>Fixed (Rp)</option></select></div>
+<div><label class="block text-xs font-semibold mb-2" style="color:var(--muted)">NILAI DEFAULT</label><input type="number" class="input-field" value="20"></div>
+<div class="p-4 rounded-xl" style="background:var(--bg2)"><div class="text-xs font-semibold mb-2" style="color:var(--muted)">CATATAN</div><p class="text-xs" style="color:var(--muted)">Komisi default akan digunakan saat menambah produk baru. Komisi per produk bisa di-override di halaman Kelola Produk.</p></div>
+<button class="btn-primary" onclick="toast('Komisi default disimpan!')"><i class="fas fa-save"></i> Simpan</button>
+</div></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-5"><i class="fas fa-bell text-yellow-400 mr-2"></i>Notifikasi</h3>
+<div class="space-y-4">
+<label class="flex items-center justify-between cursor-pointer"><span class="text-sm">Email notifikasi konversi baru</span><div class="relative"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 rounded-full bg-dk-700 peer-checked:bg-brand-500 transition"></div><div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition peer-checked:translate-x-5"></div></div></label>
+<label class="flex items-center justify-between cursor-pointer"><span class="text-sm">Email notifikasi penarikan dana</span><div class="relative"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 rounded-full bg-dk-700 peer-checked:bg-brand-500 transition"></div><div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition peer-checked:translate-x-5"></div></div></label>
+<label class="flex items-center justify-between cursor-pointer"><span class="text-sm">Email notifikasi komisi paid</span><div class="relative"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 rounded-full bg-dk-700 peer-checked:bg-brand-500 transition"></div><div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition peer-checked:translate-x-5"></div></div></label>
+<button class="btn-primary" onclick="toast('Pengaturan notifikasi disimpan!')"><i class="fas fa-save"></i> Simpan</button>
+</div></div>
+<div class="p-6 rounded-2xl border" style="background:var(--card);border-color:var(--border)">
+<h3 class="font-display font-semibold mb-5"><i class="fas fa-database text-blue-400 mr-2"></i>Status Sistem</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Database</span><span class="flex items-center gap-2"><span class="pulse-dot bg-green-400"></span><span class="text-green-400">Connected</span></span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Total Users</span><span class="font-semibold">${DB.users.length}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Total Produk</span><span class="font-semibold">${DB.products.length}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Total Klik</span><span class="font-semibold">${DB.clicks.length}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Total Konversi</span><span class="font-semibold">${DB.conversions.length}</span></div>
+<div class="flex justify-between text-sm"><span style="color:var(--muted)">Pending Withdrawals</span><span class="font-semibold text-yellow-400">${DB.withdrawals.filter(w=>w.status==='pending').length}</span></div>
+</div></div>
+</div>`;
+}
+
+/* ================================================================
+   BACKEND CODE REFERENCE
+================================================================ */
+const backendFiles={
+'schema.prisma':`// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  name         String
+  email        String      @unique
+  password     String
+  role         Role        @default(USER)
+  referralCode String?     @unique @map("referral_code")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  affiliate    Affiliate?
+  clicks       Click[]
+  conversions  Conversion[]
+  withdrawals  Withdrawal[]
+
+  @@map("users")
+}
+
+model Affiliate {
+  id            String @id @default(uuid())
+  userId        String @unique @map("user_id")
+  balance       Int    @default(0)
+  totalEarnings Int    @default(0) @map("total_earnings")
+  user          User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("affiliates")
+}
+
+model Product {
+  id             String   @id @default(uuid())
+  name           String
+  price          Int
+  commissionType CommissionType @map("commission_type")
+  commissionValue Float    @map("commission_value")
+  image          String?
+  status         String   @default("active")
+  createdAt      DateTime @default(now()) @map("created_at")
+  clicks         Click[]
+  conversions    Conversion[]
+
+  @@map("products")
+}
+
+model Click {
+  id         String   @id @default(uuid())
+  affiliateId String  @map("affiliate_id")
+  productId   String  @map("product_id")
+  ipAddress   String? @map("ip_address")
+  userAgent   String? @map("user_agent")
+  createdAt   DateTime @default(now()) @map("created_at")
+  affiliate   User     @relation(fields: [affiliateId], references: [id])
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@map("clicks")
+}
+
+model Conversion {
+  id          String   @id @default(uuid())
+  affiliateId String   @map("affiliate_id")
+  productId   String   @map("product_id")
+  amount      Int
+  commission  Int
+  status      String   @default("pending")
+  createdAt   DateTime @default(now()) @map("created_at")
+  affiliate   User     @relation(fields: [affiliateId], references: [id])
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@map("conversions")
+}
+
+model Withdrawal {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  amount    Int
+  status    String    @default("pending")
+  bank      String
+  account   String
+  createdAt DateTime  @default(now()) @map("created_at")
+  paidAt    DateTime? @map("paid_at")
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@map("withdrawals")
+}
+
+enum Role {
+  ADMIN
+  AFFILIATE
+  USER
+}
+
+enum CommissionType {
+  PERCENT
+  FIXED
+}`,
+
+'app.js':`// src/app.js
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
+const authRoutes = require('./routes/auth');
+const affiliateRoutes = require('./routes/affiliate');
+const trackingRoutes = require('./routes/tracking');
+const conversionRoutes = require('./routes/conversion');
+const adminRoutes = require('./routes/admin');
+
+const app = express();
+
+// Middleware
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  credentials: true
+}));
+app.use(express.json());
+app.use(cookieParser());
+
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/affiliate', affiliateRoutes);
+app.use('/api/track', trackingRoutes);
+app.use('/api/conversion', conversionRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Swagger Documentation
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date() });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    error: err.message || 'Internal Server Error'
+  });
+});
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(\`LinkareaDiskon API running on port \${PORT}\`);
+  console.log(\`Docs: http://localhost:\${PORT}/api/docs\`);
+});
+
+module.exports = app;`,
+
+'auth.js':`// src/middleware/auth.js
+const jwt = require('jsonwebtoken');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-me';
+
+const auth = (roles = []) => {
+  return async (req, res, next) => {
+    try {
+      const token = req.headers.authorization?.replace('Bearer ', '');
+      if (!token) return res.status(401).json({ error: 'Token diperlukan' });
+
+      const decoded = jwt.verify(token, JWT_SECRET);
+      const user = await prisma.user.findUnique({
+        where: { id: decoded.id },
+        include: { affiliate: true }
+      });
+
+      if (!user) return res.status(401).json({ error: 'User tidak ditemukan' });
+      if (roles.length && !roles.includes(user.role)) {
+        return res.status(403).json({ error: 'Akses ditolak' });
+      }
+
+      req.user = user;
+      next();
+    } catch (err) {
+      res.status(401).json({ error: 'Token tidak valid' });
+    }
+  };
+};
+
+const generateToken = (user) => {
+  return jwt.sign(
+    { id: user.id, email: user.email, role: user.role },
+    JWT_SECRET,
+    { expiresIn: '7d' }
+  );
+};
+
+module.exports = { auth, generateToken, JWT_SECRET };`,
+
+'routes/auth.js':`// src/routes/auth.js
+const router = require('express').Router();
+const bcrypt = require('bcryptjs');
+const { PrismaClient } = require('@prisma/client');
+const { auth, generateToken } = require('../middleware/auth');
+
+const prisma = new PrismaClient();
+
+// Validasi input
+const validate = (req, res, next) => {
+  const { name, email, password } = req.body;
+  if (!email || !password) return res.status(400).json({ error: 'Email dan password wajib diisi' });
+  if (password.length < 6) return res.status(400).json({ error: 'Password min. 6 karakter' });
+  next();
+};
+
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     tags: [Auth]
+ *     summary: Register user baru
+ */
+router.post('/register', validate, async (req, res) => {
+  try {
+    const { name, email, password, role = 'USER' } = req.body;
+
+    const exists = await prisma.user.findUnique({ where: { email } });
+    if (exists) return res.status(409).json({ error: 'Email sudah terdaftar' });
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    // Generate referral code untuk affiliate
+    let referralCode = null;
+    if (role === 'AFFILIATE') {
+      const prefix = name.substring(0, 4).toUpperCase().replace(/\\s/g, '');
+      const count = await prisma.user.count({ where: { role: 'AFFILIATE' } });
+      referralCode = prefix + String(count + 1).padStart(3, '0');
+    }
+
+    const user = await prisma.user.create({
+      data: { name, email, password: hashedPassword, role, referralCode },
+      include: { affiliate: true }
+    });
+
+    // Buat record affiliate jika role affiliate
+    if (role === 'AFFILIATE') {
+      await prisma.affiliate.create({ data: { userId: user.id } });
+    }
+
+    const token = generateToken(user);
+    res.status(201).json({
+      token,
+      user: {
+        id: user.id, name: user.name,
+        email: user.email, role: user.role,
+        referralCode: user.referralCode
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal registrasi' });
+  }
+});
+
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     tags: [Auth]
+ *     summary: Login user
+ */
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+      include: { affiliate: true }
+    });
+    if (!user) return res.status(401).json({ error: 'Email tidak ditemukan' });
+
+    const valid = await bcrypt.compare(password, user.password);
+    if (!valid) return res.status(401).json({ error: 'Password salah' });
+
+    const token = generateToken(user);
+    res.json({
+      token,
+      user: {
+        id: user.id, name: user.name,
+        email: user.email, role: user.role,
+        referralCode: user.referralCode,
+        balance: user.affiliate?.balance || 0,
+        totalEarnings: user.affiliate?.totalEarnings || 0
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal login' });
+  }
+});
+
+router.get('/me', auth(), (req, res) => {
+  res.json({ user: req.user });
+});
+
+module.exports = router;`,
+
+'routes/tracking.js':`// src/routes/tracking.js
+const router = require('express').Router();
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+/**
+ * @swagger
+ * /api/track:
+ *   get:
+ *     tags: [Tracking]
+ *     summary: Track klik affiliate link
+ *     parameters:
+ *       - in: query
+ *         name: ref
+ *         required: true
+ *         schema: { type: string }
+ *       - in: query
+ *         name: product_id
+ *         required: true
+ *         schema: { type: string }
+ */
+router.get('/', async (req, res) => {
+  try {
+    const { ref, product_id } = req.query;
+
+    if (!ref || !product_id) {
+      return res.status(400).json({ error: 'ref dan product_id wajib' });
+    }
+
+    // Cari affiliate berdasarkan referral code
+    const affiliate = await prisma.user.findUnique({
+      where: { referralCode: ref }
+    });
+
+    if (!affiliate || affiliate.role !== 'AFFILIATE') {
+      return res.redirect(process.env.FRONTEND_URL || '/');
+    }
+
+    // Simpan klik
+    await prisma.click.create({
+      data: {
+        affiliateId: affiliate.id,
+        productId: product_id,
+        ipAddress: req.ip || req.headers['x-forwarded-for'] || '',
+        userAgent: req.headers['user-agent'] || ''
+      }
+    });
+
+    // Set cookie referral (30 hari)
+    res.cookie('ref', ref, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production'
+    });
+    res.cookie('ref_product', product_id, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production'
+    });
+
+    // Redirect ke halaman produk
+    res.redirect(\`\${process.env.FRONTEND_URL}/product/\${product_id}\`);
+  } catch (err) {
+    res.redirect(process.env.FRONTEND_URL || '/');
+  }
+});
+
+module.exports = router;`,
+
+'routes/conversion.js':`// src/routes/conversion.js
+const router = require('express').Router();
+const { PrismaClient } = require('@prisma/client');
+const { auth } = require('../middleware/auth');
+const prisma = new PrismaClient();
+
+/**
+ * @swagger
+ * /api/conversion:
+ *   post:
+ *     tags: [Conversion]
+ *     summary: Catat konversi (pembelian)
+ *     security: [{ bearerAuth: [] }]
+ */
+router.post('/', auth(), async (req, res) => {
+  try {
+    const { product_id, amount } = req.body;
+
+    if (!product_id || !amount) {
+      return res.status(400).json({ error: 'product_id dan amount wajib' });
+    }
+
+    // Ambil referral dari cookie (via header)
+    const ref = req.headers['x-ref-code'] ||
+      req.cookies?.ref;
+    const refProduct = req.headers['x-ref-product'] ||
+      req.cookies?.ref_product;
+
+    if (!ref) {
+      return res.status(400).json({ error: 'Tidak ada referral terdeteksi' });
+    }
+
+    // Validasi produk
+    const product = await prisma.product.findUnique({
+      where: { id: product_id }
+    });
+    if (!product) return res.status(404).json({ error: 'Produk tidak ditemukan' });
+
+    // Cari affiliate
+    const affiliate = await prisma.user.findUnique({
+      where: { referralCode: ref },
+      include: { affiliate: true }
+    });
+    if (!affiliate || affiliate.role !== 'AFFILIATE') {
+      return res.status(400).json({ error: 'Referral code tidak valid' });
+    }
+
+    // Hitung komisi
+    let commission;
+    if (product.commissionType === 'PERCENT') {
+      commission = Math.round(amount * product.commissionValue / 100);
+    } else {
+      commission = Math.round(product.commissionValue);
+    }
+
+    // Simpan konversi
+    const conversion = await prisma.conversion.create({
+      data: {
+        affiliateId: affiliate.id,
+        productId: product_id,
+        amount,
+        commission,
+        status: 'pending'
+      }
+    });
+
+    res.status(201).json({
+      success: true,
+      conversion: {
+        id: conversion.id,
+        amount: conversion.amount,
+        commission: conversion.commission,
+        status: conversion.status
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Gagal mencatat konversi' });
+  }
+});
+
+module.exports = router;`,
+
+'routes/affiliate.js':`// src/routes/affiliate.js
+const router = require('express').Router();
+const { PrismaClient } = require('@prisma/client');
+const { auth } = require('../middleware/auth');
+const prisma = new PrismaClient();
+
+/**
+ * @swagger
+ * /api/affiliate/dashboard:
+ *   get:
+ *     tags: [Affiliate]
+ *     summary: Dashboard affiliate
+ *     security: [{ bearerAuth: [] }]
+ */
+router.get('/dashboard', auth(['AFFILIATE']), async (req, res) => {
+  try {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const [totalClicks, conversions, recentConversions] =
+      await Promise.all([
+        prisma.click.count({
+          where: { affiliateId: req.user.id, createdAt: { gte: thirtyDaysAgo } }
+        }),
+        prisma.conversion.findMany({
+          where: { affiliateId: req.user.id, createdAt: { gte: thirtyDaysAgo } },
+          orderBy: { createdAt: 'desc' }
+        }),
+        prisma.conversion.findMany({
+          where: { affiliateId: req.user.id },
+          orderBy: { createdAt: 'desc' },
+          take: 10,
+          include: { product: { select: { name: true } } }
+        })
+      ]);
+
+    const totalConv = conversions.length;
+    const convRate = totalClicks > 0
+      ? ((totalConv / totalClicks) * 100).toFixed(1) : '0';
+    const pendingComm = conversions
+      .filter(c => c.status === 'pending')
+      .reduce((s, c) => s + c.commission, 0);
+
+    // Data chart 7 hari terakhir
+    const chartData = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const next = new Date(d); next.setDate(next.getDate() + 1);
+      chartData.push({
+        date: d.toISOString().split('T')[0],
+        clicks: await prisma.click.count({
+          where: {
+            affiliateId: req.user.id,
+            createdAt: { gte: d, lt: next }
+          }
+        }),
+        conversions: await prisma.conversion.count({
+          where: {
+            affiliateId: req.user.id,
+            createdAt: { gte: d, lt: next }
+          }
+        })
+      });
+    }
+
+    res.json({
+      stats: {
+        totalClicks,
+        totalConversions: totalConv,
+        conversionRate: convRate,
+        totalEarnings: req.user.affiliate?.totalEarnings || 0,
+        balance: req.user.affiliate?.balance || 0,
+        pendingCommission: pendingComm
+      },
+      chart: chartData,
+      recentConversions
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal memuat dashboard' });
+  }
+});
+
+/**
+ * @swagger
+ * /api/affiliate/links:
+ *   get:
+ *     tags: [Affiliate]
+ *     summary: Generate link affiliate
+ */
+router.get('/links', auth(['AFFILIATE']), async (req, res) => {
+  try {
+    const products = await prisma.product.findMany({
+      where: { status: 'active' },
+      select: { id: true, name: true, price: true,
+        commissionType: true, commissionValue: true }
+    });
+
+    const links = products.map(p => {
+      const comm = p.commissionType === 'PERCENT'
+        ? \`\${p.commissionValue}%\`
+        : \`Rp \${p.commissionValue.toLocaleString('id-ID')}\`;
+      return {
+        product: p,
+        commission: comm,
+        link: \`\${process.env.DOMAIN}/product/\${p.id}?ref=\${req.user.referralCode}\`
+      };
+    });
+
+    res.json({ referralCode: req.user.referralCode, links });
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal memuat links' });
+  }
+});
+
+// Riwayat komisi
+router.get('/commissions', auth(['AFFILIATE']), async (req, res) => {
+  const { status, page = 1, limit = 20 } = req.query;
+  const where = { affiliateId: req.user.id };
+  if (status) where.status = status;
+
+  const [data, total] = await Promise.all([
+    prisma.conversion.findMany({
+      where, orderBy: { createdAt: 'desc' },
+      skip: (page - 1) * limit, take: +limit,
+      include: { product: { select: { name: true } } }
+    }),
+    prisma.conversion.count({ where })
+  ]);
+
+  res.json({ data, total, page: +page, limit: +limit });
+});
+
+// Penarikan dana
+router.post('/withdraw', auth(['AFFILIATE']), async (req, res) => {
+  const { amount, bank, account } = req.body;
+  const aff = req.user.affiliate;
+
+  if (!amount || amount < 100000)
+    return res.status(400).json({ error: 'Minimum Rp 100.000' });
+  if (amount > aff.balance)
+    return res.status(400).json({ error: 'Saldo tidak mencukupi' });
+  if (!bank || !account)
+    return res.status(400).json({ error: 'Bank dan rekening wajib' });
+
+  await prisma.$transaction([
+    prisma.withdrawal.create({
+      data: { userId: req.user.id, amount, bank, account }
+    }),
+    prisma.affiliate.update({
+      where: { userId: req.user.id },
+      data: { balance: { decrement: amount } }
+    })
+  ]);
+
+  res.json({ success: true, message: 'Penarikan diajukan' });
+});
+
+module.exports = router;`,
+
+'routes/admin.js':`// src/routes/admin.js
+const router = require('express').Router();
+const { PrismaClient } = require('@prisma/client');
+const { auth } = require('../middleware/auth');
+const prisma = new PrismaClient();
+
+// Semua route butuh role ADMIN
+router.use(auth(['ADMIN']));
+
+// Dashboard admin
+router.get('/dashboard', async (req, res) => {
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const [totalClicks, totalConversions, totalRevenue,
+    totalCommission, affiliates, pendingCommissions] =
+    await Promise.all([
+      prisma.click.count({ where: { createdAt: { gte: thirtyDaysAgo } } }),
+      prisma.conversion.count({ where: { createdAt: { gte: thirtyDaysAgo } } }),
+      prisma.conversion.aggregate({
+        where: { createdAt: { gte: thirtyDaysAgo } },
+        _sum: { amount: true }
+      }),
+      prisma.conversion.aggregate({
+        _sum: { commission: true }
+      }),
+      prisma.affiliate.findMany({
+        include: {
+          user: { select: { name: true, email: true, referralCode: true } }
+        }
+      }),
+      prisma.conversion.count({ where: { status: 'pending' } })
+    ]);
+
+  res.json({
+    totalClicks,
+    totalConversions,
+    totalRevenue: totalRevenue._sum.amount || 0,
+    totalCommission: totalCommission._sum.commission || 0,
+    affiliates,
+    pendingCommissions,
+    conversionRate: totalClicks > 0
+      ? ((totalConversions / totalClicks) * 100).toFixed(1) : '0'
+  });
+});
+
+// CRUD Produk
+router.get('/products', async (req, res) => {
+  const products = await prisma.product.findMany({
+    orderBy: { createdAt: 'desc' },
+    include: {
+      _count: { select: { clicks: true, conversions: true } }
+    }
+  });
+  res.json(products);
+});
+
+router.post('/products', async (req, res) => {
+  const { name, price, commissionType, commissionValue, image } = req.body;
+  if (!name || !price || !commissionType || !commissionValue)
+    return res.status(400).json({ error: 'Lengkapi semua field' });
+
+  const product = await prisma.product.create({
+    data: { name, price, commissionType, commissionValue, image }
+  });
+  res.status(201).json(product);
+});
+
+router.put('/products/:id', async (req, res) => {
+  const product = await prisma.product.update({
+    where: { id: req.params.id },
+    data: req.body
+  });
+  res.json(product);
+});
+
+router.delete('/products/:id', async (req, res) => {
+  await prisma.$transaction([
+    prisma.click.deleteMany({ where: { productId: req.params.id } }),
+    prisma.conversion.deleteMany({ where: { productId: req.params.id
