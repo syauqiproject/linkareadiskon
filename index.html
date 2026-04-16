@@ -1,975 +1,692 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelProfil.id - Jasa Pembuatan Website, Landing Page & SEO Profesional</title>
-    <meta name="description" content="PixelProfil.id menyediakan jasa pembuatan website, landing page, dan SEO profesional untuk UMKM, bisnis online, personal branding, dan startup. Konsultasi gratis!">
-    <meta name="keywords" content="jasa pembuatan website, landing page, SEO, UMKM, bisnis online, PixelProfil">
-    <meta property="og:title" content="PixelProfil.id - Website Profesional untuk Bisnis Anda">
-    <meta property="og:description" content="Jasa pembuatan website, landing page, dan SEO profesional. Tingkatkan penjualan Anda sekarang!">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    colors: {
-                        dark: { 300:'#a3a3a3',400:'#737373',500:'#525252',600:'#404040',700:'#262626',800:'#171717',900:'#0a0a0a' }
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkAreadiskon — Rekomendasi Produk Shopee Terbaik</title>
+  <meta name="description" content="Temukan produk terbaik dari Shopee dengan diskon menarik. Link areadiskon terpercaya, langsung beli!">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EE4D2D'/%3E%3Cpath d='M10 14a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-4a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5-7.5l-7 7 1.5 1.5 7-7-1.5-1.5z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#EE4D2D', light: '#FF6533', dark: '#D73211', glow: 'rgba(238,77,45,0.15)' },
+            surface: { DEFAULT: '#0a0a0a', 50: '#111111', 100: '#171717', 200: '#1e1e1e', 300: '#262626' }
+          }
         }
-    </script>
-    <style>
-        ::selection{background:#2563eb;color:#fff}
-        ::-webkit-scrollbar{width:6px}
-        ::-webkit-scrollbar-track{background:#0a0a0a}
-        ::-webkit-scrollbar-thumb{background:#262626;border-radius:3px}
-        ::-webkit-scrollbar-thumb:hover{background:#404040}
-        .page{display:none;opacity:0;transition:opacity .35s ease}
-        .page.active{display:block;opacity:1}
-        .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-        .fade-up.visible{opacity:1;transform:translateY(0)}
-        .gradient-text{background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .card-hover{transition:all .3s ease}
-        .card-hover:hover{transform:translateY(-5px);border-color:rgba(37,99,235,.3);box-shadow:0 20px 40px rgba(0,0,0,.3)}
-        .nav-blur{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-        .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
-        .mobile-menu.open{transform:translateX(0)}
-        .dropdown-menu{opacity:0;visibility:hidden;transform:translateY(8px);transition:all .2s ease}
-        .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-        @keyframes pulse-ring{0%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0}}
-        .wa-pulse::before{content:'';position:absolute;inset:0;border-radius:50%;background:#25D366;animation:pulse-ring 1.5s ease-out infinite;z-index:-1}
-        .grid-pattern{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
-        .service-gradient{background:radial-gradient(ellipse at top,rgba(37,99,235,.15),transparent 70%)}
-        .portfolio-item{transition:all .4s ease}
-        .portfolio-item.hide{opacity:0;transform:scale(.8);position:absolute;pointer-events:none;height:0;overflow:hidden;margin:0;padding:0}
-        .toast{transform:translateY(100px);opacity:0;transition:all .4s ease}
-        .toast.show{transform:translateY(0);opacity:1}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-        .float-anim{animation:float 6s ease-in-out infinite}
-    </style>
+      }
+    }
+  </script>
+  <style>
+    *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{background:#050505}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:#0a0a0a}
+    ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:#EE4D2D}
+    .grid-bg{background-size:40px 40px;background-image:linear-gradient(to right,rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.02) 1px,transparent 1px)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .fade-up{animation:fadeUp .7s ease-out forwards;opacity:0}
+    .fade-up-d1{animation-delay:.1s}.fade-up-d2{animation-delay:.2s}.fade-up-d3{animation-delay:.3s}.fade-up-d4{animation-delay:.4s}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(238,77,45,.3)}50%{box-shadow:0 0 40px rgba(238,77,45,.6)}}
+    .product-card{transition:all .4s cubic-bezier(.4,0,.2,1)}
+    .product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(238,77,45,.15),0 0 0 1px rgba(238,77,45,.2)}
+    .product-card:hover .card-image img{transform:scale(1.08)}
+    .card-image img{transition:transform .7s cubic-bezier(.4,0,.2,1)}
+    .category-pill{transition:all .3s ease}
+    .category-pill.active{background:#EE4D2D;color:#fff;box-shadow:0 0 20px rgba(238,77,45,.4)}
+    .btn-brand{background:linear-gradient(135deg,#EE4D2D,#FF6533);transition:all .3s ease}
+    .btn-brand:hover{background:linear-gradient(135deg,#D73211,#EE4D2D);box-shadow:0 8px 30px rgba(238,77,45,.5);transform:translateY(-2px)}
+    .skeleton{background:linear-gradient(90deg,#1a1a1a 25%,#222 50%,#1a1a1a 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .toast-enter{animation:slideInR .4s ease-out forwards}
+    .toast-exit{animation:slideOutR .3s ease-in forwards}
+    @keyframes slideInR{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
+    @keyframes slideOutR{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
+    .modal-backdrop{backdrop-filter:blur(8px);background:rgba(0,0,0,.7)}
+    .gradient-text{background:linear-gradient(135deg,#EE4D2D,#FF6533,#FFB347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-gradient{background:radial-gradient(ellipse at 50% 0%,rgba(238,77,45,.15) 0%,transparent 60%)}
+    .stat-card{background:linear-gradient(135deg,rgba(238,77,45,.08),rgba(238,77,45,.02));border:1px solid rgba(238,77,45,.15)}
+    .badge-best{background:linear-gradient(135deg,#FF6533,#EE4D2D)}
+    .badge-flash{background:linear-gradient(135deg,#FFD700,#FFA500);color:#000}
+    .badge-hot{background:linear-gradient(135deg,#FF4444,#CC0000)}
+    .badge-top{background:linear-gradient(135deg,#00C853,#009624)}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#EE4D2D;box-shadow:0 0 0 3px rgba(238,77,45,.2)}
+    .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    .logo-icon:hover{animation:logoFloat 1s ease-in-out infinite}
+  </style>
 </head>
-<body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
+<body class="font-sans text-white min-h-screen grid-bg">
 
-    <!-- ============ NAVIGATION ============ -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur bg-dark-900/80 border-b border-white/5 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-            <a href="#" onclick="navigateTo('home')" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-                    <span class="text-white font-bold text-sm">P</span>
-                </div>
-                <span class="font-bold text-lg">Pixel<span class="gradient-text">Profil</span>.id</span>
-            </a>
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="#" onclick="navigateTo('home')" class="nav-link text-sm text-dark-300 hover:text-white transition-colors" data-page="home">Home</a>
-                <div class="dropdown relative">
-                    <button class="nav-link text-sm text-dark-300 hover:text-white transition-colors flex items-center gap-1" data-page="layanan">
-                        Layanan <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </button>
-                    <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-dark-800 border border-white/10 rounded-xl p-2 shadow-2xl">
-                        <a href="#" onclick="navigateTo('layanan-website')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-dark-300 hover:text-white transition-colors">
-                            <i data-lucide="globe" class="w-4 h-4 text-blue-400"></i> Pembuatan Website
-                        </a>
-                        <a href="#" onclick="navigateTo('layanan-landing')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-dark-300 hover:text-white transition-colors">
-                            <i data-lucide="layout" class="w-4 h-4 text-cyan-400"></i> Landing Page
-                        </a>
-                        <a href="#" onclick="navigateTo('layanan-seo')" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-dark-300 hover:text-white transition-colors">
-                            <i data-lucide="search" class="w-4 h-4 text-purple-400"></i> Jasa SEO
-                        </a>
-                    </div>
-                </div>
-                <a href="#" onclick="navigateTo('portofolio')" class="nav-link text-sm text-dark-300 hover:text-white transition-colors" data-page="portofolio">Portofolio</a>
-                <a href="#" onclick="navigateTo('kontak')" class="nav-link text-sm text-dark-300 hover:text-white transition-colors" data-page="kontak">Kontak</a>
-            </div>
-            <div class="hidden lg:block">
-                <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                    Konsultasi Gratis
-                </a>
-            </div>
-            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-white/5 transition-colors">
-                <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
-            </button>
+  <!-- ============================== -->
+  <!-- DATA KONFIGURASI (TERSEMBUNYI) -->
+  <!-- ============================== -->
+  <div id="__ld" style="display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;position:absolute!important;left:-9999px!important;"
+  data-v="W3siaWQiOjEsIm5hbWUiOiJFYXJidWRzIFRXUyBCbHVldG9vdGggNS4zIFdpcmVsZXNzIiwiaW1hZ2UiOiJodHRwczovL3BpY3N1bS5waG90b3Mvc2VlZC9lYXJidWRzMDEvNDAwLzQwMCIsInByaWNlIjo4OTAwMCwib3JpZ2luYWxQcmljZSI6MjU5MDAwLCJkaXNjb3VudCI6NjYsInJhdGluZyI6NC44LCJzb2xkIjoxNTQwMCwiY2F0ZWdvcnkiOiJFbGVrdHJvbmlrIiwibGluayI6Imh0dHBzOi8vc2hvcGUuZWUvQ09OVE9IX0xJTktfMSIsImRlc2NyaXB0aW9uIjoiRWFyYnVkcyBUV1MgZGVuZ2FuIEJsdWV0b290aCA1LjMsIG5vaXNlIGNhbmNlbGxhdGlvbiBha3RpZiwgYmF0ZXJhaSAzMCBqYW0uIENvY29rIHVudHVrIG9sYWhyYWdhIGRhbiBzZWhhcmktaGFyaS4iLCJiYWRnZSI6IkJlc3QgU2VsbGVyIiwiZnJlZVNoaXBwaW5nIjp0cnVlLCJtYWxsIjpmYWxzZX0seyJpZCI6MiwibmFtZSI6Ikthb3MgT3ZlcnNpemUgQ290dG9uIENvbWJlZCAzMHMgUHJlbWl1bSIsImltYWdlIjoiaHR0cHM6Ly9waWNzdW0ucGhvdG9zL3NlZWQva2FvczAyLzQwMC80MDAiLCJwcmljZSI6NDUwMDAsIm9yaWdpbmFsUHJpY2UiOjg5MDAwLCJkaXNjb3VudCI6NDksInJhdGluZyI6NC43LCJzb2xkIjozMjEwMCwiY2F0ZWdvcnkiOiJGYXNoaW9uIiwibGluayI6Imh0dHBzOi8vc2hvcGUuZWUvQ09OVE9IX0xJTktfMiIsImRlc2NyaXB0aW9uIjoiS2FvcyBvdmVyc2l6ZSBwcmVtaXVtIGNvdHRvbiBjb21iZWQgMzBzLCBueWFtYW4gZGlwYWthaSwgdGVyc2VkaWEgYmVyYmFnYWkgd2FybmEuIFVuaXNleCBmaXQgdW50dWsgcHJpYSBkYW4gd2FuaXRhLiIsImJhZGdlIjoiVG9wIFNhbGVzIiwiZnJlZVNoaXBwaW5nIjp0cnVlLCJtYWxsIjp0cnVlfSx7ImlkIjozLCJuYW1lIjoiVGFzIFJhbnNlbCBBbnRpIEFpciBMYXB0b3AgMTUuNiBpbmNoIiwiaW1hZ2UiOiJodHRwczovL3BpY3N1bS5waG90b3Mvc2VlZC90YXMwMy80MDAvNDAwIiwicHJpY2UiOjEyNTAwMCwib3JpZ2luYWxQcmljZSI6Mjk5MDAwLCJkaXNjb3VudCI6NTgsInJhdGluZyI6NC45LCJzb2xkIjo4NzAwLCJjYXRlZ29yeSI6IkZhc2hpb24iLCJsaW5rIjoiaHR0cHM6Ly9zaG9wZS5lZS9DT05UT0hfTElOS18zIiwiZGVzY3JpcHRpb24iOiJUYXMgcmFuc2VsIHdhdGVycHJvb2YgZGVuZ2FuIHNsb3QgbGFwdG9wIDE1LjYgaW5jaCwgYmFueWFrIGtvbXBhcnRlbWVuLCBkZXNhaW4gc2xpbSBkYW4gbW9kZXJuLiIsImJhZGdlIjpudWxsLCJmcmVlU2hpcHBpbmciOnRydWUsIm1hbGwiOmZhbHNlfSx7ImlkIjo0LCJuYW1lIjoiU2tpbiBDYXJlIFNldCAtIFNlcnVtICsgVG9uZXIgKyBNb2lzdHVyaXplciIsImltYWdlIjoiaHR0cHM6Ly9waWNzdW0ucGhvdG9zL3NlZWQvc2tpbmNhcmUwNC80MDAvNDAwIiwicHJpY2UiOjc5MDAwLCJvcmlnaW5hbFByaWNlIjoxODUwMDAsImRpc2NvdW50Ijo1NywicmF0aW5nIjo0LjYsInNvbGQiOjIyMzAwLCJjYXRlZ29yeSI6IktlY2FudGlrYW4iLCJsaW5rIjoiaHR0cHM6Ly9zaG9wZS5lZS9DT05UT0hfTElOS180IiwiZGVzY3JpcHRpb24iOiJQYWtldCBsZW5na2FwIHBlcmF3YXRhbiB3YWphaCBkZW5nYW4gbmlhY2luYW1pZGUsIGh5YWx1cm9uaWMgYWNpZCwgZGFuIGNlcmFtaWRlLiBVbnR1ayBzZW11YSBqZW5pcyBrdWxpdC4iLCJiYWRnZSI6IkZsYXNoIFNhbGUiLCJmcmVlU2hpcHBpbmciOmZhbHNlLCJtYWxsIjp0cnVlfSx7ImlkIjo1LCJuYW1lIjoiQ2hhcmdlciBGYXN0IENoYXJnaW5nIDY1VyBHYW4gVVNCLUMiLCJpbWFnZSI6Imh0dHBzOi8vcGljc3VtLnBob3Rvcy9zZWVkL2NoYXJnZXIwNS80MDAvNDAwIiwicHJpY2UiOjE0OTAwMCwib3JpZ2luYWxQcmljZSI6MzUwMDAwLCJkaXNjb3VudCI6NTcsInJhdGluZyI6NC44LCJzb2xkIjo2ODAwLCJjYXRlZ29yeSI6IkVsZWt0cm9uaWsiLCJsaW5rIjoiaHR0cHM6Ly9zaG9wZS5lZS9DT05UT0hfTElOS181IiwiZGVzY3JpcHRpb24iOiJDaGFyZ2VyIDY1VyBHYW4gY29tcGFjdCwgc3VwcG9ydCBQRCAzLjAgJiBRQyA0LjAsIGJpc2EgY2hhcmdlIGxhcHRvcCBIUCBTYW1zdW5nIGlQaG9uZSBiZXJzYW1hYW4uIiwiYmFkZ2UiOm51bGwsImZyZWVTaGlwcGluZyI6dHJ1ZSwibWFsbCI6ZmFsc2V9LHsiaWQiOjYsIm5hbWUiOiJTZXBhdHUgU25lYWtlcnMgUnVubmluZyBVbHRyYWxpZ2h0IiwiaW1hZ2UiOiJodHRwczovL3BpY3N1bS5waG90b3Mvc2VlZC9zZXBhdHUwNi80MDAvNDAwIiwicHJpY2UiOjE4OTAwMCwib3JpZ2luYWxQcmljZSI6NDUwMDAwLCJkaXNjb3VudCI6NTgsInJhdGluZyI6NC43LCJzb2xkIjoxMTIwMCwiY2F0ZWdvcnkiOiJGYXNoaW9uIiwibGluayI6Imh0dHBzOi8vc2hvcGUuZWUvQ09OVE9IX0xJTktfNiIsImRlc2NyaXB0aW9uIjoiU2VwYXR1IGxhcmkgdWx0cmFsaWdodCBkZW5nYW4gc29sIGJhbnRhbGFuIGVtcHVrLCBicmVhdGhhYmxlIG1lc2ggdXBwZXIsIGNvY29rIHVudHVrIGpvZ2dpbmcgZGFuIGNhc3VhbC4iLCJiYWRnZSI6IkhvdCBEZWFsIiwiZnJlZVNoaXBwaW5nIjp0cnVlLCJtYWxsIjp0cnVlfSx7ImlkIjo3LCJuYW1lIjoiUGhvbmUgSG9sZGVyIFN0YW5kIEFsdW1pbml1bSBBZGp1c3RhYmxlIiwiaW1hZ2UiOiJodHRwczovL3BpY3N1bS5waG90b3Mvc2VlZC9ob2xkZXIwNy80MDAvNDAwIiwicHJpY2UiOjM1MDAwLCJvcmlnaW5hbFByaWNlIjo3OTAwMCwiZGlzY291bnQiOjU2LCJyYXRpbmciOjQuNSwic29sZCI6NDU2MDAsImNhdGVnb3J5IjoiUnVtYWggVGFuZ2dhIiwibGluayI6Imh0dHBzOi8vc2hvcGUuZWUvQ09OVE9IX0xJTktfNyIsImRlc2NyaXB0aW9uIjoiSG9sZGVyIEhQIGFsdW1pbml1bSBwcmVtaXVtLCBhZGp1c3RhYmxlIDM2MHAsIGFudGktc2xpcCBiYXNlLiBDb2NvayB1bnR1ayBkZXNrLCBrYXN1ciwgZGFuIGJlbGFqYXIuIiwiYmFkZ2UiOiJCZXN0IFNlbGxlciIsImZyZWVTaGlwcGluZyI6dHJ1ZSwibWFsbCI6ZmFsc2V9LHsiaWQiOjgsIm5hbWUiOiJEaWZmdXNlciBBcm9tYXRoZXJhcHkgNTAwbWwgKyAzIEVzc2VudGlhbCBPaWwiLCJpbWFnZSI6Imh0dHBzOi8vcGljc3VtLnBob3Rvcy9zZWVkL2RpZmZ1c2VyMDgvNDAwLzQwMCIsInByaWNlIjo5OTAwMCwib3JpZ2luYWxQcmljZSI6MjIwMDAwLCJkaXNjb3VudCI6NTUsInJhdGluZyI6NC44LCJzb2xkIjo5NDAwLCJjYXRlZ29yeSI6IlJ1bWFoIFRhbmdnYSIsImxpbmsiOiJodHRwczovL3Nob3BlLmVlL0NPTlRPSF9MSU5LXzgiLCJkZXNjcmlwdGlvbiI6IkRpZmZ1c2VyIHVsdHJhc29uaWsgNTAwbWwgZGVuZ2FuIExFRCA3IHdhcm5hLCBhdXRvLW9mZiwgYm9udXMgMyBib3RvbCBlc3NlbnRpYWwgb2lsIChsYXZlbmRlciwgbGVtb24sIGV1Y2FseXB0dXMpLiIsImJhZGdlIjpudWxsLCJmcmVlU2hpcHBpbmciOnRydWUsIm1hbGwiOmZhbHNlfSx7ImlkIjo5LCJuYW1lIjoiTW91c2UgR2FtaW5nIFdpcmVsZXNzIFJHQiAxNjAwMCBEUEkiLCJpbWFnZSI6Imh0dHBzOi8vcGljc3VtLnBob3Rvcy9zZWVkL21vdXNlMDkvNDAwLzQwMCIsInByaWNlIjoxMTUwMDAsIm9yaWdpbmFsUHJpY2UiOjI4MDAwMCwiZGlzY291bnQiOjU5LCJyYXRpbmciOjQuNywic29sZCI6MTg5MDAsImNhdGVnb3J5IjoiRWxla3Ryb25payIsImxpbmsiOiJodHRwczovL3Nob3BlLmVlL0NPTlRPSF9MSU5LXzkiLCJkZXNjcmlwdGlvbiI6Ik1vdXNlIGdhbWluZyB3aXJlbGVzcyBkZW5nYW4gc2Vuc29yIDE2MDAwIERQSSwgNyB0b21ib2wgcHJvZ3JhbW1hYmxlLCBSR0IgbGlnaHRpbmcsIGJhdGVyYWkgdGFoYW4gNzAgamFtLiIsImJhZGdlIjoiRmxhc2ggU2FsZSIsImZyZWVTaGlwcGluZyI6dHJ1ZSwibWFsbCI6ZmFsc2V9LHsiaWQiOjEwLCJuYW1lIjoiQ2VsYW5hIEpvZ2dlciBTbGltIEZpdCBQcmlhIFdhbml0YSIsImltYWdlIjoiaHR0cHM6Ly9waWNzdW0ucGhvdG9zL3NlZWQvam9nZ2VyMTAvNDAwLzQwMCIsInByaWNlIjo2NTAwMCwib3JpZ2luYWxQcmljZSI6MTM1MDAwLCJkaXNjb3VudCI6NTIsInJhdGluZyI6NC42LCJzb2xkIjoyNzgwMCwiY2F0ZWdvcnkiOiJGYXNoaW9uIiwibGluayI6Imh0dHBzOi8vc2hvcGUuZWUvQ09OVE9IX0xJTktfMTAiLCJkZXNjcmlwdGlvbiI6IkNlbGFuYSBqb2dnZXIgc2xpbSBmaXQgZWxhc3RpcywgY29jb2sgdW50dWsgb2xhaHJhZ2EgcmluZ2FuIGRhbiBjYXN1YWwuIFRlcnNlZGlhIHVrdXJhbiBTLVhYTC4iLCJiYWRnZSI6bnVsbCwiZnJlZVNoaXBwaW5nIjp0cnVlLCJtYWxsIjp0cnVlfSx7ImlkIjoxMSwibmFtZSI6IkxhbXB1IExFRCBTdHJpcCBSR0IgNW0gUmVtb3RlICsgQ29udHJvbGxlciIsImltYWdlIjoiaHR0cHM6Ly9waWNzdW0ucGhvdG9zL3NlZWQvbGVkMTEvNDAwLzQwMCIsInByaWNlIjo1NTAwMCwib3JpZ2luYWxQcmljZSI6MTIwMDAwLCJkaXNjb3VudCI6NTQsInJhdGluZyI6NC41LCJzb2xkIjozMzUwMCwiY2F0ZWdvcnkiOiJSdW1haCBUYW5nZ2EiLCJsaW5rIjoiaHR0cHM6Ly9zaG9wZS5lZS9DT05UT0hfTElOS18xMSIsImRlc2NyaXB0aW9uIjoiTEVEIHN0cmlwIFJHQiA1IG1ldGVyIGRlbmdhbiByZW1vdGUgY29udHJvbCwgMTYgd2FybmEgKyA0IG1vZGUsIGFkaGVzaXZlIGt1YXQsIGJpc2EgZGlwb3RvbmcuIiwiYmFkZ2UiOiJUb3AgU2FsZXMiLCJmcmVlU2hpcHBpbmciOnRydWUsIm1hbGwiOmZhbHNlfSx7ImlkIjoxMiwibmFtZSI6IlNlcnVtIFZpdGFtaW4gQyAyMCUgKyBIQSBCcmlnaHRlbmluZyIsImltYWdlIjoiaHR0cHM6Ly9waWNzdW0ucGhvdG9zL3NlZWQvc2VydW0xMi80MDAvNDAwIiwicHJpY2UiOjU5MDAwLCJvcmlnaW5hbFByaWNlIjoxNDUwMDAsImRpc2NvdW50Ijo1OSwicmF0aW5nIjo0LjksInNvbGQiOjQxMjAwLCJjYXRlZ29yeSI6IktlY2FudGlrYW4iLCJsaW5rIjoiaHR0cHM6Ly9zaG9wZS5lZS9DT05UT0hfTElOS18xMiIsImRlc2NyaXB0aW9uIjoiU2VydW0gdml0YW1pbiBDIDIwJSBkZW5nYW4gaHlhbHVyb25pYyBhY2lkLCBtZWNlcmthaWtrbiBrdWxpdCwgbWVuZ3VyYW5naSBmbGVrIGhpdGFtLCB0ZWtzdXIgcmluZ2FuLiIsImJhZGdlIjoiQmVzdCBTZWxsZXIiLCJmcmVlU2hpcHBpbmciOnRydWUsIm1hbGwiOnRydWV9XQ=="></div>
+  <!-- AKHIR DATA KONFIGURASI -->
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed top-20 right-4 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5" style="background:rgba(5,5,5,.85);backdrop-filter:blur(12px)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-2.5 shrink-0 group">
+        <!-- LOGO SVG -->
+        <svg class="logo-icon w-9 h-9 rounded-xl transition-transform" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="10" fill="url(#logoGrad)"/>
+          <path d="M11.5 15a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm13 13a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.2-6.3l-6.6 6.6 1.4 1.4 6.6-6.6-1.4-1.4z" fill="white"/>
+          <path d="M12 22l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#FF6533"/><stop offset="1" stop-color="#D73211"/></linearGradient></defs>
+        </svg>
+        <div class="flex flex-col leading-none">
+          <span class="text-[15px] font-bold tracking-tight text-white">Link<span class="text-brand">Areadiskon</span></span>
+          <span class="text-[9px] text-gray-500 font-medium tracking-wider uppercase">.com</span>
         </div>
-    </nav>
+      </a>
+      <div class="hidden sm:flex flex-1 max-w-xl relative">
+        <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:magnify"></span>
+        <input id="searchInput" type="text" placeholder="Cari produk rekomendasi..." class="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm text-white placeholder-gray-500 transition-all duration-300">
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button onclick="openProductManager()" class="p-2 rounded-lg hover:bg-white/5 transition-colors" title="Kelola Produk">
+          <span class="iconify text-xl text-gray-400" data-icon="mdi:cog-outline"></span>
+        </button>
+        <button id="wishlistBtn" onclick="toggleWishlistView()" class="p-2 rounded-lg hover:bg-white/5 transition-colors relative" title="Wishlist">
+          <span class="iconify text-xl text-gray-400" data-icon="mdi:heart-outline"></span>
+          <span id="wishlistCount" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-brand text-white text-[10px] font-bold rounded-full items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="sm:hidden px-4 pb-3">
+      <div class="relative">
+        <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" data-icon="mdi:magnify"></span>
+        <input id="searchInputMobile" type="text" placeholder="Cari produk..." class="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm text-white placeholder-gray-500">
+      </div>
+    </div>
+  </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-dark-900/98 nav-blur lg:hidden">
-        <div class="flex items-center justify-between px-6 h-16 border-b border-white/5">
-            <span class="font-bold text-lg">Pixel<span class="gradient-text">Profil</span>.id</span>
-            <button onclick="toggleMobileMenu()" class="p-2 rounded-lg hover:bg-white/5"><i data-lucide="x" class="w-5 h-5"></i></button>
+  <!-- Hero -->
+  <section class="hero-gradient pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 relative overflow-hidden">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-brand/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-10 w-96 h-96 bg-brand/3 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand/30 bg-brand/5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+          <span class="text-xs font-medium text-brand-light tracking-wide">Diperbarui Setiap Hari</span>
         </div>
-        <div class="px-6 py-8 flex flex-col gap-2">
-            <a href="#" onclick="navigateTo('home');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors">Home</a>
-            <div class="px-4 py-2 text-xs font-bold uppercase tracking-widest text-dark-400 mt-2">Layanan</div>
-            <a href="#" onclick="navigateTo('layanan-website');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors flex items-center gap-3">
-                <i data-lucide="globe" class="w-4 h-4 text-blue-400"></i> Pembuatan Website
-            </a>
-            <a href="#" onclick="navigateTo('layanan-landing');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors flex items-center gap-3">
-                <i data-lucide="layout" class="w-4 h-4 text-cyan-400"></i> Landing Page
-            </a>
-            <a href="#" onclick="navigateTo('layanan-seo');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors flex items-center gap-3">
-                <i data-lucide="search" class="w-4 h-4 text-purple-400"></i> Jasa SEO
-            </a>
-            <div class="border-t border-white/5 my-4"></div>
-            <a href="#" onclick="navigateTo('portofolio');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors">Portofolio</a>
-            <a href="#" onclick="navigateTo('kontak');toggleMobileMenu()" class="px-4 py-3 rounded-lg hover:bg-white/5 text-dark-300 hover:text-white transition-colors">Kontak</a>
-            <div class="mt-6">
-                <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-5 py-3 rounded-lg">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                    Konsultasi Gratis via WhatsApp
-                </a>
-            </div>
+        <h1 class="fade-up fade-up-d1 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+          Link <span class="gradient-text">Areadiskon</span><br>Shopee Terbaik
+        </h1>
+        <p class="fade-up fade-up-d2 text-base sm:text-lg text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
+          Kurasi produk pilihan dengan diskon hingga <span class="text-brand font-semibold">70%+</span>. Review jujur, harga terpercaya, langsung beli di Shopee.
+        </p>
+        <div class="fade-up fade-up-d3 flex flex-wrap items-center justify-center gap-4">
+          <a href="#products" class="btn-brand inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white">
+            <span class="iconify text-lg" data-icon="mdi:fire"></span>
+            Lihat Promo
+          </a>
+          <a href="#categories" class="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+            Jelajahi Kategori
+          </a>
         </div>
-    </div>
-
-
-    <!-- ============ PAGE: HOME ============ -->
-    <div id="page-home" class="page active">
-
-        <!-- Hero -->
-        <section class="relative min-h-screen flex items-center justify-center grid-pattern overflow-hidden">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] float-anim pointer-events-none"></div>
-            <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
-                <div class="fade-up">
-                    <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-8">
-                        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                        <span class="text-xs font-medium text-blue-300 tracking-wide">Jasa Website Profesional #1</span>
-                    </div>
-                </div>
-                <h1 class="fade-up text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-                    Website Profesional yang<br><span class="gradient-text">Tingkatkan Penjualan</span><br>Anda
-                </h1>
-                <p class="fade-up text-lg md:text-xl text-dark-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Kami membantu UMKM, bisnis online, dan startup membangun website modern, cepat, dan SEO-friendly yang mengubah pengunjung menjadi pelanggan.
-                </p>
-                <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-sm">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                        Konsultasi Gratis via WhatsApp
-                    </a>
-                    <button onclick="navigateTo('portofolio')" class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors text-sm">
-                        <i data-lucide="eye" class="w-4 h-4"></i> Lihat Portofolio
-                    </button>
-                </div>
-                <div class="fade-up mt-16 flex items-center justify-center gap-8 text-dark-400 text-sm">
-                    <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400"></i> Tanpa DP</div>
-                    <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400"></i> Revisi Gratis</div>
-                    <div class="hidden sm:flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400"></i> Garansi 30 Hari</div>
-                </div>
-            </div>
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-                <i data-lucide="chevron-down" class="w-5 h-5 text-dark-400"></i>
-            </div>
-        </section>
-
-        <!-- Why Choose Us -->
-        <section class="py-24 px-6 border-t border-white/5">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3 block">Kenapa Pilih Kami</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Mengapa <span class="gradient-text">PixelProfil.id</span>?</h2>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5"><i data-lucide="zap" class="w-6 h-6 text-blue-400"></i></div>
-                        <h3 class="font-semibold text-lg mb-2">Cepat & Responsif</h3>
-                        <p class="text-sm text-dark-300 leading-relaxed">Website loading super cepat dan tampil sempurna di semua perangkat, dari desktop hingga smartphone.</p>
-                    </div>
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7" style="transition-delay:.1s">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5"><i data-lucide="palette" class="w-6 h-6 text-cyan-400"></i></div>
-                        <h3 class="font-semibold text-lg mb-2">Design Modern</h3>
-                        <p class="text-sm text-dark-300 leading-relaxed">Desain UI/UX yang kekinian, clean, dan profesional sesuai identitas brand Anda.</p>
-                    </div>
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7" style="transition-delay:.2s">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5"><i data-lucide="trending-up" class="w-6 h-6 text-purple-400"></i></div>
-                        <h3 class="font-semibold text-lg mb-2">SEO Friendly</h3>
-                        <p class="text-sm text-dark-300 leading-relaxed">Struktur kode optimal untuk mesin pencari Google, membantu website Anda mudah ditemukan.</p>
-                    </div>
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7" style="transition-delay:.3s">
-                        <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-5"><i data-lucide="headphones" class="w-6 h-6 text-green-400"></i></div>
-                        <h3 class="font-semibold text-lg mb-2">Support Full</h3>
-                        <p class="text-sm text-dark-300 leading-relaxed">Tim support siap membantu Anda kapan saja. Respons cepat via WhatsApp untuk semua kebutuhan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Summary -->
-        <section class="py-24 px-6 border-t border-white/5 relative">
-            <div class="absolute inset-0 service-gradient pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-16 fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3 block">Layanan Kami</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Solusi Digital <span class="gradient-text">Lengkap</span> untuk Bisnis Anda</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="fade-up card-hover group bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden">
-                        <div class="h-48 bg-gradient-to-br from-blue-600/20 to-blue-800/20 flex items-center justify-center relative overflow-hidden">
-                            <i data-lucide="globe" class="w-16 h-16 text-blue-400/60 group-hover:scale-110 transition-transform duration-500"></i>
-                        </div>
-                        <div class="p-7">
-                            <h3 class="font-bold text-xl mb-3">Pembuatan Website</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-5">Website company profile, toko online, atau portal berita dengan desain custom dan fitur lengkap.</p>
-                            <button onclick="navigateTo('layanan-website')" class="inline-flex items-center gap-1 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors">
-                                Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="fade-up card-hover group bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" style="transition-delay:.1s">
-                        <div class="h-48 bg-gradient-to-br from-cyan-600/20 to-cyan-800/20 flex items-center justify-center relative overflow-hidden">
-                            <i data-lucide="layout" class="w-16 h-16 text-cyan-400/60 group-hover:scale-110 transition-transform duration-500"></i>
-                        </div>
-                        <div class="p-7">
-                            <h3 class="font-bold text-xl mb-3">Pembuatan Landing Page</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-5">Landing page high-conversion untuk campaign iklan, produk digital, dan jasa yang Anda tawarkan.</p>
-                            <button onclick="navigateTo('layanan-landing')" class="inline-flex items-center gap-1 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
-                                Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="fade-up card-hover group bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" style="transition-delay:.2s">
-                        <div class="h-48 bg-gradient-to-br from-purple-600/20 to-purple-800/20 flex items-center justify-center relative overflow-hidden">
-                            <i data-lucide="search" class="w-16 h-16 text-purple-400/60 group-hover:scale-110 transition-transform duration-500"></i>
-                        </div>
-                        <div class="p-7">
-                            <h3 class="font-bold text-xl mb-3">Jasa SEO</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-5">Optimasi website agar ranking #1 Google, tingkatkan traffic organik dan penjualan secara konsisten.</p>
-                            <button onclick="navigateTo('layanan-seo')" class="inline-flex items-center gap-1 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors">
-                                Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats -->
-        <section class="py-20 px-6 border-t border-white/5">
-            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 fade-up">
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-1" data-count="50">0+</div>
-                    <div class="text-sm text-dark-400">Project Selesai</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-1" data-count="35">0+</div>
-                    <div class="text-sm text-dark-400">Klien Puas</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-1" data-count="3">0+</div>
-                    <div class="text-sm text-dark-400">Tahun Pengalaman</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-1" data-count="99">0%</div>
-                    <div class="text-sm text-dark-400">Tingkat Kepuasan</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="py-24 px-6 border-t border-white/5">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3 block">Testimoni</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Apa Kata <span class="gradient-text">Klien Kami</span>?</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7">
-                        <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                        </div>
-                        <p class="text-sm text-dark-300 leading-relaxed mb-6">"Website toko online saya jadi terlihat sangat profesional. Penjualan meningkat 3x lipat setelah pakai jasa PixelProfil. Pelayanan ramah dan responsif!"</p>
-                        <div class="flex items-center gap-3">
-                            <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=2563eb&color=fff&size=40&bold=true" class="w-10 h-10 rounded-full" alt="Budi">
-                            <div>
-                                <div class="text-sm font-semibold">Budi Santoso</div>
-                                <div class="text-xs text-dark-400">Owner, TokoSejahtera.id</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7" style="transition-delay:.1s">
-                        <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                        </div>
-                        <p class="text-sm text-dark-300 leading-relaxed mb-6">"Landing page yang dibuat PixelProfil benar-benar mengkonversi! Dari 1000 pengunjung iklan, 150 langsung chat WA. ROI iklan saya jadi positif."</p>
-                        <div class="flex items-center gap-3">
-                            <img src="https://ui-avatars.com/api/?name=Sari+Dewi&background=06b6d4&color=fff&size=40&bold=true" class="w-10 h-10 rounded-full" alt="Sari">
-                            <div>
-                                <div class="text-sm font-semibold">Sari Dewi</div>
-                                <div class="text-xs text-dark-400">Founder, KursusOnline.id</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fade-up card-hover bg-white/[0.03] border border-white/5 rounded-2xl p-7" style="transition-delay:.2s">
-                        <div class="flex gap-1 mb-4">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-                        </div>
-                        <p class="text-sm text-dark-300 leading-relaxed mb-6">"SEO dari PixelProfil membuat website saya masuk halaman 1 Google dalam 2 bulan. Traffic naik 500% dan banyak lead yang masuk otomatis."</p>
-                        <div class="flex items-center gap-3">
-                            <img src="https://ui-avatars.com/api/?name=Ahmad+Rizki&background=8b5cf6&color=fff&size=40&bold=true" class="w-10 h-10 rounded-full" alt="Ahmad">
-                            <div>
-                                <div class="text-sm font-semibold">Ahmad Rizki</div>
-                                <div class="text-xs text-dark-400">Content Creator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-24 px-6 border-t border-white/5 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-cyan-500/10 pointer-events-none"></div>
-            <div class="max-w-3xl mx-auto text-center relative z-10 fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6">Siap Tingkatkan Bisnis Anda <span class="gradient-text">Secara Online</span>?</h2>
-                <p class="text-lg text-dark-300 mb-10 leading-relaxed">Jangan biarkan kompetitor Anda mendominasi internet. Mulai sekarang, konsultasikan kebutuhan digital Anda secara GRATIS bersama tim kami.</p>
-                <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold px-10 py-4 rounded-xl hover:opacity-90 transition-opacity text-base shadow-lg shadow-blue-500/25">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                    Chat Sekarang via WhatsApp
-                </a>
-                <p class="text-xs text-dark-400 mt-4">Respon cepat dalam 5 menit • Konsultasi 100% gratis</p>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ PAGE: LAYANAN WEBSITE ============ -->
-    <div id="page-layanan-website" class="page">
-        <section class="pt-28 pb-24 px-6 service-gradient relative">
-            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
-            <div class="max-w-5xl mx-auto relative z-10">
-                <button onclick="navigateTo('home')" class="fade-up inline-flex items-center gap-2 text-sm text-dark-300 hover:text-white transition-colors mb-8">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Home
-                </button>
-                <div class="fade-up inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-6">
-                    <i data-lucide="globe" class="w-3 h-3 text-blue-400"></i>
-                    <span class="text-xs font-medium text-blue-300">Layanan Utama</span>
-                </div>
-                <h1 class="fade-up text-4xl md:text-5xl font-bold tracking-tight mb-6">Pembuatan <span class="gradient-text">Website Profesional</span></h1>
-                <p class="fade-up text-lg text-dark-300 max-w-3xl leading-relaxed mb-12">Kami membangun website custom yang tidak hanya cantik, tapi juga dirancang untuk menghasilkan leads dan penjualan. Setiap website dibuat sesuai kebutuhan unik bisnis Anda.</p>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="fade-up">
-                        <img src="https://picsum.photos/seed/website-pro/700/500.jpg" alt="Website Profesional" class="rounded-2xl border border-white/10 w-full object-cover aspect-[4/3]">
-                    </div>
-                    <div class="fade-up">
-                        <h3 class="font-bold text-xl mb-6">Fitur yang Anda Dapatkan:</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Custom Design</div><div class="text-xs text-dark-400 mt-0.5">Desain unik sesuai brand identity Anda</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Mobile Friendly</div><div class="text-xs text-dark-400 mt-0.5">Responsif sempurna di semua device</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Fast Loading</div><div class="text-xs text-dark-400 mt-0.5">Optimasi kecepatan di bawah 3 detik</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">SSL Certificate</div><div class="text-xs text-dark-400 mt-0.5">Keamanan HTTPS untuk website Anda</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Admin Panel</div><div class="text-xs text-dark-400 mt-0.5">Kelola konten sendiri tanpa coding</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Domain + Hosting</div><div class="text-xs text-dark-400 mt-0.5">Opsional, bisa pakai atau bawa sendiri</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">SEO Basic</div><div class="text-xs text-dark-400 mt-0.5">Struktur siap optimasi mesin pencari</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i></div><div><div class="font-medium text-sm">Maintenance Support</div><div class="text-xs text-dark-400 mt-0.5">Garansi 30 hari + support berkelanjutan</div></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fade-up mt-16 bg-white/[0.03] border border-white/5 rounded-2xl p-8">
-                    <h3 class="font-bold text-xl mb-4">Cocok untuk:</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-sm text-blue-300">🛍️ Toko Online / E-commerce</span>
-                        <span class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-sm text-cyan-300">🏢 Company Profile</span>
-                        <span class="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-300">📰 Portal Berita / Blog</span>
-                        <span class="px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-300">👨‍💼 Personal Branding</span>
-                        <span class="px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-sm text-yellow-300">🍽️ Restoran / Cafe</span>
-                        <span class="px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-sm text-pink-300">🏥 Klinik / Kesehatan</span>
-                    </div>
-                </div>
-
-                <div class="fade-up mt-12 flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20layanan%20Pembuatan%20Website." target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                        Konsultasi via WhatsApp
-                    </a>
-                    <button onclick="navigateTo('kontak')" class="inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors">
-                        <i data-lucide="file-text" class="w-4 h-4"></i> Isi Form Order
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ PAGE: LAYANAN LANDING PAGE ============ -->
-    <div id="page-layanan-landing" class="page">
-        <section class="pt-28 pb-24 px-6 service-gradient relative">
-            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
-            <div class="max-w-5xl mx-auto relative z-10">
-                <button onclick="navigateTo('home')" class="fade-up inline-flex items-center gap-2 text-sm text-dark-300 hover:text-white transition-colors mb-8">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Home
-                </button>
-                <div class="fade-up inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5 mb-6">
-                    <i data-lucide="layout" class="w-3 h-3 text-cyan-400"></i>
-                    <span class="text-xs font-medium text-cyan-300">High Conversion</span>
-                </div>
-                <h1 class="fade-up text-4xl md:text-5xl font-bold tracking-tight mb-6">Pembuatan <span class="gradient-text">Landing Page</span></h1>
-                <p class="fade-up text-lg text-dark-300 max-w-3xl leading-relaxed mb-12">Landing page yang dirancang khusus untuk mengkonversi pengunjung menjadi leads atau pembeli. Satu halaman, satu tujuan, hasil maksimal.</p>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="fade-up">
-                        <img src="https://picsum.photos/seed/landing-page-cv/700/500.jpg" alt="Landing Page" class="rounded-2xl border border-white/10 w-full object-cover aspect-[4/3]">
-                    </div>
-                    <div class="fade-up">
-                        <h3 class="font-bold text-xl mb-6">Fitur yang Anda Dapatkan:</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">High-Converting Design</div><div class="text-xs text-dark-400 mt-0.5">Layout dioptimasi untuk konversi tinggi</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">Lead Capture Form</div><div class="text-xs text-dark-400 mt-0.5">Formulir terintegrasi langsung ke WhatsApp</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">Mobile Optimized</div><div class="text-xs text-dark-400 mt-0.5">70%+ traffic dari mobile, kami optimalkan</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">Fast Loading</div><div class="text-xs text-dark-400 mt-0.5">Loading cepat, tidak bikin pengunjung kabur</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">A/B Testing Ready</div><div class="text-xs text-dark-400 mt-0.5">Struktur siap untuk split testing</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i></div><div><div class="font-medium text-sm">Analytics Integration</div><div class="text-xs text-dark-400 mt-0.5">Terintegrasi Google Analytics & Pixel</div></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fade-up mt-16 bg-white/[0.03] border border-white/5 rounded-2xl p-8">
-                    <h3 class="font-bold text-xl mb-4">Paling cocok untuk:</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/10"><span class="text-2xl">📦</span><div><div class="text-sm font-medium">Produk Digital</div><div class="text-xs text-dark-400">Ebook, course, template</div></div></div>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/10"><span class="text-2xl">💼</span><div><div class="text-sm font-medium">Jasa Profesional</div><div class="text-xs text-dark-400">Konsultasi, freelancing</div></div></div>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/10"><span class="text-2xl">📢</span><div><div class="text-sm font-medium">Ads Campaign</div><div class="text-xs text-dark-400">Facebook & Google Ads</div></div></div>
-                    </div>
-                </div>
-
-                <div class="fade-up mt-12 flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20layanan%20Pembuatan%20Landing%20Page." target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                        Konsultasi via WhatsApp
-                    </a>
-                    <button onclick="navigateTo('kontak')" class="inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors">
-                        <i data-lucide="file-text" class="w-4 h-4"></i> Isi Form Order
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ PAGE: LAYANAN SEO ============ -->
-    <div id="page-layanan-seo" class="page">
-        <section class="pt-28 pb-24 px-6 service-gradient relative">
-            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
-            <div class="max-w-5xl mx-auto relative z-10">
-                <button onclick="navigateTo('home')" class="fade-up inline-flex items-center gap-2 text-sm text-dark-300 hover:text-white transition-colors mb-8">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Home
-                </button>
-                <div class="fade-up inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-1.5 mb-6">
-                    <i data-lucide="search" class="w-3 h-3 text-purple-400"></i>
-                    <span class="text-xs font-medium text-purple-300">Rank #1 Google</span>
-                </div>
-                <h1 class="fade-up text-4xl md:text-5xl font-bold tracking-tight mb-6">Jasa <span class="gradient-text">SEO Profesional</span></h1>
-                <p class="fade-up text-lg text-dark-300 max-w-3xl leading-relaxed mb-12">Dominasi halaman pertama Google dan dapatkan traffic organik yang konsisten. Kami menggunakan strategi SEO white-hat yang aman dan terbukti efektif.</p>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                    <div class="fade-up">
-                        <img src="https://picsum.photos/seed/seo-analytics/700/500.jpg" alt="Jasa SEO" class="rounded-2xl border border-white/10 w-full object-cover aspect-[4/3]">
-                    </div>
-                    <div class="fade-up">
-                        <h3 class="font-bold text-xl mb-6">Yang Kami Lakukan:</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">Keyword Research</div><div class="text-xs text-dark-400 mt-0.5">Riset kata kunci potensial dengan volume tinggi</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">On-Page Optimization</div><div class="text-xs text-dark-400 mt-0.5">Optimasi title, meta, heading, dan konten</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">Technical SEO</div><div class="text-xs text-dark-400 mt-0.5">Fix error, sitemap, robots.txt, schema markup</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">Content Optimization</div><div class="text-xs text-dark-400 mt-0.5">Optimasi konten yang sudah ada & rekomendasi baru</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">Google My Business</div><div class="text-xs text-dark-400 mt-0.5">Optimasi profil bisnis Google lokal</div></div></div>
-                            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center mt-0.5 shrink-0"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i></div><div><div class="font-medium text-sm">Performance Tracking</div><div class="text-xs text-dark-400 mt-0.5">Laporan bulanan ranking & traffic</div></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Process -->
-                <div class="fade-up">
-                    <h3 class="font-bold text-xl mb-8 text-center">Proses Kerja Kami</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
-                        <div class="text-center">
-                            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-bold gradient-text">1</span></div>
-                            <div class="font-semibold text-sm mb-1">Audit</div>
-                            <div class="text-xs text-dark-400">Analisis menyeluruh website Anda</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-bold gradient-text">2</span></div>
-                            <div class="font-semibold text-sm mb-1">Strategy</div>
-                            <div class="text-xs text-dark-400">Rencana SEO yang disesuaikan</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-bold gradient-text">3</span></div>
-                            <div class="font-semibold text-sm mb-1">Execution</div>
-                            <div class="text-xs text-dark-400">Implementasi optimasi SEO</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-bold gradient-text">4</span></div>
-                            <div class="font-semibold text-sm mb-1">Monitor</div>
-                            <div class="text-xs text-dark-400">Pantau & laporkan hasilnya</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fade-up mt-12 flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20layanan%20Jasa%20SEO." target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                        Konsultasi via WhatsApp
-                    </a>
-                    <button onclick="navigateTo('kontak')" class="inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors">
-                        <i data-lucide="file-text" class="w-4 h-4"></i> Isi Form Order
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ PAGE: PORTOFOLIO ============ -->
-    <div id="page-portofolio" class="page">
-        <section class="pt-28 pb-24 px-6 relative">
-            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-12 fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3 block">Portofolio</span>
-                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Project <span class="gradient-text">Terbaru Kami</span></h1>
-                    <p class="text-dark-300 max-w-2xl mx-auto">Beberapa project yang telah kami selesaikan untuk klien dari berbagai industri.</p>
-                </div>
-
-                <!-- Filter -->
-                <div class="fade-up flex items-center justify-center gap-3 mb-12">
-                    <button onclick="filterPortfolio('all')" class="filter-btn active px-5 py-2 rounded-full text-sm font-medium bg-blue-500/10 text-blue-300 border border-blue-500/20 transition-colors" data-filter="all">Semua</button>
-                    <button onclick="filterPortfolio('website')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-dark-300 border border-white/10 hover:bg-white/10 transition-colors" data-filter="website">Website</button>
-                    <button onclick="filterPortfolio('landing')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white/5 text-dark-300 border border-white/10 hover:bg-white/10 transition-colors" data-filter="landing">Landing Page</button>
-                </div>
-
-                <!-- Grid -->
-                <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="website">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/ecom-fashion/600/400.jpg" alt="Toko Online Fashion" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-blue-500/80 text-xs font-medium backdrop-blur-sm">Website</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">TokoSejahtera.id</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Website toko online fashion dengan fitur keranjang belanja, payment gateway, dan tracking pesanan.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> E-commerce</div>
-                        </div>
-                    </div>
-
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="landing" style="transition-delay:.1s">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/course-lp/600/400.jpg" alt="Landing Page Kursus" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-cyan-500/80 text-xs font-medium backdrop-blur-sm">Landing Page</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">KursusDigital.id</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Landing page untuk kursus online digital marketing dengan konversi 15% dari total pengunjung.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> Produk Digital</div>
-                        </div>
-                    </div>
-
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="website" style="transition-delay:.2s">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/restaurant-web/600/400.jpg" alt="Website Restoran" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-blue-500/80 text-xs font-medium backdrop-blur-sm">Website</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">WarungNusantara.com</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Website restoran dengan menu online, reservasi meja, dan integrasi Google Maps.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> Restoran</div>
-                        </div>
-                    </div>
-
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="landing">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/digital-product/600/400.jpg" alt="Landing Page Produk Digital" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-cyan-500/80 text-xs font-medium backdrop-blur-sm">Landing Page</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">TemplatePro.id</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Landing page penjualan template website yang menghasilkan 200+ penjualan di bulan pertama.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> Produk Digital</div>
-                        </div>
-                    </div>
-
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="website" style="transition-delay:.1s">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/fintech-startup/600/400.jpg" alt="Website Startup" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-blue-500/80 text-xs font-medium backdrop-blur-sm">Website</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">FinPay.id</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Website company profile startup fintech dengan animasi modern dan multi-bahasa.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> Startup</div>
-                        </div>
-                    </div>
-
-                    <div class="fade-up portfolio-item card-hover bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden" data-category="landing" style="transition-delay:.2s">
-                        <div class="relative group overflow-hidden">
-                            <img src="https://picsum.photos/seed/design-service/600/400.jpg" alt="Landing Page Jasa" class="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full bg-cyan-500/80 text-xs font-medium backdrop-blur-sm">Landing Page</span></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">DesainKita.com</h3>
-                            <p class="text-sm text-dark-300 leading-relaxed mb-4">Landing page jasa desain grafis dengan portfolio showcase dan form order terintegrasi WhatsApp.</p>
-                            <div class="flex items-center gap-2 text-xs text-dark-400"><i data-lucide="tag" class="w-3 h-3"></i> Jasa</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ PAGE: KONTAK ============ -->
-    <div id="page-kontak" class="page">
-        <section class="pt-28 pb-24 px-6 relative">
-            <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-            <div class="max-w-6xl mx-auto relative z-10">
-                <div class="text-center mb-16 fade-up">
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3 block">Kontak</span>
-                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Mari <span class="gradient-text">Bekerja Sama</span></h1>
-                    <p class="text-dark-300 max-w-2xl mx-auto">Hubungi kami atau isi form di bawah untuk memulai project Anda. Kami siap membantu!</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                    <!-- Contact Info -->
-                    <div class="lg:col-span-2 fade-up">
-                        <div class="space-y-6 mb-10">
-                            <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-green-500/30 transition-colors group">
-                                <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors">
-                                    <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-dark-400 mb-0.5">WhatsApp</div>
-                                    <div class="font-semibold text-sm">0822-4208-7663</div>
-                                </div>
-                            </a>
-                            <div class="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                                <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="mail" class="w-6 h-6 text-blue-400"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-dark-400 mb-0.5">Email</div>
-                                    <div class="font-semibold text-sm">csduosejoli@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="clock" class="w-6 h-6 text-purple-400"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-dark-400 mb-0.5">Jam Operasional</div>
-                                    <div class="font-semibold text-sm">Senin - Sabtu, 09:00 - 21:00</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-gradient-to-br from-blue-600/10 to-cyan-500/10 border border-blue-500/10 rounded-2xl p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-blue-400"></i>
-                                <h4 class="font-bold text-sm">Konsultasi Gratis</h4>
-                            </div>
-                            <p class="text-xs text-dark-300 leading-relaxed">Bingung mulai dari mana? Chat kami di WhatsApp, ceritakan kebutuhan Anda, dan dapatkan rekomendasi gratis tanpa kewajiban order.</p>
-                        </div>
-                    </div>
-
-                    <!-- Form -->
-                    <div class="lg:col-span-3 fade-up">
-                        <form id="order-form" onsubmit="handleFormSubmit(event)" class="bg-white/[0.03] border border-white/5 rounded-2xl p-8">
-                            <h3 class="font-bold text-xl mb-6">Form Permintaan Order</h3>
-                            <div class="space-y-5">
-                                <div>
-                                    <label class="block text-sm font-medium mb-2">Nama Lengkap <span class="text-red-400">*</span></label>
-                                    <input type="text" id="form-nama" required placeholder="Masukkan nama Anda" class="w-full bg-dark-800 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2">Email <span class="text-red-400">*</span></label>
-                                    <input type="email" id="form-email" required placeholder="email@anda.com" class="w-full bg-dark-800 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2">No. WhatsApp <span class="text-red-400">*</span></label>
-                                    <input type="tel" id="form-wa" required placeholder="08xxxxxxxxxx" class="w-full bg-dark-800 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2">Jenis Layanan <span class="text-red-400">*</span></label>
-                                    <select id="form-layanan" required class="w-full bg-dark-800 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors appearance-none cursor-pointer" style="background-image:url('data:image/svg+xml;utf8,<svg fill=\'%23a3a3a3\' viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/></svg>');background-repeat:no-repeat;background-position:right 12px center;background-size:20px;">
-                                        <option value="" disabled selected class="text-dark-400">Pilih layanan...</option>
-                                        <option value="Pembuatan Website">Pembuatan Website</option>
-                                        <option value="Pembuatan Landing Page">Pembuatan Landing Page</option>
-                                        <option value="Jasa SEO">Jasa SEO</option>
-                                        <option value="Paket Website + SEO">Paket Website + SEO</option>
-                                        <option value="Lainnya">Lainnya</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2">Deskripsi Kebutuhan <span class="text-red-400">*</span></label>
-                                    <textarea id="form-deskripsi" required rows="4" placeholder="Jelaskan secara singkat kebutuhan website/landing page/SEO Anda..." class="w-full bg-dark-800 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-dark-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors resize-none"></textarea>
-                                </div>
-                                <button type="submit" id="form-submit-btn" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-sm">
-                                    <i data-lucide="send" class="w-4 h-4"></i> Kirim Permintaan
-                                </button>
-                                <p class="text-xs text-dark-400 text-center">Data Anda akan dikirim via WhatsApp untuk respon lebih cepat</p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="border-t border-white/5 py-16 px-6 bg-dark-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-                            <span class="text-white font-bold text-sm">P</span>
-                        </div>
-                        <span class="font-bold text-lg">Pixel<span class="gradient-text">Profil</span>.id</span>
-                    </div>
-                    <p class="text-sm text-dark-300 leading-relaxed max-w-sm mb-6">Jasa pembuatan website, landing page, dan SEO profesional untuk UMKM, bisnis online, personal branding, dan startup Indonesia.</p>
-                    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="inline-flex items-center gap-2 text-sm text-green-400 hover:text-green-300 transition-colors">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                        0822-4208-7663
-                    </a>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-4">Layanan</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" onclick="navigateTo('layanan-website')" class="text-sm text-dark-300 hover:text-white transition-colors">Pembuatan Website</a></li>
-                        <li><a href="#" onclick="navigateTo('layanan-landing')" class="text-sm text-dark-300 hover:text-white transition-colors">Landing Page</a></li>
-                        <li><a href="#" onclick="navigateTo('layanan-seo')" class="text-sm text-dark-300 hover:text-white transition-colors">Jasa SEO</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm mb-4">Navigasi</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" onclick="navigateTo('home')" class="text-sm text-dark-300 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" onclick="navigateTo('portofolio')" class="text-sm text-dark-300 hover:text-white transition-colors">Portofolio</a></li>
-                        <li><a href="#" onclick="navigateTo('kontak')" class="text-sm text-dark-300 hover:text-white transition-colors">Kontak</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-dark-400">&copy; 2025 PixelProfil.id. All rights reserved.</p>
-                <p class="text-xs text-dark-400">Dibuat dengan <span class="text-red-400">❤</span> di Indonesia</p>
-            </div>
+      </div>
+      <div class="fade-up fade-up-d4 grid grid-cols-2 sm:grid-cols-4 gap-3 mt-14 max-w-3xl mx-auto">
+        <div class="stat-card rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-brand" id="statProducts">0</div>
+          <div class="text-xs text-gray-500 mt-1">Produk Pilihan</div>
         </div>
-    </footer>
+        <div class="stat-card rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-brand" id="statDiscount">0%</div>
+          <div class="text-xs text-gray-500 mt-1">Max Diskon</div>
+        </div>
+        <div class="stat-card rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-brand" id="statCategories">0</div>
+          <div class="text-xs text-gray-500 mt-1">Kategori</div>
+        </div>
+        <div class="stat-card rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-brand">Gratis</div>
+          <div class="text-xs text-gray-500 mt-1">Ongkir*</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flash Sale Timer -->
+  <section class="px-4 sm:px-6 py-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-gradient-to-r from-brand/10 via-brand/5 to-transparent border border-brand/20 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="iconify text-3xl text-brand" data-icon="mdi:flash"></span>
+          <div>
+            <h3 class="text-lg font-bold text-white">Flash Sale 🔥</h3>
+            <p class="text-xs text-gray-400">Berakhir dalam</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="bg-surface-200 rounded-lg px-3 py-2 text-center min-w-[56px]">
+            <div id="timerH" class="text-xl font-bold text-brand">00</div>
+          </div>
+          <span class="text-brand font-bold text-xl">:</span>
+          <div class="bg-surface-200 rounded-lg px-3 py-2 text-center min-w-[56px]">
+            <div id="timerM" class="text-xl font-bold text-brand">00</div>
+          </div>
+          <span class="text-brand font-bold text-xl">:</span>
+          <div class="bg-surface-200 rounded-lg px-3 py-2 text-center min-w-[56px]">
+            <div id="timerS" class="text-xl font-bold text-brand">00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="categories" class="px-4 sm:px-6 py-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 overflow-x-auto pb-3" id="categoryBar" style="scrollbar-width:none;-ms-overflow-style:none"></div>
+    </div>
+  </section>
+
+  <!-- Sort -->
+  <section class="px-4 sm:px-6 py-2">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <p class="text-sm text-gray-400"><span id="resultCount" class="text-white font-semibold">0</span> produk ditemukan</p>
+      <select id="sortSelect" class="bg-surface-200 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+        <option value="popular">Paling Populer</option>
+        <option value="discount">Diskon Tertinggi</option>
+        <option value="price-low">Harga Terendah</option>
+        <option value="price-high">Harga Tertinggi</option>
+        <option value="rating">Rating Tertinggi</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="px-4 sm:px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <div id="skeletonGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="hidden md:block rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="hidden lg:block rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="hidden md:block rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+        <div class="hidden lg:block rounded-2xl overflow-hidden bg-surface-100"><div class="skeleton aspect-square"></div><div class="p-4 space-y-3"><div class="skeleton h-4 rounded w-full"></div><div class="skeleton h-4 rounded w-2/3"></div><div class="skeleton h-6 rounded w-1/2"></div></div></div>
+      </div>
+      <div id="productGrid" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
+      <div id="emptyState" class="hidden text-center py-20">
+        <span class="iconify text-6xl text-gray-700 mx-auto" data-icon="mdi:package-variant-remove"></span>
+        <p class="text-gray-500 mt-4 text-lg">Produk tidak ditemukan</p>
+        <p class="text-gray-600 text-sm mt-1">Coba kata kunci atau kategori lain</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <!-- Footer -->
+  <footer class="border-t border-white/5 mt-12 px-4 sm:px-6 py-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <a href="#" class="flex items-center gap-2.5 mb-4">
+            <svg class="w-8 h-8 rounded-lg" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="10" fill="url(#logoGrad2)"/><path d="M11.5 15a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm13 13a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.2-6.3l-6.6 6.6 1.4 1.4 6.6-6.6-1.4-1.4z" fill="white"/><path d="M12 22l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#FF6533"/><stop offset="1" stop-color="#D73211"/></linearGradient></defs></svg>
+            <div class="flex flex-col leading-none"><span class="text-base font-bold text-white">Link<span class="text-brand">Areadiskon</span></span><span class="text-[8px] text-gray-500 font-medium tracking-wider uppercase">.com</span></div>
+          </a>
+          <p class="text-sm text-gray-500 leading-relaxed mb-5">Kurasi produk terbaik dari Shopee. Kami membantu kamu menemukan link areadiskon terbaik tanpa perlu scroll berjam-jam.</p>
+          <!-- Social Media Icons -->
+          <div class="flex items-center gap-2.5">
+            <a href="https://facebook.com/USERNAME" target="_blank" rel="noopener noreferrer" class="social-icon group w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center hover:bg-[#1877F2]/15 hover:border-[#1877F2]/40 transition-all duration-300" title="Facebook">
+              <svg class="w-[18px] h-[18px] text-gray-500 group-hover:text-[#1877F2] transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/USERNAME" target="_blank" rel="noopener noreferrer" class="social-icon group w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center hover:bg-[#E4405F]/15 hover:border-[#E4405F]/40 transition-all duration-300" title="Instagram">
+              <svg class="w-[18px] h-[18px] text-gray-500 group-hover:text-[#E4405F] transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://youtube.com/@USERNAME" target="_blank" rel="noopener noreferrer" class="social-icon group w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center hover:bg-[#FF0000]/15 hover:border-[#FF0000]/40 transition-all duration-300" title="YouTube">
+              <svg class="w-[18px] h-[18px] text-gray-500 group-hover:text-[#FF0000] transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@USERNAME" target="_blank" rel="noopener noreferrer" class="social-icon group w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center hover:bg-white/15 hover:border-white/30 transition-all duration-300" title="TikTok">
+              <svg class="w-[18px] h-[18px] text-gray-500 group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://shopee.co.id/USERNAME" target="_blank" rel="noopener noreferrer" class="social-icon group w-10 h-10 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center hover:bg-[#EE4D2D]/15 hover:border-[#EE4D2D]/40 transition-all duration-300" title="Shopee">
+              <svg class="w-[18px] h-[18px] text-gray-500 group-hover:text-[#EE4D2D] transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 13.25c-.18.45-.76.84-1.26.91-1.07.15-2.15.15-3.23.15h-.3c-1.08 0-2.16 0-3.23-.15-.5-.07-1.08-.46-1.26-.91-.2-.5-.2-1.04-.2-1.56v-.17c0-.53 0-1.07.2-1.56.18-.45.76-.84 1.26-.91.18-.03.36-.04.54-.05-.03-.28-.13-.55-.3-.77-.22-.3-.57-.48-.95-.48-.05 0-.1 0-.15.01l-.01-.01c.26-.46.74-.77 1.29-.77.3 0 .57.09.8.24.23.15.42.37.54.63.06.13.1.27.12.42.37-.03.75-.05 1.13-.05h.3c.38 0 .76.02 1.13.05.02-.15.06-.29.12-.42.12-.26.31-.48.54-.63.23-.15.5-.24.8-.24.55 0 1.03.31 1.29.77l-.01.01c-.05-.01-.1-.01-.15-.01-.38 0-.73.18-.95.48-.17.22-.27.49-.3.77.18.01.36.02.54.05.5.07 1.08.46 1.26.91.2.5.2 1.04.2 1.56v.17c0 .53 0 1.07-.2 1.56z"/><path d="M9.5 12.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm5 0c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kategori -->
+        <div>
+          <h4 class="font-semibold text-sm text-white mb-4">Kategori Populer</h4>
+          <div id="footerCategories" class="space-y-2 text-sm text-gray-500"></div>
+        </div>
+
+        <!-- Link Penting -->
+        <div>
+          <h4 class="font-semibold text-sm text-white mb-4">Link Penting</h4>
+          <div class="space-y-2 text-sm text-gray-500">
+            <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer" class="block hover:text-brand transition-colors">Shopee Indonesia</a>
+            <a href="#" class="block hover:text-brand transition-colors">Cara Belanja</a>
+            <a href="#" class="block hover:text-brand transition-colors">Kebijakan Privasi</a>
+            <a href="#" class="block hover:text-brand transition-colors">Syarat & Ketentuan</a>
+            <a href="#" class="block hover:text-brand transition-colors">Hubungi Kami</a>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div>
+          <h4 class="font-semibold text-sm text-white mb-4">Disclaimer</h4>
+          <p class="text-sm text-gray-500 leading-relaxed">Website ini merupakan afiliasi Shopee. Beberapa link di halaman ini adalah link afiliasi — kami mendapat komisi kecil dari pembelian yang memenuhi syarat tanpa menambah biaya untuk kamu.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-gray-600">&copy; 2025 linkareadiskon.com — All rights reserved.</p>
+        <!-- Mobile Social Row -->
+        <div class="flex items-center gap-3 sm:hidden">
+          <a href="https://facebook.com/USERNAME" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-[#1877F2] transition-colors" title="Facebook">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://instagram.com/USERNAME" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-[#E4405F] transition-colors" title="Instagram">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://youtube.com/@USERNAME" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-[#FF0000] transition-colors" title="YouTube">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@USERNAME" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-white transition-colors" title="TikTok">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://shopee.co.id/USERNAME" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-[#EE4D2D] transition-colors" title="Shopee">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 13.25c-.18.45-.76.84-1.26.91-1.07.15-2.15.15-3.23.15h-.3c-1.08 0-2.16 0-3.23-.15-.5-.07-1.08-.46-1.26-.91-.2-.5-.2-1.04-.2-1.56v-.17c0-.53 0-1.07.2-1.56.18-.45.76-.84 1.26-.91.18-.03.36-.04.54-.05-.03-.28-.13-.55-.3-.77-.22-.3-.57-.48-.95-.48-.05 0-.1 0-.15.01l-.01-.01c.26-.46.74-.77 1.29-.77.3 0 .57.09.8.24.23.15.42.37.54.63.06.13.1.27.12.42.37-.03.75-.05 1.13-.05h.3c.38 0 .76.02 1.13.05.02-.15.06-.29.12-.42.12-.26.31-.48.54-.63.23-.15.5-.24.8-.24.55 0 1.03.31 1.29.77l-.01.01c-.05-.01-.1-.01-.15-.01-.38 0-.73.18-.95.48-.17.22-.27.49-.3.77.18.01.36.02.54.05.5.07 1.08.46 1.26.91.2.5.2 1.04.2 1.56v.17c0 .53 0 1.07-.2 1.56z"/></svg>
+          </a>
+        </div>
+        <!-- Desktop tagline -->
+        <p class="hidden sm:block text-xs text-gray-600">Built with ❤️ for smart shoppers</p>
+      </div>
+    </div>
+  </footer>
 
 
-    <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
-    <a href="https://wa.me/6282242087663?text=Halo%20PixelProfil.id%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 transition-transform wa-pulse" aria-label="Chat WhatsApp">
-        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.836-6.32-2.228l-.44-.356-2.898.972.972-2.898-.356-.44A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-    </a>
+  <!-- Product Detail Modal -->
+  <div id="productModal" class="fixed inset-0 z-[80] hidden">
+    <div class="modal-backdrop absolute inset-0" onclick="closeProductModal()"></div>
+    <div class="absolute inset-4 sm:inset-8 lg:inset-16 bg-surface-100 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+      <div class="flex items-center justify-between p-4 border-b border-white/5 shrink-0">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 rounded" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="10" fill="#EE4D2D"/><path d="M11.5 15a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm13 13a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.2-6.3l-6.6 6.6 1.4 1.4 6.6-6.6-1.4-1.4z" fill="white"/></svg>
+          <span class="text-sm font-semibold text-white">Detail Produk</span>
+        </div>
+        <button onclick="closeProductModal()" class="p-1.5 rounded-lg hover:bg-white/10 transition-colors"><span class="iconify text-xl text-gray-400" data-icon="mdi:close"></span></button>
+      </div>
+      <div id="modalContent" class="flex-1 overflow-y-auto p-6"></div>
+    </div>
+  </div>
 
-
-    <!-- ============ TOAST ============ -->
-    <div id="toast" class="toast fixed bottom-24 right-6 z-50 bg-dark-800 border border-white/10 rounded-xl px-6 py-4 shadow-2xl flex items-center gap-3 max-w-sm">
-        <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center shrink-0">
-            <i data-lucide="check-circle" class="w-4 h-4 text-green-400"></i>
+  <!-- Product Manager Modal -->
+  <div id="managerModal" class="fixed inset-0 z-[90] hidden">
+    <div class="modal-backdrop absolute inset-0" onclick="closeProductManager()"></div>
+    <div class="absolute inset-2 sm:inset-6 lg:inset-12 bg-surface-50 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+      <div class="flex items-center justify-between p-4 border-b border-white/5 shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="iconify text-xl text-brand" data-icon="mdi:package-variant-closed"></span>
+          <h3 class="font-bold text-white">Product Manager</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="exportJSON()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand/10 text-brand text-xs font-medium hover:bg-brand/20 transition-colors">
+            <span class="iconify" data-icon="mdi:content-copy"></span>
+            Copy JSON
+          </button>
+          <button onclick="closeProductManager()" class="p-1.5 rounded-lg hover:bg-white/10 transition-colors"><span class="iconify text-xl text-gray-400" data-icon="mdi:close"></span></button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+        <div class="bg-surface-200 rounded-xl p-5 mb-6 border border-white/5">
+          <h4 class="font-semibold text-sm mb-4 flex items-center gap-2">
+            <span class="iconify text-brand" data-icon="mdi:plus-circle"></span>
+            <span id="formTitle">Tambah Produk Baru</span>
+          </h4>
+          <form id="productForm" onsubmit="saveProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <input type="hidden" id="editId" value="">
+            <div class="sm:col-span-2 lg:col-span-3">
+              <label class="text-xs text-gray-500 mb-1 block">Nama Produk *</label>
+              <input id="fName" type="text" required class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">URL Gambar *</label>
+              <input id="fImage" type="url" required placeholder="https://..." class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Harga Saat Ini *</label>
+              <input id="fPrice" type="number" required class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Harga Asli *</label>
+              <input id="fOriginal" type="number" required class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Diskon (%) *</label>
+              <input id="fDiscount" type="number" required class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Rating (0-5)</label>
+              <input id="fRating" type="number" step="0.1" min="0" max="5" value="4.5" class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Terjual</label>
+              <input id="fSold" type="number" value="100" class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1 block">Kategori *</label>
+              <input id="fCategory" type="text" required placeholder="Elektronik, Fashion, dll" class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-xs text-gray-500 mb-1 block">Link Afiliasi Shopee *</label>
+              <input id="fLink" type="url" required placeholder="https://shope.ee/..." class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+            <div class="sm:col-span-2 lg:col-span-3">
+              <label class="text-xs text-gray-500 mb-1 block">Deskripsi</label>
+              <textarea id="fDesc" rows="2" class="w-full bg-surface-100 border border-white/10 rounded-lg px-3 py-2 text-sm text-white resize-none"></textarea>
+            </div>
+            <div class="flex items-center gap-6 sm:col-span-2 lg:col-span-3">
+              <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-400">
+                <input id="fFreeShip" type="checkbox" class="accent-[#EE4D2D]"> Gratis Ongkir
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-sm text-gray-400">
+                <input id="fMall" type="checkbox" class="accent-[#EE4D2D]"> Shopee Mall
+              </label>
+              <input id="fBadge" type="text" placeholder="Badge (opsional)" class="bg-surface-100 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white w-40 placeholder-gray-600">
+            </div>
+            <div class="sm:col-span-2 lg:col-span-3 flex gap-2 pt-2">
+              <button type="submit" class="btn-brand px-6 py-2 rounded-lg text-sm font-semibold text-white"><span id="formBtnText">Tambah Produk</span></button>
+              <button type="button" onclick="resetForm()" class="px-4 py-2 rounded-lg text-sm border border-white/10 hover:bg-white/5 transition-colors">Reset</button>
+            </div>
+          </form>
         </div>
         <div>
-            <div class="text-sm font-semibold">Permintaan Terkirim!</div>
-            <div class="text-xs text-dark-300">Mengarahkan ke WhatsApp...</div>
+          <h4 class="font-semibold text-sm mb-3 text-gray-400">Daftar Produk (<span id="managerCount">0</span>)</h4>
+          <div id="managerList" class="space-y-2"></div>
         </div>
+      </div>
     </div>
+  </div>
 
+  <script>
+    // ===== STATE =====
+    let allProducts = [];
+    let filteredProducts = [];
+    let activeCategory = 'Semua';
+    let currentSearch = '';
+    let currentSort = 'popular';
+    let wishlist = JSON.parse(localStorage.getItem('ld_wl') || '[]');
+    let showWishlistOnly = false;
 
-    <!-- ============ JAVASCRIPT ============ -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+    const categoryIcons = {
+      'Semua':'mdi:view-grid','Elektronik':'mdi:cellphone','Fashion':'mdi:tshirt-crew',
+      'Kecantikan':'mdi:lipstick','Rumah Tangga':'mdi:sofa','Makanan':'mdi:food',
+      'Olahraga':'mdi:basketball','Buku':'mdi:book-open-variant','Otomotif':'mdi:car','Kesehatan':'mdi:medical-bag'
+    };
 
-        // ---- SPA Navigation ----
-        function navigateTo(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => {
-                p.classList.remove('active');
-            });
+    // ===== DECODE HIDDEN DATA =====
+    function _d(){
+      const el=document.getElementById('__ld');
+      if(!el)return[];
+      try{return JSON.parse(atob(el.getAttribute('data-v')))}catch(e){return[]}
+    }
 
-            // Show target page
-            const target = document.getElementById('page-' + pageId);
-            if (target) {
-                setTimeout(() => {
-                    target.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    // Re-observe fade-up elements
-                    initScrollAnimations();
-                    // Re-init icons for new page
-                    lucide.createIcons();
-                    // Animate counters on home page
-                    if (pageId === 'home') animateCounters();
-                }, 50);
-            }
+    function formatPrice(n){return'Rp'+Number(n).toLocaleString('id-ID')}
+    function formatSold(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'rb':n.toString()}
 
-            // Update nav active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('text-white');
-                link.classList.add('text-dark-300');
-            });
-            const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('text-white');
-                activeLink.classList.remove('text-dark-300');
-            }
-        }
+    // ===== TOAST =====
+    function showToast(msg,type='success'){
+      const c=document.getElementById('toastContainer');
+      const cl={success:'border-green-500/30 bg-green-500/10',error:'border-red-500/30 bg-red-500/10',info:'border-brand/30 bg-brand/10'};
+      const ic={success:'mdi:check-circle',error:'mdi:alert-circle',info:'mdi:information'};
+      const icl={success:'text-green-400',error:'text-red-400',info:'text-brand'};
+      const t=document.createElement('div');
+      t.className=`pointer-events-auto toast-enter flex items-center gap-3 px-4 py-3 rounded-xl border ${cl[type]} backdrop-blur-sm`;
+      t.innerHTML=`<span class="iconify ${icl[type]} text-xl" data-icon="${ic[type]}"></span><span class="text-sm text-white">${msg}</span>`;
+      c.appendChild(t);
+      setTimeout(()=>{t.classList.remove('toast-enter');t.classList.add('toast-exit');setTimeout(()=>t.remove(),300)},3000);
+    }
 
-        // ---- Mobile Menu ----
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('open');
-            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-        }
+    // ===== LOAD =====
+    function loadProducts(){
+      allProducts=_d();
+      const local=JSON.parse(localStorage.getItem('ld_lp')||'[]');
+      if(local.length){
+        const ids=new Set(allProducts.map(p=>p.id));
+        local.forEach(p=>{if(!ids.has(p.id))allProducts.push(p)});
+      }
+      initApp();
+    }
 
-        // ---- Portfolio Filter ----
-        function filterPortfolio(category) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+    function initApp(){
+      renderCategories();
+      renderProducts();
+      updateStats();
+      updateWishlistUI();
+      startCountdown();
+      document.getElementById('skeletonGrid').classList.add('hidden');
+    }
 
-            // Update buttons
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-blue-500/10', 'text-blue-300', 'border-blue-500/20');
-                btn.classList.add('bg-white/5', 'text-dark-300', 'border-white/10');
-            });
-            const activeBtn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
-            if (activeBtn) {
-                activeBtn.classList.add('bg-blue-500/10', 'text-blue-300', 'border-blue-500/20');
-                activeBtn.classList.remove('bg-white/5', 'text-dark-300', 'border-white/10');
-            }
+    // ===== CATEGORIES =====
+    function renderCategories(){
+      const cats=['Semua',...new Set(allProducts.map(p=>p.category))];
+      document.getElementById('categoryBar').innerHTML=cats.map(c=>{
+        const icon=categoryIcons[c]||'mdi:tag';
+        return`<button onclick="setCategory('${c}')" class="category-pill shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm border border-white/10 bg-white/5 hover:bg-white/10 whitespace-nowrap ${activeCategory===c?'active':'text-gray-400'}"><span class="iconify text-base" data-icon="${icon}"></span>${c}</button>`;
+      }).join('');
+      document.getElementById('footerCategories').innerHTML=cats.filter(c=>c!=='Semua').map(c=>`<a href="#" onclick="setCategory('${c}');document.getElementById('products').scrollIntoView({behavior:'smooth'});return false;" class="hover:text-brand transition-colors">${c}</a>`).join('');
+    }
 
-            // Filter items
-            items.forEach(item => {
-                const itemCat = item.getAttribute('data-category');
-                if (category === 'all' || itemCat === category) {
-                    item.classList.remove('hide');
-                    item.style.display = '';
-                } else {
-                    item.classList.add('hide');
-                    setTimeout(() => {
-                        if (item.classList.contains('hide')) {
-                            item.style.display = 'none';
-                        }
-                    }, 400);
-                }
-            });
-        }
+    function setCategory(cat){activeCategory=cat;renderCategories();renderProducts()}
 
-        // ---- Form Submit → WhatsApp ----
-        function handleFormSubmit(e) {
-            e.preventDefault();
+    // ===== RENDER PRODUCTS =====
+    function renderProducts(){
+      let products=[...allProducts];
+      if(showWishlistOnly)products=products.filter(p=>wishlist.includes(p.id));
+      if(activeCategory!=='Semua')products=products.filter(p=>p.category===activeCategory);
+      if(currentSearch){const q=currentSearch.toLowerCase();products=products.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)||(p.description&&p.description.toLowerCase().includes(q)))}
+      switch(currentSort){
+        case'discount':products.sort((a,b)=>b.discount-a.discount);break;
+        case'price-low':products.sort((a,b)=>a.price-b.price);break;
+        case'price-high':products.sort((a,b)=>b.price-a.price);break;
+        case'rating':products.sort((a,b)=>b.rating-a.rating);break;
+        default:products.sort((a,b)=>b.sold-a.sold);
+      }
+      filteredProducts=products;
+      document.getElementById('resultCount').textContent=products.length;
+      const grid=document.getElementById('productGrid'),empty=document.getElementById('emptyState');
+      if(!products.length){grid.classList.add('hidden');empty.classList.remove('hidden');return}
+      grid.classList.remove('hidden');empty.classList.add('hidden');
+      grid.innerHTML=products.map((p,i)=>{
+        const w=wishlist.includes(p.id);
+        const bc=p.badge==='Best Seller'?'badge-best':p.badge==='Flash Sale'?'badge-flash':p.badge==='Hot Deal'?'badge-hot':p.badge==='Top Sales'?'badge-top':'bg-gray-700';
+        return`<div class="product-card bg-surface-100 rounded-2xl overflow-hidden border border-white/5 flex flex-col" style="animation:fadeUp .5s ease-out ${i*.05}s forwards;opacity:0"><div class="card-image relative aspect-square overflow-hidden bg-surface-200 cursor-pointer" onclick="openProductModal(${p.id})"><img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://picsum.photos/seed/fb${p.id}/400/400'"><div class="absolute top-2 left-2 flex flex-col gap-1.5">${p.discount?`<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-brand text-white">${p.discount}% OFF</span>`:''}${p.badge?`<span class="px-2 py-0.5 rounded-md text-[10px] font-bold ${bc}">${p.badge}</span>`:''}</div><div class="absolute top-2 right-2 flex flex-col gap-1.5">${p.freeShipping?`<span class="w-7 h-7 rounded-full bg-green-500/90 flex items-center justify-center" title="Gratis Ongkir"><span class="iconify text-white text-sm" data-icon="mdi:truck-fast"></span></span>`:''}${p.mall?`<span class="w-7 h-7 rounded-full bg-brand/90 flex items-center justify-center" title="Shopee Mall"><span class="iconify text-white text-sm" data-icon="mdi:shield-check"></span></span>`:''}</div><button onclick="event.stopPropagation();toggleWishlist(${p.id})" class="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-black/70 transition-colors"><span class="iconify text-lg ${w?'text-brand':'text-white/70'}" data-icon="${w?'mdi:heart':'mdi:heart-outline'}"></span></button></div><div class="p-3 sm:p-4 flex flex-col flex-1"><h3 class="text-xs sm:text-sm font-medium text-gray-200 line-clamp-2 leading-snug mb-2 cursor-pointer hover:text-brand transition-colors" onclick="openProductModal(${p.id})">${p.name}</h3><div class="mt-auto"><div class="text-base sm:text-lg font-bold text-brand">${formatPrice(p.price)}</div>${p.originalPrice?`<div class="text-[11px] text-gray-600 line-through">${formatPrice(p.originalPrice)}</div>`:''}<div class="flex items-center gap-1 mt-2"><span class="iconify text-yellow-500 text-xs" data-icon="mdi:star"></span><span class="text-[11px] text-gray-400">${p.rating||'-'}</span><span class="text-[11px] text-gray-600">|</span><span class="text-[11px] text-gray-400">${formatSold(p.sold)} terjual</span></div><a href="${p.link}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="btn-brand mt-3 w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-white"><span class="iconify" data-icon="mdi:cart"></span>Beli di Shopee</a></div></div></div>`;
+      }).join('');
+    }
 
-            const nama = document.getElementById('form-nama').value.trim();
-            const email = document.getElementById('form-email').value.trim();
-            const wa = document.getElementById('form-wa').value.trim();
-            const layanan = document.getElementById('form-layanan').value;
-            const deskripsi = document.getElementById('form-deskripsi').value.trim();
+    function updateStats(){
+      document.getElementById('statProducts').textContent=allProducts.length;
+      document.getElementById('statDiscount').textContent=(allProducts.reduce((m,p)=>Math.max(m,p.discount||0),0))+'%';
+      document.getElementById('statCategories').textContent=new Set(allProducts.map(p=>p.category)).size;
+    }
 
-            if (!nama || !email || !wa || !layanan || !deskripsi) return;
+    function startCountdown(){
+      function gt(){const n=new Date(),w=new Date(n.getTime()+(7*36e5-n.getTimezoneOffset()*6e4)),md=new Date(w);md.setHours(24,0,0,0);const d=md-w;return{h:Math.floor(d/36e5),m:Math.floor(d%36e5/6e4),s:Math.floor(d%6e4/1e3)}}
+      function u(){const t=gt();document.getElementById('timerH').textContent=String(t.h).padStart(2,'0');document.getElementById('timerM').textContent=String(t.m).padStart(2,'0');document.getElementById('timerS').textContent=String(t.s).padStart(2,'0')}
+      u();setInterval(u,1000);
+    }
 
-            const message = `Halo PixelProfil.id, saya ingin order:\n\n📋 Nama: ${nama}\n📧 Email: ${email}\n📱 No. WA: ${wa}\n🔧 Layanan: ${layanan}\n📝 Kebutuhan: ${deskripsi}`;
+    // ===== WISHLIST =====
+    function toggleWishlist(id){
+      const i=wishlist.indexOf(id);
+      if(i>-1){wishlist.splice(i,1);showToast('Dihapus dari wishlist','info')}
+      else{wishlist.push(id);showToast('Ditambahkan ke wishlist ❤️','success')}
+      localStorage.setItem('ld_wl',JSON.stringify(wishlist));
+      updateWishlistUI();renderProducts();
+    }
+    function updateWishlistUI(){
+      const c=document.getElementById('wishlistCount');
+      if(wishlist.length){c.classList.remove('hidden');c.classList.add('flex');c.textContent=wishlist.length}
+      else{c.classList.add('hidden');c.classList.remove('flex')}
+    }
+    function toggleWishlistView(){
+      showWishlistOnly=!showWishlistOnly;
+      const b=document.getElementById('wishlistBtn');
+      if(showWishlistOnly){b.classList.add('bg-brand/10');showToast('Menampilkan wishlist saja','info')}
+      else{b.classList.remove('bg-brand/10');showToast('Menampilkan semua produk','info')}
+      renderProducts();
+    }
 
-            // Show toast
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
+    // ===== PRODUCT MODAL =====
+    function openProductModal(id){
+      const p=allProducts.find(x=>x.id===id);if(!p)return;
+      const w=wishlist.includes(p.id);
+      const bc=p.badge==='Best Seller'?'badge-best':p.badge==='Flash Sale'?'badge-flash':p.badge==='Hot Deal'?'badge-hot':p.badge==='Top Sales'?'badge-top':'bg-gray-700';
+      const sav=p.originalPrice?p.originalPrice-p.price:0;
+      document.getElementById('modalContent').innerHTML=`
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="aspect-square rounded-xl overflow-hidden bg-surface-200"><img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/seed/fb${p.id}/600/600'"></div>
+          <div class="flex flex-col">
+            <div class="flex items-start gap-2 mb-3 flex-wrap">
+              ${p.badge?`<span class="shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold ${bc}">${p.badge}</span>`:''}
+              ${p.mall?`<span class="shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold bg-brand/20 text-brand">Shopee Mall</span>`:''}
+              ${p.freeShipping?`<span class="shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold bg-green-500/20 text-green-400">Gratis Ongkir</span>`:''}
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white leading-tight mb-4">${p.name}</h2>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">${p.description||'Tidak ada deskripsi.'}</p>
+            <div class="bg-surface-200 rounded-xl p-4 mb-6 space-y-3">
+              <div class="flex items-baseline gap-3">
+                <span class="text-2xl sm:text-3xl font-extrabold text-brand">${formatPrice(p.price)}</span>
+                ${p.originalPrice?`<span class="text-sm text-gray-500 line-through">${formatPrice(p.originalPrice)}</span>`:''}
+              </div>
+              ${p.discount?`<div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded bg-brand/20 text-brand text-xs font-bold">-${p.discount}%</span>${sav>0?`<span class="text-xs text-green-400">Hemat ${formatPrice(sav)}</span>`:''}</div>`:''}
+              <div class="flex items-center gap-4 text-sm text-gray-400">
+                <div class="flex items-center gap-1"><span class="iconify text-yellow-500" data-icon="mdi:star"></span><span>${p.rating||'-'}</span></div>
+                <div class="flex items-center gap-1"><span class="iconify" data-icon="mdi:cart-outline"></span><span>${formatSold(p.sold)} terjual</span></div>
+                <span class="text-gray-600">|</span>
+                <span class="text-gray-500">${p.category}</span>
+              </div>
+            </div>
+            <div class="mt-auto flex flex-col sm:flex-row gap-3">
+              <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn-brand flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white"><span class="iconify text-lg" data-icon="mdi:cart"></span>Beli di Shopee</a>
+              <button onclick="copyLink('${p.link}')" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors text-sm text-gray-400"><span class="iconify" data-icon="mdi:link-variant"></span>Copy Link</button>
+              <button onclick="toggleWishlist(${p.id});openProductModal(${p.id})" class="flex items-center justify-center px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors"><span class="iconify text-xl ${w?'text-brand':'text-gray-400'}" data-icon="${w?'mdi:heart':'mdi:heart-outline'}"></span></button>
+            </div>
+          </div>
+        </div>`;
+      document.getElementById('productModal').classList.remove('hidden');
+      document.body.style.overflow='hidden';
+    }
+    function closeProductModal(){document.getElementById('productModal').classList.add('hidden');document.body.style.overflow=''}
+    function copyLink(l){navigator.clipboard.writeText(l).then(()=>showToast('Link afiliasi berhasil disalin!','success')).catch(()=>showToast('Gagal menyalin link','error'))}
 
-            // Redirect to WhatsApp
-            setTimeout(() => {
-                window.open(`https://wa.me/6282242087663?text=${encodeURIComponent(message)}`, '_blank');
-            }, 800);
+    // ===== PRODUCT MANAGER =====
+    function openProductManager(){document.getElementById('managerModal').classList.remove('hidden');document.body.style.overflow='hidden';renderManagerList()}
+    function closeProductManager(){document.getElementById('managerModal').classList.add('hidden');document.body.style.overflow='';resetForm()}
 
-            // Reset form
-            document.getElementById('order-form').reset();
-        }
+    function renderManagerList(){
+      document.getElementById('managerCount').textContent=allProducts.length;
+      document.getElementById('managerList').innerHTML=allProducts.map(p=>`
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-200 border border-white/5 hover:border-white/10 transition-colors">
+          <img src="${p.image}" alt="" class="w-12 h-12 rounded-lg object-cover shrink-0" onerror="this.src='https://picsum.photos/seed/fb${p.id}/100/100'">
+          <div class="flex-1 min-w-0"><p class="text-sm font-medium text-white truncate">${p.name}</p><p class="text-xs text-gray-500">${p.category} · ${formatPrice(p.price)} · -${p.discount}%</p></div>
+          <div class="flex items-center gap-1 shrink-0">
+            <button onclick="editProduct(${p.id})" class="p-1.5 rounded-lg hover:bg-white/10 transition-colors" title="Edit"><span class="iconify text-gray-400" data-icon="mdi:pencil"></span></button>
+            <button onclick="deleteProduct(${p.id})" class="p-1.5 rounded-lg hover:bg-red-500/10 transition-colors" title="Hapus"><span class="iconify text-gray-400 hover:text-red-400" data-icon="mdi:delete"></span></button>
+          </div>
+        </div>`).join('');
+    }
 
-        // ---- Scroll Animations (IntersectionObserver) ----
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    function saveProduct(e){
+      e.preventDefault();
+      const eid=document.getElementById('editId').value;
+      const product={
+        id:eid?parseInt(eid):(allProducts.length?Math.max(...allProducts.map(p=>p.id))+1:1),
+        name:document.getElementById('fName').value,
+        image:document.getElementById('fImage').value,
+        price:parseInt(document.getElementById('fPrice').value),
+        originalPrice:parseInt(document.getElementById('fOriginal').value),
+        discount:parseInt(document.getElementById('fDiscount').value),
+        rating:parseFloat(document.getElementById('fRating').value)||4.5,
+        sold:parseInt(document.getElementById('fSold').value)||0,
+        category:document.getElementById('fCategory').value,
+        link:document.getElementById('fLink').value,
+        description:document.getElementById('fDesc').value,
+        freeShipping:document.getElementById('fFreeShip').checked,
+        mall:document.getElementById('fMall').checked,
+        badge:document.getElementById('fBadge').value||null
+      };
+      if(eid){const i=allProducts.findIndex(p=>p.id===parseInt(eid));if(i>-1)allProducts[i]=product;showToast('Produk berhasil diperbarui!','success')}
+      else{allProducts.push(product);const l=JSON.parse(localStorage.getItem('ld_lp')||'[]');l.push(product);localStorage.setItem('ld_lp',JSON.stringify(l));showToast('Produk berhasil ditambahkan!','success')}
+      resetForm();renderCategories();renderProducts();updateStats();renderManagerList();
+    }
 
-            document.querySelectorAll('.fade-up:not(.visible)').forEach(el => {
-                observer.observe(el);
-            });
-        }
+    function editProduct(id){
+      const p=allProducts.find(x=>x.id===id);if(!p)return;
+      document.getElementById('editId').value=p.id;
+      document.getElementById('fName').value=p.name;
+      document.getElementById('fImage').value=p.image;
+      document.getElementById('fPrice').value=p.price;
+      document.getElementById('fOriginal').value=p.originalPrice;
+      document.getElementById('fDiscount').value=p.discount;
+      document.getElementById('fRating').value=p.rating;
+      document.getElementById('fSold').value=p.sold;
+      document.getElementById('fCategory').value=p.category;
+      document.getElementById('fLink').value=p.link;
+      document.getElementById('fDesc').value=p.description||'';
+      document.getElementById('fFreeShip').checked=p.freeShipping;
+      document.getElementById('fMall').checked=p.mall;
+      document.getElementById('fBadge').value=p.badge||'';
+      document.getElementById('formTitle').textContent='Edit Produk';
+      document.getElementById('formBtnText').textContent='Simpan Perubahan';
+      document.getElementById('managerModal').querySelector('.overflow-y-auto').scrollTo({top:0,behavior:'smooth'});
+    }
 
-        // ---- Counter Animation ----
-        function animateCounters() {
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                const suffix = counter.textContent.replace(/[0-9]/g, '');
-                let current = 0;
-                const increment = target / 60;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current) + suffix;
-                }, 25);
-            });
-        }
+    function deleteProduct(id){
+      if(!confirm('Hapus produk ini?'))return;
+      allProducts=allProducts.filter(p=>p.id!==id);
+      const l=JSON.parse(localStorage.getItem('ld_lp')||'[]');
+      localStorage.setItem('ld_lp',JSON.stringify(l.filter(p=>p.id!==id)));
+      wishlist=wishlist.filter(w=>w!==id);
+      localStorage.setItem('ld_wl',JSON.stringify(wishlist));
+      renderCategories();renderProducts();updateStats();updateWishlistUI();renderManagerList();
+      showToast('Produk dihapus','info');
+    }
 
-        // ---- Navbar scroll effect ----
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const currentScroll = window.pageYOffset;
+    function resetForm(){
+      document.getElementById('productForm').reset();
+      document.getElementById('editId').value='';
+      document.getElementById('fRating').value='4.5';
+      document.getElementById('fSold').value='100';
+      document.getElementById('formTitle').textContent='Tambah Produk Baru';
+      document.getElementById('formBtnText').textContent='Tambah Produk';
+    }
 
-            if (currentScroll > 100) {
-                navbar.classList.add('shadow-lg', 'shadow-black/20');
-            } else {
-                navbar.classList.remove('shadow-lg', 'shadow-black/20');
-            }
+    function exportJSON(){
+      const j=JSON.stringify(allProducts,null,2);
+      navigator.clipboard.writeText(j).then(()=>showToast('JSON disalin! Untuk update permanen, encode ke Base64 lalu ganti data-v di div#__ld','success'))
+      .catch(()=>{const t=document.createElement('textarea');t.value=j;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();showToast('JSON disalin!','success')});
+    }
 
-            lastScroll = currentScroll;
-        });
+    // ===== EVENTS =====
+    document.getElementById('searchInput').addEventListener('input',e=>{currentSearch=e.target.value;document.getElementById('searchInputMobile').value=currentSearch;renderProducts()});
+    document.getElementById('searchInputMobile').addEventListener('input',e=>{currentSearch=e.target.value;document.getElementById('searchInput').value=currentSearch;renderProducts()});
+    document.getElementById('sortSelect').addEventListener('change',e=>{currentSort=e.target.value;renderProducts()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProductModal();closeProductManager()}});
 
-        // ---- Initialize ----
-        document.addEventListener('DOMContentLoaded', () => {
-            initScrollAnimations();
-            // Delay counter animation until visible
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            const statsSection = document.querySelector('[data-count]');
-            if (statsSection) {
-                statsObserver.observe(statsSection.closest('section'));
-            }
-        });
-    </script>
+    // ===== START =====
+    loadProducts();
+  </script>
 </body>
 </html>
