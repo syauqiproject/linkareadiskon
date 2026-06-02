@@ -1,1433 +1,507 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkareadiskon-Tempat berburu produk pilihan, promo menarik, dan diskon terbaik dari berbagai marketplace.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    cream: '#FFFAF5',
-                    coral: { 400: '#E8836B', 500: '#E07A5F', 600: '#D4644A' },
-                    rose: { 500: '#C4565A', 600: '#A9434E' },
-                    bark: { 700: '#3D2E1F', 800: '#2D2016', 900: '#1A120B' },
-                    sand: { 100: '#FFEDDB', 200: '#FFE0C4', 300: '#F4A261', 400: '#E8975A' },
-                },
-                fontFamily: {
-                    display: ['Playfair Display', 'serif'],
-                    body: ['DM Sans', 'sans-serif'],
-                },
-            },
-        },
-    }
-    </script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'DM Sans', sans-serif; background: #FFFAF5; color: #2D2016; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sarah Beauty — linkareadiskon</title>
+<meta name="description" content="Sarah Beauty | Skincare enthusiast | Review jujur produk kecantikan | Link promo di bawah">
+<meta property="og:title" content="Sarah Beauty — linkareadiskon">
+<meta property="og:description" content="Skincare enthusiast | Review jujur produk kecantikan | Link promo di bawah">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://linkareadiskon.id/sarahbeauty">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://linkareadiskon.id/sarahbeauty">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfilePage","name":"Sarah Beauty — linkareadiskon","description":"Skincare enthusiast | Review jujur produk kecantikan","url":"https://linkareadiskon.id/sarahbeauty","mainEntity":{"@type":"Person","name":"Sarah Beauty"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:#07070C}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:#07070C;color:#E8E8ED;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+.shell{max-width:430px;margin:0 auto;min-height:100vh;min-height:100dvh;position:relative}
+.shell::before{content:'';position:fixed;top:0;left:50%;transform:translateX(-50%);width:430px;height:100%;background:radial-gradient(ellipse at 50% 0%,var(--glow-color,rgba(0,229,160,0.03)) 0%,transparent 60%);pointer-events:none;z-index:0}
+.ct{position:relative;z-index:1;padding:0 20px 40px;padding-top:40px}
+.avatar-wrap{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;position:relative;cursor:pointer;overflow:hidden;border:2px solid var(--theme-border,rgba(0,229,160,0.12));background:var(--theme-bg,rgba(0,229,160,0.08))}
+.avatar-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:var(--theme-c,#00E5A0);letter-spacing:1px}
+.avatar-upload-hint{position:absolute;inset:0;background:rgba(7,7,12,0.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none}
+.avatar-wrap:hover .avatar-upload-hint{opacity:1}
+.name{font-size:20px;font-weight:700;text-align:center;line-height:1.2}
+.bio{font-size:13px;color:#65657A;text-align:center;margin-top:6px;line-height:1.5;max-width:320px;margin-left:auto;margin-right:auto}
+.sep{height:1px;background:rgba(31,31,50,0.4);margin:22px 0}
+.slbl{font-size:10px;font-weight:700;color:var(--theme-c,#00E5A0);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+.pgrid{display:grid;grid-template-columns:repeat(var(--pcols,3),1fr);gap:8px}
+.pc{border-radius:12px;overflow:hidden;background:var(--theme-bg,rgba(0,229,160,0.05));border:1px solid var(--theme-border,rgba(0,229,160,0.08));cursor:pointer;transition:all .2s;text-decoration:none;color:inherit;display:block}
+.pc:hover{border-color:color-mix(in srgb,var(--theme-c,#00E5A0) 30%,transparent);transform:translateY(-2px)}
+.pc:active{transform:scale(.97)}
+.pc img{width:100%;height:80px;object-fit:cover;display:block}
+.pc .pi{padding:7px 8px}
+.pc .pn{font-size:10px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.pc .pm{display:flex;justify-content:space-between;align-items:center;margin-top:3px}
+.pc .pp{font-size:10px;font-weight:700}
+.pc .pc2{font-size:9px;font-weight:700;color:var(--theme-c,#00E5A0);background:var(--theme-bg,rgba(0,229,160,0.1));padding:1px 5px;border-radius:4px}
+.ll{display:flex;flex-direction:column;gap:8px}
+.li{display:flex;align-items:center;gap:10px;padding:13px 14px;border-radius:13px;background:var(--theme-bg,rgba(0,229,160,0.06));border:1px solid var(--theme-border,rgba(0,229,160,0.09));text-decoration:none;color:#E8E8ED;font-size:13px;font-weight:500;transition:all .15s;cursor:pointer}
+.li:hover{background:color-mix(in srgb,var(--theme-c,#00E5A0) 12%,transparent);transform:translateX(3px)}
+.li:active{transform:scale(.98);opacity:.8}
+.li .lic{flex-shrink:0;opacity:.5;color:var(--theme-c,#00E5A0);display:flex}
+.li .lar{flex-shrink:0;opacity:.2;color:var(--theme-c,#00E5A0)}
+.li .lt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr{display:flex;justify-content:center;gap:14px;margin-top:20px}
+.sr a{color:var(--theme-c,#00E5A0);opacity:.5;transition:opacity .15s;text-decoration:none;display:flex;align-items:center;justify-content:center}
+.sr a:hover{opacity:1}
+.foot{text-align:center;margin-top:16px;font-size:8px;color:#1E1E30}
 
-        /* Animasi masuk */
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes pulse-ring { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 0; } }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
-        @keyframes slideOut { from { transform: translateX(0); } to { transform: translateX(100%); } }
+/* Edit FAB */
+.fab{position:fixed;bottom:24px;right:24px;z-index:100;width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,0.4);background:var(--theme-c,#00E5A0);color:#07070C}
+.fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(0,229,160,0.3)}
+.fab:active{transform:scale(.95)}
 
-        .fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-        .fade-up-delay-1 { animation-delay: 0.1s; }
-        .fade-up-delay-2 { animation-delay: 0.2s; }
-        .fade-up-delay-3 { animation-delay: 0.3s; }
-        .fade-up-delay-4 { animation-delay: 0.4s; }
-        .fade-up-delay-5 { animation-delay: 0.5s; }
-        .float-anim { animation: float 4s ease-in-out infinite; }
+/* Modal Overlay */
+.mov{position:fixed;inset:0;background:rgba(7,7,12,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:200;display:none;align-items:flex-end;justify-content:center}
+.mov.open{display:flex}
+@media(min-width:768px){.mov{align-items:center}}
 
-        /* Background dekorasi */
-        .bg-blob {
-            position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
-        }
-        .bg-blob-1 { width: 400px; height: 400px; background: rgba(224,122,95,0.12); top: -100px; right: -100px; }
-        .bg-blob-2 { width: 300px; height: 300px; background: rgba(244,162,97,0.1); bottom: 10%; left: -80px; }
-        .bg-blob-3 { width: 250px; height: 250px; background: rgba(196,86,90,0.08); top: 50%; right: 10%; }
+/* Modal Panel */
+.mp{width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:#0D0D15;border:1px solid #1F1F32;border-radius:20px 20px 0 0;padding:0;animation:slideUp .3s ease}
+@media(min-width:768px){.mp{border-radius:20px;max-height:85vh}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-        /* Profile avatar */
-        .avatar-ring {
-            position: relative; display: inline-block;
-        }
-        .avatar-ring::before {
-            content: ''; position: absolute; inset: -4px; border-radius: 50%;
-            background: linear-gradient(135deg, #E07A5F, #F4A261, #C4565A);
-            z-index: 0;
-        }
-        .avatar-ring img {
-            position: relative; z-index: 1; border: 3px solid #FFFAF5; border-radius: 50%;
-        }
+.mp-header{position:sticky;top:0;background:#0D0D15;z-index:10;padding:16px 20px;border-bottom:1px solid #1F1F32;display:flex;align-items:center;justify-content:between}
+.mp-body{padding:20px}
 
-        /* Kartu produk */
-        .product-card {
-            background: white; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 2px 20px rgba(45,32,22,0.06);
-            transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-            position: relative;
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(45,32,22,0.12);
-        }
-        .product-card .img-wrap {
-            position: relative; overflow: hidden; aspect-ratio: 1; background: #FFF3EA;
-        }
-        .product-card .img-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .product-card:hover .img-wrap img { transform: scale(1.08); }
+/* Form elements */
+.inp{background:rgba(20,20,31,0.8);border:1px solid #1F1F32;border-radius:8px;padding:9px 12px;color:#E8E8ED;font-family:inherit;font-size:13px;width:100%;outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--theme-c,#00E5A0);box-shadow:0 0 0 2px rgba(0,229,160,0.08)}
+.inp::placeholder{color:#65657A}
+.inp-sm{padding:7px 10px;font-size:12px}
 
-        .discount-badge {
-            position: absolute; top: 12px; left: 12px;
-            background: linear-gradient(135deg, #C4565A, #E07A5F);
-            color: white; font-weight: 700; font-size: 12px;
-            padding: 4px 10px; border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(196,86,90,0.3);
-        }
-        .hot-badge {
-            position: absolute; top: 12px; right: 12px;
-            background: linear-gradient(135deg, #F4A261, #E8975A);
-            color: white; font-weight: 600; font-size: 11px;
-            padding: 4px 10px; border-radius: 20px;
-        }
+.btn-p{background:var(--theme-c,#00E5A0);color:#07070C;font-weight:600;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;font-family:inherit;font-size:12px}
+.btn-p:hover{opacity:.9}
+.btn-g{background:rgba(31,31,50,0.7);color:#E8E8ED;font-weight:500;padding:9px 20px;border-radius:8px;border:1px solid #1F1F32;cursor:pointer;transition:all .15s;font-family:inherit;font-size:12px}
+.btn-g:hover{background:rgba(31,31,50,1)}
 
-        /* Tombol CTA */
-        .cta-btn {
-            display: flex; align-items: center; gap: 12px;
-            width: 100%; padding: 16px 20px;
-            border-radius: 16px; border: none; cursor: pointer;
-            font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
-            transition: all 0.3s ease; text-decoration: none;
-            position: relative; overflow: hidden;
-        }
-        .cta-btn::after {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite;
-        }
-        .cta-primary {
-            background: linear-gradient(135deg, #E07A5F, #C4565A);
-            color: white; box-shadow: 0 4px 15px rgba(224,122,95,0.35);
-        }
-        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(224,122,95,0.45); }
-        .cta-secondary {
-            background: linear-gradient(135deg, #2D2016, #3D2E1F);
-            color: white; box-shadow: 0 4px 15px rgba(45,32,22,0.2);
-        }
-        .cta-secondary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(45,32,22,0.3); }
-        .cta-outline {
-            background: transparent; color: #E07A5F;
-            border: 2px solid #E07A5F;
-        }
-        .cta-outline:hover { background: #E07A5F; color: white; }
+/* Product edit card */
+.pe-card{background:rgba(20,20,31,0.5);border:1px solid #1F1F32;border-radius:10px;overflow:hidden}
+.pe-card img{width:100%;height:100px;object-fit:cover;display:block;background:#14141F}
+.pe-del{position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;background:rgba(7,7,12,0.8);border:1px solid rgba(255,71,87,0.3);color:#FF4757;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.pe-del:hover{background:rgba(255,71,87,0.2)}
 
-        /* Social icons */
-        .social-icon {
-            width: 44px; height: 44px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            background: white; color: #2D2016; font-size: 18px;
-            box-shadow: 0 2px 10px rgba(45,32,22,0.08);
-            transition: all 0.3s ease; text-decoration: none;
-        }
-        .social-icon:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(45,32,22,0.15); }
-        .social-icon.ig:hover { background: #E1306C; color: white; }
-        .social-icon.yt:hover { background: #FF0000; color: white; }
-        .social-icon.tt:hover { background: #000; color: white; }
-        .social-icon.wa:hover { background: #25D366; color: white; }
+/* Link edit row */
+.le-row{display:flex;align-items:center;gap:6px;padding:6px 0}
+.le-row .inp{flex:1}
 
-        /* Admin overlay */
-        .admin-overlay {
-            position: fixed; inset: 0; z-index: 1000;
-            background: rgba(26,18,11,0.6); backdrop-filter: blur(4px);
-            display: none; opacity: 0; transition: opacity 0.3s ease;
-        }
-        .admin-overlay.active { display: flex; opacity: 1; }
-        .admin-panel {
-            background: #1A120B; color: #FFFAF5; width: 100%; max-width: 900px;
-            height: 100vh; overflow-y: auto; margin-left: auto;
-            animation: slideIn 0.4s ease;
-        }
-        .admin-panel.closing { animation: slideOut 0.3s ease forwards; }
+/* Theme dots */
+.tdot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:all .15s;flex-shrink:0}
+.tdot:hover{transform:scale(1.12)}
+.tdot.on{border-color:rgba(255,255,255,0.8);box-shadow:0 0 10px rgba(255,255,255,0.06)}
 
-        /* Admin tabs */
-        .admin-tab {
-            padding: 10px 16px; border-radius: 10px; cursor: pointer;
-            font-size: 13px; font-weight: 500; transition: all 0.2s;
-            white-space: nowrap; color: #A89888; background: transparent; border: none;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .admin-tab:hover { color: #FFFAF5; background: rgba(255,255,255,0.06); }
-        .admin-tab.active { color: #FFFAF5; background: rgba(224,122,95,0.2); }
+/* Image upload area */
+.img-up{border:1.5px dashed #1F1F32;border-radius:8px;padding:16px;text-align:center;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden}
+.img-up:hover{border-color:var(--theme-c,#00E5A0)}
+.img-up input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.img-up img{max-height:120px;border-radius:6px;margin:0 auto;display:block}
 
-        /* Admin cards */
-        .admin-card {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px; padding: 20px; margin-bottom: 14px;
-        }
-        .admin-input {
-            width: 100%; padding: 10px 14px; border-radius: 10px;
-            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-            color: #FFFAF5; font-family: 'DM Sans', sans-serif; font-size: 14px;
-            outline: none; transition: border-color 0.2s;
-        }
-        .admin-input:focus { border-color: #E07A5F; }
-        .admin-input::placeholder { color: #6B5D50; }
-        .admin-btn {
-            padding: 10px 20px; border-radius: 10px; border: none; cursor: pointer;
-            font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-            transition: all 0.2s;
-        }
-        .admin-btn-primary { background: #E07A5F; color: white; }
-        .admin-btn-primary:hover { background: #D4644A; }
-        .admin-btn-danger { background: rgba(196,86,90,0.2); color: #E8836B; }
-        .admin-btn-danger:hover { background: rgba(196,86,90,0.35); }
-        .admin-btn-ghost { background: rgba(255,255,255,0.06); color: #A89888; }
-        .admin-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #FFFAF5; }
-
-        /* Toast */
-        .toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
-        .toast {
-            background: #2D2016; color: #FFFAF5; padding: 14px 20px; border-radius: 12px;
-            margin-bottom: 8px; font-size: 14px; font-weight: 500;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            animation: fadeUp 0.4s ease; display: flex; align-items: center; gap: 10px;
-            max-width: 340px;
-        }
-        .toast.success { border-left: 4px solid #4CAF50; }
-        .toast.error { border-left: 4px solid #C4565A; }
-        .toast.info { border-left: 4px solid #F4A261; }
-
-        /* Stat card */
-        .stat-card {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px; padding: 20px; text-align: center;
-        }
-        .stat-number { font-size: 32px; font-weight: 800; font-family: 'Playfair Display', serif; }
-
-        /* Scrollbar admin */
-        .admin-panel::-webkit-scrollbar { width: 6px; }
-        .admin-panel::-webkit-scrollbar-track { background: transparent; }
-        .admin-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
-
-        /* Code block */
-        .code-block {
-            background: rgba(0,0,0,0.4); border-radius: 10px; padding: 16px;
-            font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6;
-            color: #F4A261; overflow-x: auto; white-space: pre-wrap; word-break: break-all;
-        }
-        .copy-btn {
-            position: absolute; top: 8px; right: 8px; background: rgba(224,122,95,0.2);
-            color: #E07A5F; border: none; padding: 4px 10px; border-radius: 6px;
-            font-size: 11px; cursor: pointer; font-family: 'DM Sans', sans-serif;
-        }
-        .copy-btn:hover { background: rgba(224,122,95,0.4); }
-
-        /* Stars */
-        .stars { color: #F4A261; font-size: 12px; }
-
-        /* Mobile */
-        @media (max-width: 640px) {
-            .product-grid { grid-template-columns: 1fr !important; }
-            .admin-panel { max-width: 100%; }
-            .stat-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.a{animation:fadeUp .4s ease both}.a1{animation-delay:.04s}.a2{animation-delay:.08s}.a3{animation-delay:.12s}.a4{animation-delay:.16s}.a5{animation-delay:.2s}.a6{animation-delay:.24s}.a7{animation-delay:.28s}.a8{animation-delay:.32s}.a9{animation-delay:.36s}.a10{animation-delay:.4s}.a11{animation-delay:.44s}.a12{animation-delay:.48s}.a13{animation-delay:.52s}.a14{animation-delay:.56s}.a15{animation-delay:.6s}
+</style>
 </head>
 <body>
-    <!-- Background dekorasi -->
-    <div class="bg-blob bg-blob-1"></div>
-    <div class="bg-blob bg-blob-2"></div>
-    <div class="bg-blob bg-blob-3"></div>
 
-    <!-- ===== HALAMAN UTAMA ===== -->
-    <main id="main-page" class="relative z-10 max-w-lg mx-auto px-4 pb-12">
+<div class="shell" id="app"></div>
 
-        <!-- Header / Profile -->
-        <header class="text-center pt-10 pb-6 fade-up">
-            <div class="avatar-ring mx-auto mb-4">
-                <img id="profile-img" src="https://picsum.photos/seed/sarahbeauty/200/200" alt="Profile"
-                     class="w-24 h-24 object-cover" loading="lazy">
-            </div>
-            <h1 id="profile-name" class="font-display text-2xl font-bold text-bark-800"
-                style="cursor:default;" title="Triple-klik untuk admin">Linkareadiskon</h1>
-            <p id="profile-tagline" class="text-coral-500 font-semibold text-sm mt-1">Temukan produk pilihan dengan harga terbaik</p>
-            <p id="profile-bio" class="text-bark-700/60 text-sm mt-3 leading-relaxed max-w-xs mx-auto">
-                Halo! 👋
-                Aku membantu kamu menemukan produk terbaik dengan harga terbaik.
-                Mulai dari kebutuhan rumah, gadget, kecantikan, hingga perlengkapan harian.
-                🛒 Semua rekomendasi ada di sini!
-            </p>
-        </header>
+<!-- Edit FAB -->
+<button class="fab" id="fabBtn" onclick="openEditor()" aria-label="Edit halaman">
+  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+</button>
 
-        <!-- Divider -->
-        <div class="flex items-center gap-3 mb-6 fade-up fade-up-delay-1">
-            <div class="flex-1 h-px bg-gradient-to-r from-transparent via-coral-500/20 to-transparent"></div>
-            <span class="text-xs font-semibold text-coral-500/60 tracking-widest uppercase">Rekomendasi</span>
-            <div class="flex-1 h-px bg-gradient-to-r from-transparent via-coral-500/20 to-transparent"></div>
-        </div>
-
-        <!-- Product Grid -->
-        <div id="products-grid" class="grid grid-cols-2 gap-4 mb-8 product-grid">
-            <!-- Dirender oleh JS -->
-        </div>
-
-        <!-- CTA Buttons -->
-        <div id="cta-buttons" class="space-y-3 mb-8">
-            <!-- Dirender oleh JS -->
-        </div>
-
-        <!-- Social Links -->
-        <div class="flex items-center justify-center gap-3 mb-8 fade-up fade-up-delay-5">
-            <a href="#" class="social-icon ig" aria-label="Instagram" data-social="instagram" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon yt" aria-label="YouTube" data-social="youtube" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="#" class="social-icon tt" aria-label="TikTok" data-social="tiktok" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="#" class="social-icon wa" aria-label="WhatsApp" data-social="whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <footer class="text-center text-xs text-bark-700/30 pb-4">
-            <p>&copy; 2025 Sarah Beauty. Semua link bersifat affiliate.</p>
-            <button id="admin-trigger" class="mt-2 text-bark-700/20 hover:text-coral-500 transition-colors text-xs" aria-label="Admin">
-                <i class="fas fa-cog"></i>
-            </button>
-        </footer>
-    </main>
-
-    <!-- ===== ADMIN PANEL ===== -->
-    <div id="admin-overlay" class="admin-overlay" role="dialog" aria-label="Admin Panel">
-        <div class="admin-panel" id="admin-panel">
-            <!-- Admin Header -->
-            <div class="sticky top-0 z-10 bg-bark-900/95 backdrop-blur-md border-b border-white/5 px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h2 class="font-display text-lg font-bold text-white">Dashboard Admin</h2>
-                        <p class="text-xs text-white/40 mt-0.5">Kelola produk & lacak klik</p>
-                    </div>
-                    <button id="admin-close" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors" aria-label="Tutup">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <!-- Tabs -->
-                <div class="flex gap-1 mt-4 overflow-x-auto pb-1 -mx-1 px-1" id="admin-tabs">
-                    <button class="admin-tab active" data-tab="products"><i class="fas fa-box mr-1.5"></i>Produk</button>
-                    <button class="admin-tab" data-tab="stats"><i class="fas fa-chart-bar mr-1.5"></i>Statistik</button>
-                    <button class="admin-tab" data-tab="sheets"><i class="fab fa-google mr-1.5"></i>Google Sheets</button>
-                    <button class="admin-tab" data-tab="settings"><i class="fas fa-sliders mr-1.5"></i>Pengaturan</button>
-                </div>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="px-6 py-6" id="admin-content">
-                <!-- Dirender oleh JS -->
-            </div>
-        </div>
+<!-- Editor Modal -->
+<div class="mov" id="editorModal">
+  <div class="mp">
+    <div class="mp-header">
+      <span style="flex:1;font-weight:600;font-size:14px">Edit Halaman</span>
+      <button onclick="closeEditor()" style="background:none;border:none;color:#65657A;cursor:pointer;padding:4px">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
+    <div class="mp-body" id="editorBody"></div>
+  </div>
+</div>
 
-    <!-- ===== MODAL PRODUK ===== -->
-    <div id="product-modal" class="fixed inset-0 z-[1100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" style="display:none;">
-        <div class="bg-bark-900 border border-white/10 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto p-6">
-            <div class="flex items-center justify-between mb-5">
-                <h3 id="modal-title" class="font-display text-lg font-bold text-white">Tambah Produk</h3>
-                <button id="modal-close" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors" aria-label="Tutup">
-                    <i class="fas fa-times text-sm"></i>
-                </button>
-            </div>
-            <form id="product-form" class="space-y-4">
-                <input type="hidden" id="pf-id">
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5">Nama Produk</label>
-                    <input type="text" id="pf-name" class="admin-input" placeholder="Contoh: GlowSkin Serum" required>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Harga (Rp)</label>
-                        <input type="number" id="pf-price" class="admin-input" placeholder="190000" required>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Harga Coret (Rp)</label>
-                        <input type="number" id="pf-originalPrice" class="admin-input" placeholder="253000">
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Diskon (%)</label>
-                        <input type="number" id="pf-discount" class="admin-input" placeholder="25" min="0" max="99">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Rating</label>
-                        <input type="number" id="pf-rating" class="admin-input" placeholder="4.8" min="0" max="5" step="0.1">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5">URL Gambar</label>
-                    <input type="url" id="pf-image" class="admin-input" placeholder="https://...">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5">Link Affiliate</label>
-                    <input type="url" id="pf-link" class="admin-input" placeholder="https://shopee.co.id/..." required>
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5">Deskripsi</label>
-                    <textarea id="pf-description" class="admin-input" rows="2" placeholder="Deskripsi singkat produk..."></textarea>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Kategori</label>
-                        <select id="pf-category" class="admin-input">
-                            <option value="skincare">Skincare</option>
-                            <option value="supplement">Suplemen</option>
-                            <option value="fitness">Fitness</option>
-                            <option value="makeup">Makeup</option>
-                            <option value="haircare">Haircare</option>
-                            <option value="lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Badge</label>
-                        <select id="pf-badge" class="admin-input">
-                            <option value="">Tidak ada</option>
-                            <option value="Best Seller">Best Seller</option>
-                            <option value="Hot Deal">Hot Deal</option>
-                            <option value="New">New</option>
-                            <option value="Limited">Limited</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <input type="checkbox" id="pf-active" checked class="accent-coral-500 w-4 h-4">
-                    <label for="pf-active" class="text-sm text-white/60">Produk aktif (tampil di halaman)</label>
-                </div>
-                <div class="flex gap-3 pt-2">
-                    <button type="submit" class="admin-btn admin-btn-primary flex-1">
-                        <i class="fas fa-save mr-1.5"></i>Simpan
-                    </button>
-                    <button type="button" id="modal-cancel" class="admin-btn admin-btn-ghost flex-1">Batal</button>
-                </div>
-            </form>
-        </div>
-    </div>
+<script>
+// ===== DEFAULT DATA =====
+const DEFAULTS = {
+  name: 'Sarah Beauty',
+  bio: 'Skincare enthusiast | Review jujur produk kecantikan | Link promo di bawah',
+  username: 'sarahbeauty',
+  avatar: null,
+  theme: 'mint',
+  products: [
+    { name: 'GlowSkin Serum', price: 'Rp 190rb', comm: '25%', img: 'https://picsum.photos/seed/gserum11/300/300.jpg' },
+    { name: 'FocusFlow Pill', price: 'Rp 158rb', comm: '30%', img: 'https://picsum.photos/seed/fpill22/300/300.jpg' },
+    { name: 'AeroFit Bands', price: 'Rp 119rb', comm: '20%', img: 'https://picsum.photos/seed/abands33/300/300.jpg' },
+  ],
+  links: [
+    { title: 'Serum Favoritku (Diskon 25%)', icon: 'sparkles', url: 'https://linkareadiskon.id/go/serum-favorit' },
+    { title: 'Review Lengkap di YouTube', icon: 'play', url: 'https://linkareadiskon.id/go/review-yt' },
+    { title: 'Guide Skincare Gratis', icon: 'book', url: 'https://linkareadiskon.id/go/guide-skincare' },
+    { title: 'Komunitas Telegram', icon: 'send', url: 'https://linkareadiskon.id/go/komunitas-tg' },
+    { title: 'Jadi Affiliate Juga', icon: 'users', url: 'https://linkareadiskon.id/go/jadi-affiliate' },
+  ],
+  socials: { instagram: true, twitter: true, youtube: true, tiktok: false },
+};
 
-    <!-- Toast container -->
-    <div class="toast-container" id="toast-container"></div>
+const THEMES = {
+  mint:   { c: '#00E5A0', bg: 'rgba(0,229,160,0.07)',  bd: 'rgba(0,229,160,0.10)', glow: 'rgba(0,229,160,0.03)' },
+  gold:   { c: '#FFB800', bg: 'rgba(255,184,0,0.07)',   bd: 'rgba(255,184,0,0.10)', glow: 'rgba(255,184,0,0.03)' },
+  rose:   { c: '#F472B6', bg: 'rgba(244,114,182,0.07)', bd: 'rgba(244,114,182,0.10)', glow: 'rgba(244,114,182,0.03)' },
+  violet: { c: '#A78BFA', bg: 'rgba(167,139,250,0.07)', bd: 'rgba(167,139,250,0.10)', glow: 'rgba(167,139,250,0.03)' },
+  red:    { c: '#FF4757', bg: 'rgba(255,71,87,0.07)',   bd: 'rgba(255,71,87,0.10)', glow: 'rgba(255,71,87,0.03)' },
+};
 
-    <script>
-    // ===== DATA & STATE =====
-    const STORAGE_KEY = 'sarahbeauty_app';
+const LINK_ICONS = {
+  sparkles: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>',
+  play: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>',
+  book: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+  send: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
+  users: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  link: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+  star: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  heart: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',
+};
 
-    // Produk default
-    const DEFAULT_PRODUCTS = [
-        {
-            id: 'glowskin-serum', name: 'GlowSkin Serum', price: 190000, originalPrice: 253000,
-            discount: 25, image: 'https://picsum.photos/seed/serum77/400/400', link: 'https://shopee.co.id/',
-            description: 'Serum pencerah kulit dengan Vitamin C dan Niacinamide untuk kulit glowing alami.',
-            category: 'skincare', badge: 'Best Seller', rating: 4.8, active: true
-        },
-        {
-            id: 'focusflow-pill', name: 'FocusFlow Pill', price: 158000, originalPrice: 226000,
-            discount: 30, image: 'https://picsum.photos/seed/supplement22/400/400', link: 'https://shopee.co.id/',
-            description: 'Suplemen otak dengan Ginkgo Biloba dan Omega-3 untuk fokus maksimal.',
-            category: 'supplement', badge: 'Hot Deal', rating: 4.6, active: true
-        },
-        {
-            id: 'aerofit-bands', name: 'AeroFit Bands', price: 119000, originalPrice: 149000,
-            discount: 20, image: 'https://picsum.photos/seed/fitness33/400/400', link: 'https://shopee.co.id/',
-            description: 'Resistance band premium untuk workout di rumah dengan 5 level resistensi.',
-            category: 'fitness', badge: 'New', rating: 4.5, active: true
-        },
-        {
-            id: 'hydra-mask', name: 'HydraGlow Mask', price: 89000, originalPrice: 120000,
-            discount: 26, image: 'https://picsum.photos/seed/mask44/400/400', link: 'https://shopee.co.id/',
-            description: 'Sheet mask dengan Hyaluronic Acid untuk hidrasi kulit 24 jam.',
-            category: 'skincare', badge: '', rating: 4.7, active: true
-        },
-        {
-            id: 'gutpro-probiotix', name: 'GutPro Probiotix', price: 145000, originalPrice: 195000,
-            discount: 26, image: 'https://picsum.photos/seed/probiotic55/400/400', link: 'https://shopee.co.id/',
-            description: 'Probiotik premium dengan 10 strain bakteri baik untuk kesehatan pencernaan.',
-            category: 'supplement', badge: 'Best Seller', rating: 4.9, active: true
-        },
-        {
-            id: 'zenflow-yoga', name: 'ZenFlow Yoga Mat', price: 210000, originalPrice: 280000,
-            discount: 25, image: 'https://picsum.photos/seed/yoga66/400/400', link: 'https://shopee.co.id/',
-            description: 'Matras yoga anti-slip dengan bahan TPE ramah lingkungan, tebal 6mm.',
-            category: 'fitness', badge: 'New', rating: 4.4, active: true
-        }
-    ];
+const SOC_SVG = {
+  instagram: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>',
+  twitter: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>',
+  youtube: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0-.46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>',
+  tiktok: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>',
+};
 
-    // State aplikasi
-    let APP = {
-        products: [],
-        clicks: [],
-        settings: {
-            sheetUrl: '',
-            profileName: 'LinkAreaDiskon',
-            profileTagline: 'Skincare Enthusiast',
-            profileBio: 'Halo! 👋
-                    Aku membantu kamu menemukan produk terbaik dengan harga terbaik.
-                    Mulai dari kebutuhan rumah, gadget, kecantikan, hingga perlengkapan harian.
-                    🛒 Semua rekomendasi ada di sini!',
-            profileImage: 'https://picsum.photos/seed/sarahbeauty/200/200',
-            socialLinks: {
-                instagram: 'https://instagram.com/sarahbeauty',
-                youtube: 'https://www.youtube.com/channel/UCrt2usR0wn5GsWopQzP6Njg',
-                tiktok: 'https://tiktok.com/@sarahbeauty',
-                whatsapp: 'https://wa.me/6282242087663'
-            }
-        },
-        adminTab: 'products'
-    };
+const SOC_LIST = [
+  { key: 'instagram', label: 'Instagram' },
+  { key: 'twitter', label: 'Twitter' },
+  { key: 'youtube', label: 'YouTube' },
+  { key: 'tiktok', label: 'TikTok' },
+];
 
-    // ===== PERSISTENCE =====
-    function saveApp() {
-        try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(APP));
-        } catch(e) {
-            console.warn('localStorage penuh:', e);
-        }
-    }
+const PROD_NAMES = [
+  'VitaGreen Blend', 'ZenSleep Blanket', 'PureBrew Maker', 'LumiDesk Lamp',
+  'SnapLens Case', 'CloudFit Shoes', 'MiniPro Blender', 'HidroColagen Plus',
+  'SunShield SPF50', 'AromaDiffuser Pro', 'SmartScale Digital', 'FitBand Tracker',
+];
 
-    function loadApp() {
-        try {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                APP = { ...APP, ...parsed };
-                // Pastikan socialLinks ada
-                if (!APP.settings.socialLinks) {
-                    APP.settings.socialLinks = {
-                        instagram: '', youtube: '', tiktok: '', whatsapp: ''
-                    };
-                }
-            } else {
-                APP.products = [...DEFAULT_PRODUCTS];
-                saveApp();
-            }
-        } catch(e) {
-            APP.products = [...DEFAULT_PRODUCTS];
-        }
-    }
+// ===== STATE =====
+let data = {};
+let editProducts = [];
+let editLinks = [];
 
-    // ===== FORMAT HELPERS =====
-    function formatRupiah(n) {
-        if (n >= 1000) return 'Rp ' + Math.round(n / 1000) + 'rb';
-        return 'Rp ' + n;
-    }
-    function formatRupiahFull(n) {
-        return 'Rp ' + Number(n).toLocaleString('id-ID');
-    }
-    function generateId(name) {
-        return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now().toString(36);
-    }
-
-    // ===== TOAST =====
-    function showToast(message, type = 'info') {
-        const container = document.getElementById('toast-container');
-        const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle' };
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `<i class="fas ${icons[type] || icons.info}"></i><span>${message}</span>`;
-        container.appendChild(toast);
-        setTimeout(() => {
-            toast.style.transition = 'all 0.3s ease';
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateX(100px)';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
-
-    // ===== CLICK TRACKING =====
-    function trackClick(productId, productName, action) {
-        const click = {
-            timestamp: new Date().toISOString(),
-            productId: productId,
-            productName: productName,
-            action: action || 'click'
-        };
-        APP.clicks.push(click);
-        saveApp();
-
-        // Kirim ke Google Sheets jika sudah dikonfigurasi
-        if (APP.settings.sheetUrl) {
-            sendClickToSheet(click);
-        }
-    }
-
-    function sendClickToSheet(click) {
-        try {
-            const url = new URL(APP.settings.sheetUrl);
-            url.searchParams.set('action', 'log');
-            url.searchParams.set('productId', click.productId);
-            url.searchParams.set('productName', click.productName);
-            url.searchParams.set('clickAction', click.action);
-            url.searchParams.set('timestamp', click.timestamp);
-            // Gunakan fetch no-cors (request tetap terkirim meski tidak bisa baca response)
-            fetch(url.toString(), { mode: 'no-cors' }).catch(() => {});
-        } catch(e) {
-            // URL tidak valid, abaikan
-        }
-    }
-
-    // ===== RENDER: HALAMAN UTAMA =====
-    function renderPage() {
-        // Profile
-        document.getElementById('profile-name').textContent = APP.settings.profileName;
-        document.getElementById('profile-tagline').textContent = APP.settings.profileTagline;
-        document.getElementById('profile-bio').textContent = APP.settings.profileBio;
-        document.getElementById('profile-img').src = APP.settings.profileImage;
-
-        // Social links
-        document.querySelectorAll('[data-social]').forEach(el => {
-            const platform = el.dataset.social;
-            if (APP.settings.socialLinks[platform]) {
-                el.href = APP.settings.socialLinks[platform];
-                el.style.display = 'flex';
-            } else {
-                el.style.display = 'none';
-            }
-        });
-
-        // Produk aktif
-        const activeProducts = APP.products.filter(p => p.active);
-        renderProducts(activeProducts);
-        renderCTA(activeProducts);
-    }
-
-    function renderProducts(products) {
-        const grid = document.getElementById('products-grid');
-        if (!products.length) {
-            grid.innerHTML = '<p class="col-span-2 text-center text-bark-700/40 py-12">Belum ada produk</p>';
-            return;
-        }
-
-        grid.innerHTML = products.map((p, i) => {
-            const delayClass = `fade-up-delay-${Math.min(i + 2, 5)}`;
-            const badgeHTML = p.badge ? `<span class="hot-badge">${p.badge}</span>` : '';
-            const stars = p.rating ? renderStars(p.rating) : '';
-            const desc = p.description ? `<p class="text-xs text-bark-700/50 mt-1 line-clamp-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.description}</p>` : '';
-
-            return `
-            <div class="product-card fade-up ${delayClass}" data-product-id="${p.id}">
-                <div class="img-wrap">
-                    <img src="${p.image || 'https://picsum.photos/seed/default/400/400'}" alt="${p.name}" loading="lazy"
-                         onerror="this.src='https://picsum.photos/seed/fallback${i}/400/400'">
-                    ${p.discount ? `<span class="discount-badge">-${p.discount}%</span>` : ''}
-                    ${badgeHTML}
-                </div>
-                <div class="p-3.5">
-                    <h3 class="font-semibold text-sm text-bark-800 leading-tight">${p.name}</h3>
-                    ${stars}
-                    <div class="mt-2 flex items-baseline gap-2 flex-wrap">
-                        <span class="text-coral-500 font-bold text-sm">${formatRupiah(p.price)}</span>
-                        ${p.originalPrice ? `<span class="text-bark-700/30 text-xs line-through">${formatRupiah(p.originalPrice)}</span>` : ''}
-                    </div>
-                    ${desc}
-                    <a href="${p.link}" target="_blank" rel="noopener"
-                       class="mt-3 block w-full text-center text-xs font-semibold py-2.5 rounded-xl bg-gradient-to-r from-coral-500 to-rose-500 text-white hover:shadow-lg hover:shadow-coral-500/25 transition-all"
-                       onclick="trackClick('${p.id}','${p.name.replace(/'/g, "\\'")}','buy')">
-                        Beli Sekarang
-                    </a>
-                </div>
-            </div>`;
-        }).join('');
-    }
-
-    function renderStars(rating) {
-        const full = Math.floor(rating);
-        const half = rating % 1 >= 0.5 ? 1 : 0;
-        const empty = 5 - full - half;
-        let html = '<div class="stars mt-1 flex items-center gap-0.5">';
-        for (let i = 0; i < full; i++) html += '<i class="fas fa-star"></i>';
-        if (half) html += '<i class="fas fa-star-half-alt"></i>';
-        for (let i = 0; i < empty; i++) html += '<i class="far fa-star"></i>';
-        html += `<span class="text-bark-700/40 text-xs ml-1">${rating}</span></div>`;
-        return html;
-    }
-
-    function renderCTA(products) {
-        const cta = document.getElementById('cta-buttons');
-        if (!products.length) { cta.innerHTML = ''; return; }
-
-        // Ambil produk pertama sebagai featured
-        const featured = products[0];
-        cta.innerHTML = `
-            <a href="${featured.link}" target="_blank" rel="noopener"
-               class="cta-btn cta-primary fade-up fade-up-delay-3"
-               onclick="trackClick('${featured.id}','${featured.name.replace(/'/g, "\\'")}','cta-buy')">
-                <i class="fas fa-fire"></i>
-                <span>${featured.name} (Diskon ${featured.discount}%)</span>
-                <i class="fas fa-arrow-right ml-auto"></i>
-            </a>
-            <a href="${APP.settings.socialLinks.youtube || '#'}" target="_blank" rel="noopener"
-               class="cta-btn cta-secondary fade-up fade-up-delay-4"
-               onclick="trackClick('youtube','YouTube Review','cta-youtube')">
-                <i class="fab fa-youtube"></i>
-                <span>Review Lengkap di YouTube</span>
-                <i class="fas fa-arrow-right ml-auto"></i>
-            </a>
-            <a href="${APP.settings.socialLinks.whatsapp || '#'}" target="_blank" rel="noopener"
-               class="cta-btn cta-outline fade-up fade-up-delay-5"
-               onclick="trackClick('whatsapp','WhatsApp Chat','cta-whatsapp')">
-                <i class="fab fa-whatsapp"></i>
-                <span>Tanya Langsung via WA</span>
-                <i class="fas fa-arrow-right ml-auto"></i>
-            </a>
-        `;
-    }
-
-    // ===== RENDER: ADMIN PANEL =====
-    function renderAdmin() {
-        const content = document.getElementById('admin-content');
-        switch (APP.adminTab) {
-            case 'products': renderAdminProducts(content); break;
-            case 'stats': renderAdminStats(content); break;
-            case 'sheets': renderAdminSheets(content); break;
-            case 'settings': renderAdminSettings(content); break;
-        }
-        // Update tab aktif
-        document.querySelectorAll('.admin-tab').forEach(t => {
-            t.classList.toggle('active', t.dataset.tab === APP.adminTab);
-        });
-    }
-
-    function renderAdminProducts(container) {
-        const productRows = APP.products.map((p, i) => `
-            <div class="admin-card">
-                <div class="flex gap-3">
-                    <img src="${p.image || 'https://picsum.photos/seed/fb' + i + '/80/80'}" alt=""
-                         class="w-14 h-14 rounded-xl object-cover flex-shrink-0"
-                         onerror="this.src='https://picsum.photos/seed/err${i}/80/80'">
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-start justify-between gap-2">
-                            <div class="min-w-0">
-                                <h4 class="text-white font-semibold text-sm truncate">${p.name}</h4>
-                                <p class="text-white/40 text-xs mt-0.5">${formatRupiahFull(p.price)} ${p.discount ? '• -' + p.discount + '%' : ''} ${!p.active ? '• <span class="text-red-400">Nonaktif</span>' : ''}</p>
-                            </div>
-                            <span class="text-xs px-2 py-0.5 rounded-full ${p.active ? 'bg-green-500/15 text-green-400' : 'bg-red-500/15 text-red-400'}">${p.active ? 'Aktif' : 'Off'}</span>
-                        </div>
-                        <div class="flex gap-2 mt-3">
-                            <button onclick="editProduct('${p.id}')" class="admin-btn admin-btn-ghost text-xs py-1.5 px-3">
-                                <i class="fas fa-pen mr-1"></i>Edit
-                            </button>
-                            <button onclick="duplicateProduct('${p.id}')" class="admin-btn admin-btn-ghost text-xs py-1.5 px-3">
-                                <i class="fas fa-copy mr-1"></i>Duplikat
-                            </button>
-                            <button onclick="deleteProduct('${p.id}')" class="admin-btn admin-btn-danger text-xs py-1.5 px-3">
-                                <i class="fas fa-trash mr-1"></i>Hapus
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-        container.innerHTML = `
-            <div class="flex items-center justify-between mb-5">
-                <div>
-                    <h3 class="text-white font-semibold">Daftar Produk</h3>
-                    <p class="text-white/40 text-xs mt-0.5">${APP.products.length} produk total, ${APP.products.filter(p=>p.active).length} aktif</p>
-                </div>
-                <button onclick="openProductModal()" class="admin-btn admin-btn-primary text-sm">
-                    <i class="fas fa-plus mr-1.5"></i>Tambah
-                </button>
-            </div>
-            <div class="flex gap-2 mb-4">
-                <button onclick="exportJSON()" class="admin-btn admin-btn-ghost text-xs">
-                    <i class="fas fa-download mr-1.5"></i>Export JSON
-                </button>
-                <label class="admin-btn admin-btn-ghost text-xs cursor-pointer">
-                    <i class="fas fa-upload mr-1.5"></i>Import JSON
-                    <input type="file" accept=".json" onchange="importJSON(event)" class="hidden">
-                </label>
-                <button onclick="resetProducts()" class="admin-btn admin-btn-danger text-xs">
-                    <i class="fas fa-undo mr-1.5"></i>Reset Default
-                </button>
-            </div>
-            ${productRows || '<p class="text-white/30 text-center py-8">Belum ada produk. Klik "Tambah" untuk menambahkan.</p>'}
-        `;
-    }
-
-    function renderAdminStats(container) {
-        const totalClicks = APP.clicks.length;
-        const today = new Date().toISOString().split('T')[0];
-        const todayClicks = APP.clicks.filter(c => c.timestamp.startsWith(today)).length;
-
-        // Klik per produk
-        const clicksByProduct = {};
-        APP.clicks.forEach(c => {
-            const key = c.productName || c.productId;
-            clicksByProduct[key] = (clicksByProduct[key] || 0) + 1;
-        });
-        const topProducts = Object.entries(clicksByProduct)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 10);
-
-        // Klik per action
-        const clicksByAction = {};
-        APP.clicks.forEach(c => {
-            clicksByAction[c.action || 'click'] = (clicksByAction[c.action || 'click'] || 0) + 1;
-        });
-
-        // 7 hari terakhir
-        const last7 = [];
-        for (let i = 6; i >= 0; i--) {
-            const d = new Date();
-            d.setDate(d.getDate() - i);
-            const dateStr = d.toISOString().split('T')[0];
-            const dayName = d.toLocaleDateString('id-ID', { weekday: 'short' });
-            const count = APP.clicks.filter(c => c.timestamp.startsWith(dateStr)).length;
-            last7.push({ day: dayName, count, date: dateStr });
-        }
-        const maxCount = Math.max(...last7.map(d => d.count), 1);
-
-        const barChart = last7.map(d => `
-            <div class="flex flex-col items-center gap-1.5 flex-1">
-                <div class="w-full bg-white/5 rounded-lg overflow-hidden" style="height:100px;">
-                    <div class="w-full rounded-lg transition-all" style="height:${Math.max((d.count / maxCount) * 100, 2)}%; background: linear-gradient(to top, #E07A5F, #F4A261); margin-top: ${100 - Math.max((d.count / maxCount) * 100, 2)}px;"></div>
-                </div>
-                <span class="text-xs text-white/50">${d.day}</span>
-                <span class="text-xs font-bold text-white/80">${d.count}</span>
-            </div>
-        `).join('');
-
-        const topList = topProducts.length ? topProducts.map(([name, count]) => `
-            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
-                <span class="text-white/70 text-sm truncate mr-2">${name}</span>
-                <span class="text-coral-400 font-bold text-sm flex-shrink-0">${count} klik</span>
-            </div>
-        `).join('') : '<p class="text-white/30 text-sm text-center py-4">Belum ada data klik</p>';
-
-        const actionList = Object.entries(clicksByAction).map(([action, count]) => `
-            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
-                <span class="text-white/70 text-sm">${action}</span>
-                <span class="text-sand-300 font-bold text-sm">${count}</span>
-            </div>
-        `).join('');
-
-        container.innerHTML = `
-            <h3 class="text-white font-semibold mb-5">Statistik Klik</h3>
-            <div class="grid grid-cols-2 gap-3 mb-6 stat-grid">
-                <div class="stat-card">
-                    <div class="stat-number text-coral-400">${totalClicks}</div>
-                    <p class="text-white/40 text-xs mt-1">Total Klik</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number text-sand-300">${todayClicks}</div>
-                    <p class="text-white/40 text-xs mt-1">Klik Hari Ini</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number text-green-400">${APP.products.filter(p=>p.active).length}</div>
-                    <p class="text-white/40 text-xs mt-1">Produk Aktif</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number text-blue-400">${Object.keys(clicksByProduct).length}</div>
-                    <p class="text-white/40 text-xs mt-1">Unik Diklik</p>
-                </div>
-            </div>
-
-            <h4 class="text-white/70 text-sm font-semibold mb-3">Klik 7 Hari Terakhir</h4>
-            <div class="admin-card mb-6">
-                <div class="flex gap-2">${barChart}</div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <h4 class="text-white/70 text-sm font-semibold mb-3">Produk Terbanyak Diklik</h4>
-                    <div class="admin-card">${topList}</div>
-                </div>
-                <div>
-                    <h4 class="text-white/70 text-sm font-semibold mb-3">Berdasarkan Aksi</h4>
-                    <div class="admin-card">${actionList || '<p class="text-white/30 text-sm text-center py-4">Belum ada data</p>'}</div>
-                </div>
-            </div>
-
-            <div class="mt-6 flex gap-2">
-                <button onclick="exportClicksCSV()" class="admin-btn admin-btn-ghost text-xs">
-                    <i class="fas fa-file-csv mr-1.5"></i>Export CSV
-                </button>
-                <button onclick="clearClicks()" class="admin-btn admin-btn-danger text-xs">
-                    <i class="fas fa-trash mr-1.5"></i>Hapus Semua Data Klik
-                </button>
-            </div>
-        `;
-    }
-
-    function renderAdminSheets(container) {
-        const sheetUrl = APP.settings.sheetUrl || '';
-        const isConfigured = sheetUrl.length > 0;
-
-        container.innerHTML = `
-            <h3 class="text-white font-semibold mb-2">Integrasi Google Sheets</h3>
-            <p class="text-white/40 text-xs mb-5">Gunakan Google Sheets sebagai database gratis untuk menyimpan data produk dan melacak klik secara real-time.</p>
-
-            <div class="admin-card mb-4">
-                <label class="block text-xs font-medium text-white/50 mb-1.5">URL Google Apps Script Web App</label>
-                <input type="url" id="sheet-url" class="admin-input mb-3" placeholder="https://script.google.com/macros/s/xxxxx/exec" value="${sheetUrl}">
-                <div class="flex gap-2">
-                    <button onclick="saveSheetUrl()" class="admin-btn admin-btn-primary text-xs">
-                        <i class="fas fa-save mr-1.5"></i>Simpan URL
-                    </button>
-                    <button onclick="testSheetConnection()" class="admin-btn admin-btn-ghost text-xs">
-                        <i class="fas fa-plug mr-1.5"></i>Test Koneksi
-                    </button>
-                    ${isConfigured ? `
-                    <button onclick="fetchFromSheet()" class="admin-btn admin-btn-ghost text-xs">
-                        <i class="fas fa-cloud-download-alt mr-1.5"></i>Ambil Data
-                    </button>` : ''}
-                </div>
-                <div id="sheet-status" class="mt-3 text-xs"></div>
-            </div>
-
-            <div class="mb-4 p-4 rounded-xl bg-gradient-to-r from-coral-500/10 to-sand-300/10 border border-coral-500/20">
-                <div class="flex items-center gap-2 mb-3">
-                    <i class="fas fa-lightbulb text-sand-300"></i>
-                    <span class="text-white font-semibold text-sm">Cara Setup Google Sheets</span>
-                </div>
-                <ol class="text-white/60 text-xs space-y-2 list-decimal list-inside leading-relaxed">
-                    <li>Buat Google Spreadsheet baru di <a href="https://sheets.google.com" target="_blank" class="text-coral-400 underline">sheets.google.com</a></li>
-                    <li>Buat sheet bernama <code class="text-sand-300 bg-white/5 px-1 rounded">products</code> dengan header: id, name, price, originalPrice, discount, image, link, description, category, badge, rating, active</li>
-                    <li>Buat sheet bernama <code class="text-sand-300 bg-white/5 px-1 rounded">clicks</code> dengan header: timestamp, productId, productName, action</li>
-                    <li>Klik <strong>Extensions > Apps Script</strong></li>
-                    <li>Hapus kode default, paste kode di bawah, lalu <strong>Deploy > New deployment > Web app</strong></li>
-                    <li>Set "Who has access" ke <strong>Anyone</strong>, lalu copy URL yang muncul</li>
-                    <li>Paste URL di atas dan klik Simpan</li>
-                </ol>
-            </div>
-
-            <h4 class="text-white/70 text-sm font-semibold mb-3">Kode Google Apps Script</h4>
-            <div class="relative">
-                <button class="copy-btn" onclick="copyScript()"><i class="fas fa-copy mr-1"></i>Copy</button>
-                <div class="code-block" id="apps-script-code">function doGet(e) {
-  var action = e.parameter.action;
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-
-  if (action === 'log') {
-    // Catat klik
-    var sheet = ss.getSheetByName('clicks');
-    sheet.appendRow([
-      new Date(),
-      e.parameter.productId || '',
-      e.parameter.productName || '',
-      e.parameter.clickAction || 'click'
-    ]);
-    return ContentService.createTextOutput(
-      JSON.stringify({success: true})
-    ).setMimeType(ContentService.MimeType.JSON);
-  }
-
-  // Default: kembalikan produk
-  var sheet = ss.getSheetByName('products');
-  var data = sheet.getDataRange().getValues();
-  var headers = data[0];
-  var products = [];
-  for (var i = 1; i < data.length; i++) {
-    if (data[i][0]) {
-      var obj = {};
-      for (var j = 0; j < headers.length; j++) {
-        var val = data[i][j];
-        // Konversi angka
-        if (headers[j] === 'price' || headers[j] === 'originalPrice' ||
-            headers[j] === 'discount' || headers[j] === 'rating') {
-          val = Number(val) || 0;
-        }
-        if (headers[j] === 'active') {
-          val = val === true || val === 'true' || val === 'TRUE';
-        }
-        obj[headers[j]] = val;
+// ===== LOAD / SAVE =====
+function loadData() {
+  try {
+    const raw = localStorage.getItem('lrd_biolink');
+    if (raw) {
+      data = JSON.parse(raw);
+      // Merge with defaults for any missing keys
+      for (const k of Object.keys(DEFAULTS)) {
+        if (data[k] === undefined) data[k] = JSON.parse(JSON.stringify(DEFAULTS[k]));
       }
-      products.push(obj);
+    } else {
+      data = JSON.parse(JSON.stringify(DEFAULTS));
     }
+  } catch (e) {
+    data = JSON.parse(JSON.stringify(DEFAULTS));
   }
-  return ContentService.createTextOutput(
-    JSON.stringify({success: true, products: products})
-  ).setMimeType(ContentService.MimeType.JSON);
+  // Ensure arrays
+  if (!Array.isArray(data.products)) data.products = DEFAULTS.products;
+  if (!Array.isArray(data.links)) data.links = DEFAULTS.links;
+  if (!data.socials) data.socials = { ...DEFAULTS.socials };
 }
 
-function doPost(e) {
-  return doGet(e);
-}</div>
-            </div>
+function saveData() {
+  try {
+    localStorage.setItem('lrd_biolink', JSON.stringify(data));
+  } catch (e) {
+    // localStorage full — try removing avatar to free space
+    data.avatar = null;
+    try { localStorage.setItem('lrd_biolink', JSON.stringify(data)); } catch (e2) {}
+  }
+}
 
-            <div class="mt-6 p-4 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
-                <div class="flex items-center gap-2 mb-2">
-                    <i class="fas fa-star text-green-400"></i>
-                    <span class="text-white font-semibold text-sm">Alternatif: JSONBin.io</span>
-                </div>
-                <p class="text-white/50 text-xs leading-relaxed mb-3">
-                    Jika ingin cara yang lebih simpel tanpa Google Apps Script, gunakan <a href="https://jsonbin.io" target="_blank" class="text-coral-400 underline">JSONBin.io</a> (gratis). 
-                    Simpan data produk sebagai JSON, lalu akses via REST API. Cocok untuk data yang tidak terlalu sering berubah.
-                </p>
-                <p class="text-white/40 text-xs">Fitur JSONBin akan ditambahkan di versi selanjutnya. Untuk sekarang, Google Sheets adalah opsi terbaik.</p>
-            </div>
-        `;
+// ===== IMAGE COMPRESS =====
+function compressImage(file, maxW, maxH, quality) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let w = img.width, h = img.height;
+        if (w > maxW) { h = h * maxW / w; w = maxW; }
+        if (h > maxH) { w = w * maxH / h; h = maxH; }
+        canvas.width = Math.max(1, Math.round(w));
+        canvas.height = Math.max(1, Math.round(h));
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', quality || 0.7));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ===== RENDER LANDING PAGE =====
+function render() {
+  const t = THEMES[data.theme] || THEMES.mint;
+  const initials = (data.name || 'U').split(/\s+/).filter(Boolean).map(w => w[0]).join('').substring(0, 2).toUpperCase();
+
+  // Apply CSS variables
+  document.documentElement.style.setProperty('--theme-c', t.c);
+  document.documentElement.style.setProperty('--theme-bg', t.bg);
+  document.documentElement.style.setProperty('--theme-border', t.bd);
+  document.documentElement.style.setProperty('--glow-color', t.glow);
+  document.querySelector('.fab').style.background = t.c;
+
+  const pcols = Math.min(data.products.length, 3);
+
+  // Avatar HTML
+  let avatarHTML;
+  if (data.avatar) {
+    avatarHTML = '<img src="' + data.avatar + '" alt="' + esc(data.name) + '"><div class="avatar-upload-hint"><svg width="20" height="20" fill="none" stroke="#E8E8ED" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>';
+  } else {
+    avatarHTML = '<div class="avatar-fallback">' + initials + '</div><div class="avatar-upload-hint"><svg width="20" height="20" fill="none" stroke="#E8E8ED" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>';
+  }
+
+  // Products HTML
+  const prodsHTML = data.products.map((p, i) =>
+    '<a href="' + esc(p.url || '#') + '" class="pc a a' + (i + 5) + '" rel="nofollow noopener" target="_blank" style="--pcols:' + pcols + '">' +
+    '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" width="200" height="160" loading="eager">' +
+    '<div class="pi"><div class="pn">' + esc(p.name) + '</div><div class="pm"><span class="pp">' + esc(p.price) + '</span><span class="pc2">' + esc(p.comm) + '</span></div></div></a>'
+  ).join('');
+
+  // Links HTML
+  const linksHTML = data.links.map((l, i) =>
+    '<a href="' + esc(l.url || '#') + '" class="li a a' + (i + 5 + data.products.length) + '" rel="nofollow noopener" target="_blank">' +
+    '<span class="lic">' + (LINK_ICONS[l.icon] || LINK_ICONS.link) + '</span>' +
+    '<span class="lt">' + esc(l.title) + '</span>' +
+    '<span class="lar"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span></a>'
+  ).join('');
+
+  // Social HTML
+  let socialHTML = '';
+  for (const s of SOC_LIST) {
+    if (data.socials[s.key] && SOC_SVG[s.key]) {
+      socialHTML += '<a href="#" aria-label="' + s.label + '">' + SOC_SVG[s.key] + '</a>';
     }
+  }
 
-    function renderAdminSettings(container) {
-        const s = APP.settings;
-        container.innerHTML = `
-            <h3 class="text-white font-semibold mb-5">Pengaturan Profil</h3>
+  document.getElementById('app').innerHTML =
+    '<div class="ct" style="--pcols:' + pcols + '">' +
+    '<div class="avatar-wrap a a1" onclick="openEditor()" title="Klik untuk ganti foto">' + avatarHTML + '</div>' +
+    '<h1 class="name a a2">' + esc(data.name) + '</h1>' +
+    (data.bio ? '<p class="bio a a3">' + esc(data.bio) + '</p>' : '') +
+    '<div class="sep a a4"></div>' +
+    (data.products.length ? '<div class="a a5"><div class="slbl">Produk Rekomendasi</div><div class="pgrid">' + prodsHTML + '</div></div><div class="sep a a' + (5 + data.products.length) + '"></div>' : '') +
+    '<div class="ll">' + linksHTML + '</div>' +
+    (socialHTML ? '<div class="sr a a15">' + socialHTML + '</div>' : '') +
+    '<div class="foot">linkareadiskon.id/' + esc(data.username) + '</div>' +
+    '</div>';
+}
 
-            <div class="admin-card">
-                <div class="flex items-center gap-3 mb-4">
-                    <img src="${s.profileImage}" alt="" class="w-16 h-16 rounded-xl object-cover"
-                         onerror="this.src='https://picsum.photos/seed/settings/80/80'">
-                    <div>
-                        <p class="text-white font-semibold">${s.profileName}</p>
-                        <p class="text-white/40 text-xs">${s.profileTagline}</p>
-                    </div>
-                </div>
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
 
-                <div class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Nama Profil</label>
-                        <input type="text" id="set-name" class="admin-input" value="${s.profileName}">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Tagline</label>
-                        <input type="text" id="set-tagline" class="admin-input" value="${s.profileTagline}">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">Bio</label>
-                        <textarea id="set-bio" class="admin-input" rows="2">${s.profileBio}</textarea>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-white/50 mb-1.5">URL Foto Profil</label>
-                        <input type="url" id="set-image" class="admin-input" value="${s.profileImage}">
-                    </div>
-                </div>
-            </div>
+// ===== EDITOR =====
+function openEditor() {
+  editProducts = JSON.parse(JSON.stringify(data.products));
+  editLinks = JSON.parse(JSON.stringify(data.links));
+  renderEditor();
+  document.getElementById('editorModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
-            <h4 class="text-white/70 text-sm font-semibold mt-6 mb-3">Link Sosial Media</h4>
-            <div class="admin-card space-y-3">
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5"><i class="fab fa-instagram mr-1"></i>Instagram</label>
-                    <input type="url" id="set-ig" class="admin-input" value="${s.socialLinks.instagram || ''}" placeholder="https://instagram.com/...">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5"><i class="fab fa-youtube mr-1"></i>YouTube</label>
-                    <input type="url" id="set-yt" class="admin-input" value="${s.socialLinks.youtube || ''}" placeholder="https://youtube.com/...">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5"><i class="fab fa-tiktok mr-1"></i>TikTok</label>
-                    <input type="url" id="set-tt" class="admin-input" value="${s.socialLinks.tiktok || ''}" placeholder="https://tiktok.com/...">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-white/50 mb-1.5"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</label>
-                    <input type="url" id="set-wa" class="admin-input" value="${s.socialLinks.whatsapp || ''}" placeholder="https://wa.me/628...">
-                </div>
-            </div>
+function closeEditor() {
+  document.getElementById('editorModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-            <div class="mt-6 flex gap-2">
-                <button onclick="saveSettings()" class="admin-btn admin-btn-primary">
-                    <i class="fas fa-save mr-1.5"></i>Simpan Pengaturan
-                </button>
-                <button onclick="resetAllData()" class="admin-btn admin-btn-danger text-xs">
-                    <i class="fas fa-exclamation-triangle mr-1.5"></i>Reset Semua Data
-                </button>
-            </div>
-        `;
-    }
+function renderEditor() {
+  const t = THEMES[data.theme] || THEMES.mint;
+  const themeKeys = ['mint', 'gold', 'rose', 'violet', 'red'];
+  const themeGrads = [
+    'linear-gradient(135deg,#00E5A0,#38BDF8)',
+    'linear-gradient(135deg,#FFB800,#FF6B35)',
+    'linear-gradient(135deg,#F472B6,#EC4899)',
+    'linear-gradient(135deg,#A78BFA,#8B5CF6)',
+    'linear-gradient(135deg,#FF4757,#DC2626)',
+  ];
 
-    // ===== ADMIN ACTIONS =====
-    function openProductModal(product = null) {
-        const modal = document.getElementById('product-modal');
-        const title = document.getElementById('modal-title');
-        const form = document.getElementById('product-form');
+  let html = '';
 
-        if (product) {
-            title.textContent = 'Edit Produk';
-            document.getElementById('pf-id').value = product.id;
-            document.getElementById('pf-name').value = product.name;
-            document.getElementById('pf-price').value = product.price;
-            document.getElementById('pf-originalPrice').value = product.originalPrice || '';
-            document.getElementById('pf-discount').value = product.discount || '';
-            document.getElementById('pf-rating').value = product.rating || '';
-            document.getElementById('pf-image').value = product.image || '';
-            document.getElementById('pf-link').value = product.link || '';
-            document.getElementById('pf-description').value = product.description || '';
-            document.getElementById('pf-category').value = product.category || 'skincare';
-            document.getElementById('pf-badge').value = product.badge || '';
-            document.getElementById('pf-active').checked = product.active !== false;
-        } else {
-            title.textContent = 'Tambah Produk';
-            form.reset();
-            document.getElementById('pf-id').value = '';
-            document.getElementById('pf-active').checked = true;
-        }
+  // Avatar upload
+  html += '<div style="margin-bottom:20px">';
+  html += '<label class="slbl" style="display:block;margin-bottom:8px">Foto Profil / Logo</label>';
+  html += '<div class="img-up" id="avatarUploadArea">';
+  if (data.avatar) {
+    html += '<img src="' + data.avatar + '" alt="avatar" id="avatarPreview">';
+  } else {
+    html += '<div style="padding:8px 0"><svg width="32" height="32" fill="none" stroke="#65657A" stroke-width="1.5" viewBox="0 0 24 24" style="margin:0 auto 8px;display:block"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><div style="font-size:12px;color:#65657A">Klik untuk upload gambar</div><div style="font-size:10px;color:#3A3A50;margin-top:2px">JPG, PNG, max 2MB</div></div>';
+  }
+  html += '<input type="file" accept="image/jpeg,image/png,image/webp" onchange="handleAvatarUpload(this)">';
+  html += '</div>';
+  if (data.avatar) {
+    html += '<button onclick="removeAvatar()" class="btn-g" style="margin-top:8px;font-size:11px;padding:6px 14px">Hapus Foto</button>';
+  }
+  html += '</div>';
 
-        modal.style.display = 'flex';
-    }
+  // Name & Username
+  html += '<div style="display:grid;grid-template-columns:3fr 2fr;gap:10px;margin-bottom:16px">';
+  html += '<div><label class="slbl" style="display:block;margin-bottom:4px">Nama</label><input class="inp" value="' + esc(data.name) + '" oninput="data.name=this.value" placeholder="Nama Kamu"></div>';
+  html += '<div><label class="slbl" style="display:block;margin-bottom:4px">Username</label><input class="inp" value="' + esc(data.username) + '" oninput="data.username=this.value.replace(/[^a-z0-9_-]/gi,\'\').toLowerCase()" placeholder="username"></div>';
+  html += '</div>';
 
-    function closeProductModal() {
-        document.getElementById('product-modal').style.display = 'none';
-    }
+  // Bio
+  html += '<div style="margin-bottom:20px"><label class="slbl" style="display:block;margin-bottom:4px">Bio</label><textarea class="inp" rows="2" oninput="data.bio=this.value" placeholder="Tentang kamu...">' + esc(data.bio) + '</textarea></div>';
 
-    function editProduct(id) {
-        const product = APP.products.find(p => p.id === id);
-        if (product) openProductModal(product);
-    }
+  // Theme
+  html += '<div style="margin-bottom:20px"><label class="slbl" style="display:block;margin-bottom:8px">Tema Warna</label><div style="display:flex;gap:10px">';
+  themeKeys.forEach((k, i) => {
+    html += '<div class="tdot ' + (data.theme === k ? 'on' : '') + '" style="background:' + themeGrads[i] + '" onclick="data.theme=\'' + k + '\';renderEditor()"></div>';
+  });
+  html += '</div></div>';
 
-    function duplicateProduct(id) {
-        const product = APP.products.find(p => p.id === id);
-        if (product) {
-            const dup = { ...product, id: generateId(product.name + '-copy'), name: product.name + ' (Copy)' };
-            APP.products.push(dup);
-            saveApp();
-            renderPage();
-            renderAdmin();
-            showToast('Produk berhasil diduplikat', 'success');
-        }
-    }
+  // Products
+  html += '<div style="margin-bottom:20px">';
+  html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><label class="slbl" style="margin:0">Produk (' + editProducts.length + ')</label><button class="btn-p" style="font-size:11px;padding:5px 12px" onclick="addEditProduct()">+ Tambah</button></div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(' + Math.min(Math.max(editProducts.length, 1), 3) + ',1fr);gap:10px" id="editProdGrid">';
+  editProducts.forEach((p, i) => {
+    html += '<div class="pe-card" style="position:relative">';
+    html += '<div style="position:relative"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy">';
+    html += '<button class="pe-del" onclick="removeEditProduct(' + i + ')"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+    html += '</div>';
+    html += '<div style="padding:8px"><input class="inp inp-sm" value="' + esc(p.name) + '" oninput="editProducts[' + i + '].name=this.value" placeholder="Nama produk" style="margin-bottom:4px">';
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px"><input class="inp inp-sm" value="' + esc(p.price) + '" oninput="editProducts[' + i + '].price=this.value" placeholder="Harga">';
+    html += '<input class="inp inp-sm" value="' + esc(p.comm) + '" oninput="editProducts[' + i + '].comm=this.value" placeholder="Komisi"></div>';
+    html += '<div class="img-up" style="margin-top:6px;padding:8px"><input type="file" accept="image/jpeg,image/png,image/webp" onchange="handleProdImg(this,' + i + ')"><div style="font-size:10px;color:#65657A">Ganti gambar</div></div>';
+    html += '</div></div>';
+  });
+  html += '</div></div>';
 
-    function deleteProduct(id) {
-        const product = APP.products.find(p => p.id === id);
-        if (!product) return;
-        // Konfirmasi dengan custom modal sederhana
-        if (confirm(`Hapus "${product.name}"?`)) {
-            APP.products = APP.products.filter(p => p.id !== id);
-            saveApp();
-            renderPage();
-            renderAdmin();
-            showToast('Produk dihapus', 'success');
-        }
-    }
+  // Links
+  html += '<div style="margin-bottom:20px">';
+  html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><label class="slbl" style="margin:0">Link Items (' + editLinks.length + ')</label><button class="btn-p" style="font-size:11px;padding:5px 12px" onclick="addEditLink()">+ Tambah</button></div>';
+  editLinks.forEach((l, i) => {
+    html += '<div class="le-row"><svg width="14" height="14" fill="none" stroke="#65657A" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><input class="inp inp-sm" value="' + esc(l.title) + '" oninput="editLinks[' + i + '].title=this.value" placeholder="Judul link"><button onclick="removeEditLink(' + i + ')" style="background:none;border:none;color:#FF4757;cursor:pointer;padding:4px;flex-shrink:0"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/></svg></button></div>';
+  });
+  html += '</div>';
 
-    function resetProducts() {
-        if (confirm('Reset semua produk ke default? Data produk saat ini akan hilang.')) {
-            APP.products = [...DEFAULT_PRODUCTS];
-            saveApp();
-            renderPage();
-            renderAdmin();
-            showToast('Produk direset ke default', 'success');
-        }
-    }
+  // Socials
+  html += '<div style="margin-bottom:24px"><label class="slbl" style="display:block;margin-bottom:8px">Sosial Media</label><div style="display:flex;gap:8px;flex-wrap:wrap">';
+  SOC_LIST.forEach(s => {
+    const on = data.socials[s.key];
+    html += '<label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 12px;border-radius:8px;border:1px solid ' + (on ? t.c + '33' : '#1F1F32') + ';background:' + (on ? t.bg : 'transparent') + ';transition:all .15s;font-size:12px;color:' + (on ? t.c : '#65657A') + '"><input type="checkbox" ' + (on ? 'checked' : '') + ' onchange="data.socials[\'' + s.key + '\']=this.checked;renderEditor()" style="display:none">' + s.label + '</label>';
+  });
+  html += '</div></div>';
 
-    function saveProduct(formData) {
-        const id = formData.get('id');
-        const productData = {
-            id: id || generateId(formData.get('name')),
-            name: formData.get('name'),
-            price: Number(formData.get('price')) || 0,
-            originalPrice: Number(formData.get('originalPrice')) || 0,
-            discount: Number(formData.get('discount')) || 0,
-            rating: Number(formData.get('rating')) || 0,
-            image: formData.get('image') || '',
-            link: formData.get('link') || '#',
-            description: formData.get('description') || '',
-            category: formData.get('category') || 'skincare',
-            badge: formData.get('badge') || '',
-            active: formData.get('active') === 'on'
-        };
+  // Save button
+  html += '<div style="display:flex;gap:10px;padding-bottom:8px">';
+  html += '<button class="btn-g" style="flex:1" onclick="closeEditor()">Batal</button>';
+  html += '<button class="btn-p" style="flex:2" onclick="saveAndRender()">Simpan Perubahan</button>';
+  html += '</div>';
 
-        // Auto hitung diskon jika harga coret diisi tapi diskon kosong
-        if (productData.originalPrice > productData.price && !productData.discount) {
-            productData.discount = Math.round((1 - productData.price / productData.originalPrice) * 100);
-        }
+  document.getElementById('editorBody').innerHTML = html;
+}
 
-        if (id) {
-            // Update
-            const idx = APP.products.findIndex(p => p.id === id);
-            if (idx >= 0) APP.products[idx] = productData;
-        } else {
-            // Tambah baru
-            APP.products.push(productData);
-        }
+// ===== EDITOR ACTIONS =====
+async function handleAvatarUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) { alert('Ukuran file maksimal 2MB'); return; }
+  try {
+    data.avatar = await compressImage(file, 400, 400, 0.75);
+    saveData();
+    render();
+    renderEditor();
+  } catch (e) { alert('Gagal memproses gambar'); }
+}
 
-        saveApp();
-        renderPage();
-        renderAdmin();
-        closeProductModal();
-        showToast(id ? 'Produk berhasil diupdate' : 'Produk berhasil ditambahkan', 'success');
-    }
+function removeAvatar() {
+  data.avatar = null;
+  saveData();
+  render();
+  renderEditor();
+}
 
-    // ===== EXPORT / IMPORT =====
-    function exportJSON() {
-        const data = JSON.stringify({ products: APP.products, clicks: APP.clicks, settings: APP.settings }, null, 2);
-        const blob = new Blob([data], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = `sarahbeauty-backup-${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-        showToast('Data berhasil diexport', 'success');
-    }
+function addEditProduct() {
+  const name = PROD_NAMES[Math.floor(Math.random() * PROD_NAMES.length)];
+  const seed = 'np' + Math.floor(Math.random() * 99999);
+  editProducts.push({
+    name,
+    price: 'Rp ' + (Math.floor(Math.random() * 300 + 50)) + 'rb',
+    comm: Math.floor(Math.random() * 25 + 10) + '%',
+    img: 'https://picsum.photos/seed/' + seed + '/300/300.jpg',
+    url: '',
+  });
+  renderEditor();
+}
 
-    function importJSON(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const data = JSON.parse(e.target.result);
-                if (data.products && Array.isArray(data.products)) {
-                    APP.products = data.products;
-                    if (data.clicks) APP.clicks = data.clicks;
-                    if (data.settings) APP.settings = { ...APP.settings, ...data.settings };
-                    saveApp();
-                    renderPage();
-                    renderAdmin();
-                    showToast(`Import berhasil: ${data.products.length} produk`, 'success');
-                } else {
-                    showToast('Format file tidak valid', 'error');
-                }
-            } catch(err) {
-                showToast('Gagal membaca file JSON', 'error');
-            }
-        };
-        reader.readAsText(file);
-        event.target.value = '';
-    }
+function removeEditProduct(i) {
+  editProducts.splice(i, 1);
+  renderEditor();
+}
 
-    function exportClicksCSV() {
-        if (!APP.clicks.length) {
-            showToast('Belum ada data klik', 'info');
-            return;
-        }
-        let csv = 'Timestamp,Product ID,Product Name,Action\n';
-        APP.clicks.forEach(c => {
-            csv += `"${c.timestamp}","${c.productId}","${c.productName}","${c.action}"\n`;
-        });
-        const blob = new Blob([csv], { type: 'text/csv' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = `klik-${new Date().toISOString().split('T')[0]}.csv`;
-        a.click();
-        URL.revokeObjectURL(url);
-        showToast('CSV berhasil diexport', 'success');
-    }
+async function handleProdImg(input, i) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) { alert('Ukuran file maksimal 2MB'); return; }
+  try {
+    editProducts[i].img = await compressImage(file, 400, 400, 0.75);
+    renderEditor();
+  } catch (e) { alert('Gagal memproses gambar'); }
+}
 
-    function clearClicks() {
-        if (confirm('Hapus semua data klik? Data tidak bisa dikembalikan.')) {
-            APP.clicks = [];
-            saveApp();
-            renderAdmin();
-            showToast('Data klik dihapus', 'success');
-        }
-    }
+function addEditLink() {
+  const icons = Object.keys(LINK_ICONS);
+  editLinks.push({ title: 'Link Baru', icon: icons[Math.floor(Math.random() * icons.length)], url: '' });
+  renderEditor();
+}
 
-    // ===== GOOGLE SHEETS =====
-    function saveSheetUrl() {
-        const url = document.getElementById('sheet-url').value.trim();
-        APP.settings.sheetUrl = url;
-        saveApp();
-        if (url) {
-            showToast('URL Google Sheets disimpan', 'success');
-        } else {
-            showToast('Integrasi Google Sheets dinonaktifkan', 'info');
-        }
-    }
+function removeEditLink(i) {
+  editLinks.splice(i, 1);
+  renderEditor();
+}
 
-    async function testSheetConnection() {
-        const url = document.getElementById('sheet-url').value.trim();
-        const statusEl = document.getElementById('sheet-status');
-        if (!url) {
-            statusEl.innerHTML = '<span class="text-red-400"><i class="fas fa-times-circle mr-1"></i>Masukkan URL terlebih dahulu</span>';
-            return;
-        }
-        statusEl.innerHTML = '<span class="text-sand-300"><i class="fas fa-spinner fa-spin mr-1"></i>Menguji koneksi...</span>';
-        try {
-            const resp = await fetch(url, { redirect: 'follow' });
-            const data = await resp.json();
-            if (data.success) {
-                statusEl.innerHTML = `<span class="text-green-400"><i class="fas fa-check-circle mr-1"></i>Koneksi berhasil! ${data.products ? data.products.length + ' produk ditemukan' : ''}</span>`;
-            } else {
-                statusEl.innerHTML = '<span class="text-red-400"><i class="fas fa-times-circle mr-1"></i>Response tidak sesuai format</span>';
-            }
-        } catch(err) {
-            statusEl.innerHTML = '<span class="text-yellow-400"><i class="fas fa-exclamation-triangle mr-1"></i>Tidak bisa menguji (mungkin CORS). Ini normal, klik tetap akan tercatat.</span>';
-        }
-    }
+function saveAndRender() {
+  data.products = JSON.parse(JSON.stringify(editProducts));
+  data.links = JSON.parse(JSON.stringify(editLinks));
+  // Clean empty URLs
+  data.products.forEach(p => { if (!p.url) p.url = 'https://linkareadiskon.id/go/' + p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'); });
+  data.links.forEach(l => { if (!l.url) l.url = 'https://linkareadiskon.id/go/' + l.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'); });
+  saveData();
+  render();
+  closeEditor();
+}
 
-    async function fetchFromSheet() {
-        if (!APP.settings.sheetUrl) {
-            showToast('URL Google Sheets belum dikonfigurasi', 'error');
-            return;
-        }
-        try {
-            const resp = await fetch(APP.settings.sheetUrl, { redirect: 'follow' });
-            const data = await resp.json();
-            if (data.success && data.products) {
-                APP.products = data.products;
-                saveApp();
-                renderPage();
-                renderAdmin();
-                showToast(`${data.products.length} produk diambil dari Google Sheets`, 'success');
-            } else {
-                showToast('Format data tidak sesuai', 'error');
-            }
-        } catch(err) {
-            showToast('Gagal mengambil data dari Google Sheets', 'error');
-        }
-    }
+// Close modal on backdrop click
+document.getElementById('editorModal').addEventListener('click', function(e) {
+  if (e.target === this) closeEditor();
+});
 
-    function copyScript() {
-        const code = document.getElementById('apps-script-code').textContent;
-        navigator.clipboard.writeText(code).then(() => {
-            showToast('Kode berhasil dicopy', 'success');
-        }).catch(() => {
-            // Fallback
-            const textarea = document.createElement('textarea');
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            textarea.remove();
-            showToast('Kode berhasil dicopy', 'success');
-        });
-    }
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeEditor();
+});
 
-    // ===== SETTINGS =====
-    function saveSettings() {
-        APP.settings.profileName = document.getElementById('set-name').value.trim() || 'Sarah Beauty';
-        APP.settings.profileTagline = document.getElementById('set-tagline').value.trim() || '';
-        APP.settings.profileBio = document.getElementById('set-bio').value.trim() || '';
-        APP.settings.profileImage = document.getElementById('set-image').value.trim() || APP.settings.profileImage;
-        APP.settings.socialLinks.instagram = document.getElementById('set-ig').value.trim();
-        APP.settings.socialLinks.youtube = document.getElementById('set-yt').value.trim();
-        APP.settings.socialLinks.tiktok = document.getElementById('set-tt').value.trim();
-        APP.settings.socialLinks.whatsapp = document.getElementById('set-wa').value.trim();
-        saveApp();
-        renderPage();
-        showToast('Pengaturan disimpan', 'success');
-    }
-
-    function resetAllData() {
-        if (confirm('PERINGATAN: Semua data (produk, klik, pengaturan) akan dihapus dan direset ke default. Lanjutkan?')) {
-            localStorage.removeItem(STORAGE_KEY);
-            APP.products = [...DEFAULT_PRODUCTS];
-            APP.clicks = [];
-            APP.settings = {
-                sheetUrl: '',
-                profileName: 'Sarah Beauty',
-                profileTagline: 'Skincare Enthusiast',
-                profileBio: 'Membantu kamu menemukan produk terbaik dengan review jujur dan rekomendasi berdasarkan pengalaman pribadi.',
-                profileImage: 'https://picsum.photos/seed/sarahbeauty/200/200',
-                socialLinks: { instagram: '', youtube: '', tiktok: '', whatsapp: '' }
-            };
-            saveApp();
-            renderPage();
-            renderAdmin();
-            showToast('Semua data direset', 'success');
-        }
-    }
-
-    // ===== ADMIN PANEL OPEN/CLOSE =====
-    function openAdmin() {
-        const overlay = document.getElementById('admin-overlay');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        renderAdmin();
-    }
-
-    function closeAdmin() {
-        const panel = document.getElementById('admin-panel');
-        panel.classList.add('closing');
-        setTimeout(() => {
-            panel.classList.remove('closing');
-            document.getElementById('admin-overlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }, 300);
-    }
-
-    // ===== INISIALISASI =====
-    document.addEventListener('DOMContentLoaded', function() {
-        loadApp();
-        renderPage();
-
-        // Admin trigger: triple click pada nama profil
-        let clickCount = 0;
-        let clickTimer = null;
-        const profileName = document.getElementById('profile-name');
-        profileName.addEventListener('click', function() {
-            clickCount++;
-            if (clickTimer) clearTimeout(clickTimer);
-            clickTimer = setTimeout(() => { clickCount = 0; }, 500);
-            if (clickCount >= 3) {
-                clickCount = 0;
-                openAdmin();
-            }
-        });
-
-        // Admin trigger: tombol gear
-        document.getElementById('admin-trigger').addEventListener('click', openAdmin);
-
-        // Admin close
-        document.getElementById('admin-close').addEventListener('click', closeAdmin);
-        document.getElementById('admin-overlay').addEventListener('click', function(e) {
-            if (e.target === this) closeAdmin();
-        });
-
-        // Admin tabs
-        document.getElementById('admin-tabs').addEventListener('click', function(e) {
-            const tab = e.target.closest('.admin-tab');
-            if (tab) {
-                APP.adminTab = tab.dataset.tab;
-                renderAdmin();
-            }
-        });
-
-        // Product form submit
-        document.getElementById('product-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            saveProduct(formData);
-        });
-
-        // Modal close
-        document.getElementById('modal-close').addEventListener('click', closeProductModal);
-        document.getElementById('modal-cancel').addEventListener('click', closeProductModal);
-        document.getElementById('product-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeProductModal();
-        });
-
-        // Keyboard: Escape tutup modal/admin
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (document.getElementById('product-modal').style.display !== 'none') {
-                    closeProductModal();
-                } else if (document.getElementById('admin-overlay').classList.contains('active')) {
-                    closeAdmin();
-                }
-            }
-        });
-
-        // Cek hash #admin
-        if (window.location.hash === '#admin') {
-            setTimeout(openAdmin, 500);
-        }
-
-        // Hash change
-        window.addEventListener('hashchange', function() {
-            if (window.location.hash === '#admin') openAdmin();
-        });
-    });
-    </script>
+// ===== INIT =====
+loadData();
+render();
+</script>
 </body>
 </html>
