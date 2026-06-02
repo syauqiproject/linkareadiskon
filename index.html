@@ -512,11 +512,11 @@
 
                     // OPSI 2: Mengirim ke Web3Forms / Formspree (Sangat Direkomendasikan)
                     
-                    const response = await fetch('8b782fe3-7fb2-475f-bf95-fed649739c5e', {
+                    const response = await fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            access_key: 'MASUKKAN_API_KEY_WEB3FORMS_ANDA',
+                            access_key: '8b782fe3-7fb2-475f-bf95-fed649739c5e',
                             subject: 'Request Review Produk Baru',
                             message: `Produk: ${this.requestName}\nLink: ${this.requestLink || 'Tidak disertakan'}`
                         })
