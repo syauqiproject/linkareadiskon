@@ -211,15 +211,43 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="bg-primary py-16">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold text-white mb-4">Dapatkan Info Promo Eksklusif</h2>
-            <p class="text-blue-100 mb-8">Berlangganan newsletter kami dan jadilah yang pertama tahu saat ada diskon besar!</p>
-            <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input type="email" placeholder="Email anda..." class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
-                <button class="bg-secondary hover:bg-green-600 text-white px-6 py-3 rounded-lg font-bold transition">Subscribe</button>
-            </div>
+       <!-- CTA Request Review Section -->
+    <section class="bg-primary py-16 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide mb-6 inline-block">💡 Saran Pengunjung</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tidak Menemukan Produk yang Anda Cari?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Beri tahu kami produk apa yang ingin Anda beli. Tim kami akan melakukan review, mencari diskon terbaik, dan menambahkannya ke katalog ini!</p>
+            
+            <form @submit.prevent="submitRequest" class="flex flex-col gap-4 max-w-xl mx-auto bg-white/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/20">
+                <input 
+                    type="text" 
+                    x-model="requestName" 
+                    placeholder="Nama Produk (cth: Laptop MacBook Air M2)" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white text-gray-800 placeholder-gray-400"
+                >
+                <input 
+                    type="url" 
+                    x-model="requestLink" 
+                    placeholder="Link Marketplace (opsional, agar kami cek yang sama)" 
+                    class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white text-gray-800 placeholder-gray-400"
+                >
+                <button 
+                    type="submit" 
+                    :disabled="isSubmitting"
+                    class="bg-secondary hover:bg-green-600 disabled:bg-gray-400 text-white px-6 py-3 rounded-lg font-bold transition shadow-lg flex items-center justify-center gap-2"
+                >
+                    <span x-show="!isSubmitting" class="flex items-center gap-2">
+                        Kirim Request Review <span class="iconify" data-icon="lucide:send"></span>
+                    </span>
+                    <span x-show="isSubmitting" class="flex items-center gap-2">
+                        Mengirim... <span class="iconify animate-spin" data-icon="lucide:loader-2"></span>
+                    </span>
+                </button>
+            </form>
         </div>
     </section>
 
@@ -316,7 +344,7 @@
     </div>
 
     <!-- JavaScript Data & Logic -->
-    <script>
+        <script>
         function catalogApp() {
             return {
                 mobileMenu: false,
@@ -327,7 +355,13 @@
                 selectedProduct: null,
                 categories: ['Semua', 'Laptop', 'Smartphone', 'Headset', 'Aksesoris'],
                 
-                // DATA PRODUK (GANTI DENGAN DATA ANDA)
+                // State untuk Request Review
+                requestName: '',
+                requestLink: '',
+                isSubmitting: false,
+                showToast: false,
+
+                // Data Produk
                 products: [
                     {
                         id: '1',
@@ -390,12 +424,10 @@
                 filteredProducts() {
                     let result = this.products;
 
-                    // Filter Category
                     if (this.activeCategory !== 'Semua') {
                         result = result.filter(p => p.category === this.activeCategory);
                     }
 
-                    // Filter Search
                     if (this.searchTerm) {
                         const lowerTerm = this.searchTerm.toLowerCase();
                         result = result.filter(p => 
@@ -404,17 +436,10 @@
                         );
                     }
 
-                    // Sorting
                     switch(this.sortBy) {
-                        case 'termurah':
-                            result.sort((a, b) => a.price - b.price);
-                            break;
-                        case 'termahal':
-                            result.sort((a, b) => b.price - a.price);
-                            break;
-                        case 'rating':
-                            result.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
-                            break;
+                        case 'termurah': result.sort((a, b) => a.price - b.price); break;
+                        case 'termahal': result.sort((a, b) => b.price - a.price); break;
+                        case 'rating': result.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)); break;
                         case 'diskon':
                             result.sort((a, b) => {
                                 let disA = a.originalPrice ? (a.originalPrice - a.price) : 0;
@@ -422,10 +447,7 @@
                                 return disB - disA;
                             });
                             break;
-                        case 'terbaru':
-                        default:
-                            // Assuming array is in order of input
-                            break;
+                        default: break;
                     }
 
                     return result;
@@ -438,18 +460,18 @@
                 openModal(product) {
                     this.selectedProduct = product;
                     this.isOpen = true;
-                    document.body.style.overflow = 'hidden'; // Prevent scroll
+                    document.body.style.overflow = 'hidden';
                     this.injectSchema(product);
                 },
 
                 removeSchema() {
-                    document.body.style.overflow = ''; // Restore scroll
+                    document.body.style.overflow = '';
                     const existingSchema = document.getElementById('product-schema');
                     if(existingSchema) existingSchema.remove();
                 },
 
                 injectSchema(product) {
-                    this.removeSchema(); // Clean previous
+                    this.removeSchema(); 
                     const schema = {
                         "@context": "https://schema.org",
                         "@type": "Product",
@@ -475,9 +497,67 @@
                     script.id = 'product-schema';
                     script.textContent = JSON.stringify(schema);
                     document.head.appendChild(script);
+                },
+
+                // FUNGSI BARU UNTUK REQUEST REVIEW
+                async submitRequest() {
+                    if(!this.requestName) return;
+                    
+                    this.isSubmitting = true;
+
+                    // --- CARA MENERIMA DATA (PILIH SALAH SATU) ---
+                    
+                    // OPSI 1: Hanya menampilkan Toast (Demo)
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulasi loading 1 detik
+
+                    // OPSI 2: Mengirim ke Web3Forms / Formspree (Sangat Direkomendasikan)
+                    
+                    const response = await fetch('8b782fe3-7fb2-475f-bf95-fed649739c5e', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            access_key: 'MASUKKAN_API_KEY_WEB3FORMS_ANDA',
+                            subject: 'Request Review Produk Baru',
+                            message: `Produk: ${this.requestName}\nLink: ${this.requestLink || 'Tidak disertakan'}`
+                        })
+                    });
+                    const result = await response.json();
+                    if(!result.success) return; // Hentikan jika gagal
+                    
+
+                    // Reset form & tampilkan notifikasi
+                    this.requestName = '';
+                    this.requestLink = '';
+                    this.isSubmitting = false;
+                    this.showToast = true;
+
+                    // Hilangkan toast otomatis setelah 3 detik
+                    setTimeout(() => {
+                        this.showToast = false;
+                    }, 3000);
                 }
             }
         }
     </script>
+
+
+        <!-- Toast Notification -->
+    <div 
+        x-show="showToast" 
+        x-cloak
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 translate-y-4"
+        class="fixed bottom-6 right-6 z-50 bg-dark text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-gray-700"
+    >
+        <span class="text-secondary text-xl"><span class="iconify" data-icon="lucide:check-circle-2"></span></span>
+        <div>
+            <p class="font-semibold text-sm">Request Terkirim!</p>
+            <p class="text-xs text-gray-400">Tim kami akan segera mereview produk Anda.</p>
+        </div>
+    </div>
 </body>
 </html>
