@@ -374,18 +374,26 @@
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-4">Kategori</h4>
-                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white transition">Laptop</a></li><li><a href="#" class="hover:text-white transition">Smartphone</a></li><li><a href="#" class="hover:text-white transition">Headset</a></li></ul>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Laptop</a></li>
+                        <li><a href="#" class="hover:text-white transition">Smartphone</a></li>
+                        <li><a href="#" class="hover:text-white transition">Headset</a></li>
+                        <li><a href="#" class="hover:text-white transition">Aksesoris</a></li>
+                        <li><a href="#" class="hover:text-white transition">Perawatan & Kecantikan</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kesehatan & Perawatan Bayi</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-4">Perusahaan</h4>
                     <ul class="space-y-2 text-sm"><li><a href="https://linkareadiskon.com/" class="hover:text-white transition">Tentang Kami</a></li><li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li><li><a href="#" class="hover:text-white transition">Kontak</a></li></ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Ikuti Kami</h4>
-                    <div class="flex gap-4 text-xl">
-                        <a href="#" class="hover:text-white transition"><span class="iconify" data-icon="lucide:instagram"></span></a>
-                        <a href="#" class="hover:text-white transition"><span class="iconify" data-icon="lucide:youtube"></span></a>
-                        <a href="#" class="hover:text-white transition"><span class="iconify" data-icon="lucide:twitter"></span></a>
+                    <h4 class="font-semibold text-white mb-4 text-center">Ikuti Kami</h4>
+                        <div class="flex justify-center gap-4 text-xl">
+                        <a href="https://www.instagram.com/link.areadiskon" class="hover:text-white transition"><span class="iconify" data-icon="lucide:instagram"></span></a>
+                        <a href="https://www.youtube.com/@link.areadiskon" class="hover:text-white transition"><span class="iconify" data-icon="lucide:youtube"></span></a>
+                        <a href="www.tiktok.com/@link.areadiskon" class="hover:text-white transition"><span class="iconify" data-icon="simple-icons:tiktok"></span></a>
+                        <a href="https://www.facebook.com/profile.php?id=61568866433844" class="hover:text-white transition"><span class="iconify" data-icon="lucide:facebook"></span></a>
                     </div>
                 </div>
             </div>
@@ -461,7 +469,7 @@
                 sortBy: 'terbaru',
                 isOpen: false,
                 selectedProduct: null,
-                categories: ['Semua', 'Laptop', 'Smartphone', 'Headset', 'Aksesoris'],
+                categories: ['Semua', 'Laptop', 'Smartphone', 'Headset', 'Aksesoris', 'Perawatan & Kecantikan', 'Kesehatan & Perawatan Bayi'],
                 
                 // State Request Review Produk
                 requestName: '',
@@ -482,62 +490,10 @@
                 toastMessage: '',
 
                 products: [
-                    {
-                        id: '1',
-                        slug: 'laptop-asus-vivobook',
-                        name: 'Laptop Asus Vivobook 14 Intel Core i5',
-                        price: 7500000,
-                        originalPrice: 8500000,
-                        affiliateUrl: 'https://tokopedia.link/affiliate-asus',
-                        category: 'Laptop',
-                        image: 'https://via.placeholder.com/400x400/2563EB/FFFFFF?text=Asus+Vivobook',
-                        rating: '4.8',
-                        marketplace: 'Tokopedia',
-                        pros: ['Layar IPS berkualitas', 'Performa padat sehari-hari', 'Desain ringkas'],
-                        cons: ['Baterai standar', 'Material plastik']
-                    },
-                    {
-                        id: '2',
-                        slug: 'iphone-15-pro-max',
-                        name: 'Apple iPhone 15 Pro Max 256GB',
-                        price: 21999000,
-                        originalPrice: null,
-                        affiliateUrl: 'https://shopee.link/affiliate-iphone',
-                        category: 'Smartphone',
-                        image: 'https://via.placeholder.com/400x400/111827/FFFFFF?text=iPhone+15',
-                        rating: '4.9',
-                        marketplace: 'Shopee',
-                        pros: ['Kamera terbaik di kelasnya', 'Chip A17 Pro super kencang', 'Titanium premium'],
-                        cons: ['Harga sangat mahal', 'Tidak ada charger di kotak']
-                    },
-                    {
-                        id: '3',
-                        slug: 'sony-wh-1000xm5',
-                        name: 'Sony WH-1000XM5 Noise Cancelling',
-                        price: 4200000,
-                        originalPrice: 5500000,
-                        affiliateUrl: 'https://lazada.link/affiliate-sony',
-                        category: 'Headset',
-                        image: 'https://via.placeholder.com/400x400/10B981/FFFFFF?text=Sony+XM5',
-                        rating: '4.7',
-                        marketplace: 'Lazada',
-                        pros: ['ANC Terbaik', 'Suara jernih dan detail', 'Desain nyaman dipakai lama'],
-                        cons: ['Tidak bisa dilipat', 'Case terlalu besar']
-                    },
-                    {
-                        id: '4',
-                        slug: 'logitech-mx-master-3s',
-                        name: 'Logitech MX Master 3S Mouse Wireless',
-                        price: 1350000,
-                        originalPrice: 1500000,
-                        affiliateUrl: 'https://tokopedia.link/affiliate-logitech',
-                        category: 'Aksesoris',
-                        image: 'https://via.placeholder.com/400x400/F59E0B/FFFFFF?text=MX+Master+3S',
-                        rating: '4.9',
-                        marketplace: 'Tokopedia',
-                        pros: ['Ergonomis luar biasa', 'Scroll super cepat', 'Bisa konek 3 device'],
-                        cons: ['Dongle dijual terpisah', 'Berat untuk dibawa travel']
-                    }
+                    { id: '1', name: 'PRETTYME Slim Eye Pencil Liquid Eyeliner eyeliner waterproof', price: 31499, originalPrice: 158000, affiliateUrl: 'https://s.shopee.co.id/6L1lHRIzS8?share_channel_code=1', category: 'Perawatan & Kecantikan', image: 'https://down-id.img.susercontent.com/file/id-11134207-7rasg-m0k67e4ca7o64f.webp', rating: '4.8', marketplace: 'Shopee' },
+                    { id: '2', name: '[COD] MYSTICEYES SOFTLENS DAWN SERI LENSA NORMAL 14.5 MM', price: 16600, originalPrice: 49900, affiliateUrl: 'https://s.shopee.co.id/8V6FpaQ3wR?share_channel_code=1', category: 'Perawatan & Kecantikan', image: 'https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m8d4u5vr0j8e41.webp', rating: '4.9', marketplace: 'Shopee' },
+                    { id: '3', name: '3D Eyelash isi 12 Pasang Bulu Mata Tulang Tebal Fake Eyelash Medium Natural', price: 63750, originalPrice: 79750, affiliateUrl: 'https://s.shopee.co.id/AAESGsKmpj?share_channel_code=1', category: 'Perawatan & Kecantikan', image: 'https://down-id.img.susercontent.com/file/id-11134207-82250-ml2cu6udgh6p3d.webp', rating: '4.9', marketplace: 'Shopee' },
+                    { id: '4', name: 'BOOST PROTEKID ORIGINAL 100% EXP 2028 SUPLEMEN ANAK DAYA TAHAN TUBUH 60 ml', price: 40000, originalPrice: 40500, affiliateUrl: 'https://s.shopee.co.id/3qKPbkhwrY?share_channel_code=1', category: 'Kesehatan & Perawatan Bayi', image: 'https://down-id.img.susercontent.com/file/id-11134207-822wg-mnsh2njsk3rc74.webp', rating: '4.9', marketplace: 'Shopee' },
                 ],
 
                 filteredProducts() {
