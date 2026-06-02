@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memuat Artikel... - LinkAreaDiskon</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#10B981',
+                        dark: '#0F172A'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        /* Styling khusus konten artikel agar mirip blog profesional */
+        .article-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .article-content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #0F172A; }
+        .article-content h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.8rem; color: #1E293B; }
+        .article-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .article-content blockquote { border-left: 4px solid #2563EB; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #4B5563; background-color: #F8FAFC; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; }
+        .article-content a { color: #2563EB; text-decoration: underline; font-weight: 500; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased" x-data="articleApp()" x-init="initArticle()">
+
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <img src="images/logo.jpg"  alt="linkareadiskon.com"
+                        class="h-10 w-10 
+                        rounded-lg object-cover">
+                    <span class="text-xl font-bold text-dark">Link<span class="text-primary">AreaDiskon</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition font-medium">Home</a>
+                    <a href="blog.html" class="text-primary border-b-2 border-primary pb-1 font-medium">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading & Error State -->
+    <div x-show="!article" class="text-center py-20">
+        <span class="iconify animate-spin text-4xl text-primary" data-icon="lucide:loader-2"></span>
+        <p class="mt-4 text-gray-500">Memuat artikel...</p>
+    </div>
+
+    <!-- Article Content -->
+    <main x-show="article" x-cloak class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <template x-if="article">
+            <div class="grid lg:grid-cols-3 gap-10">
+                
+                <!-- Main Article Area -->
+                <div class="lg:col-span-2">
+                    <!-- Breadcrumb -->
+                    <nav class="mb-6 text-sm text-gray-500 flex items-center gap-2">
+                        <a href="index.html" class="hover:text-primary transition">Home</a>
+                        <span class="iconify text-xs" data-icon="lucide:chevron-right"></span>
+                        <a href="blog.html" class="hover:text-primary transition">Blog</a>
+                        <span class="iconify text-xs" data-icon="lucide:chevron-right"></span>
+                        <span class="text-gray-800 font-medium truncate" x-text="article.title"></span>
+                    </nav>
+
+                    <!-- Article Header -->
+                    <header class="mb-8">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold" x-text="article.category"></span>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-dark mt-3 leading-tight" x-text="article.title"></h1>
+                        <div class="flex items-center gap-4 mt-4 text-sm text-gray-500">
+                            <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:calendar"></span> <span x-text="article.date"></span></span>
+                            <span class="flex items-center gap-1.5"><span class="iconify" data-icon="lucide:clock"></span> <span x-text="article.readTime"></span></span>
+                        </div>
+                    </header>
+
+                    <!-- Featured Image -->
+                    <div class="rounded-2xl overflow-hidden mb-8 shadow-sm border border-gray-100">
+                        <img :src="article.image" :alt="article.title" class="w-full object-cover aspect-video">
+                    </div>
+
+                    <!-- Article Body (Inject dari Data) -->
+                    <div class="article-content text-gray-700" x-html="article.content"></div>
+
+                    <!-- CTA Affiliate di dalam Artikel -->
+                    <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 mt-10 flex flex-col md:flex-row items-center gap-6">
+                        <img src="https://via.placeholder.com/150/2563EB/FFFFFF?text=Top+Pick" alt="Rekomendasi" class="w-28 h-28 rounded-xl object-cover shadow-md">
+                        <div class="flex-1 text-center md:text-left">
+                            <h3 class="font-bold text-lg text-dark mb-1">Tertarik dengan Produk di Artikel Ini?</h3>
+                            <p class="text-gray-600 text-sm mb-4">Kami sudah merangkum produk pilihan dengan harga terbaik dan diskon eksklusif untuk Anda.</p>
+                            <a href="index.html#produk" class="inline-flex items-center gap-2 bg-primary hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold transition shadow">
+                                Lihat Katalog Promo <span class="iconify" data-icon="lucide:external-link"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-1 space-y-6">
+                    <!-- Sticky Container -->
+                    <div class="lg:sticky lg:top-24 space-y-6">
+                        
+                        <!-- Table of Contents (TOC) -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <h3 class="font-bold text-dark mb-4 flex items-center gap-2"><span class="iconify text-primary" data-icon="lucide:list"></span> Daftar Isi</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#pengantar" class="text-gray-600 hover:text-primary transition">Pengantar</a></li>
+                                <li><a href="#kriteria" class="text-gray-600 hover:text-primary transition">Kriteria Laptop Programming</a></li>
+                                <li><a href="#rekomendasi" class="text-gray-600 hover:text-primary transition">Rekomendasi Terbaik 2024</a></li>
+                                <li><a href="#kesimpulan" class="text-gray-600 hover:text-primary transition">Kesimpulan</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Sidebar CTA Layanan Video -->
+                        <div class="bg-dark p-6 rounded-2xl shadow-lg text-white">
+                            <span class="bg-secondary/20 text-secondary px-2 py-0.5 rounded text-xs font-bold">📹 Layanan Kami</span>
+                            <h3 class="font-bold text-lg mt-3 mb-2">Butuh Video Review Produk Anda?</h3>
+                            <p class="text-gray-400 text-sm mb-4">Tingkatkan penjualan dengan konten video profesional dari tim LinkAreaDiskon.</p>
+                            <a href="index.html#layanan" class="block text-center bg-secondary hover:bg-green-600 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition">
+                                Pesan Sekarang
+                            </a>
+                        </div>
+
+                    </div>
+                </aside>
+
+            </div>
+        </template>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <img src="images/logo.jpg"  alt="linkareadiskon.com"
+                        class="h-10 w-10 
+                        rounded-lg object-cover">
+                <span class="text-xl font-bold text-white">LinkAreaDiskon</span>
+            </div>
+            <p class="text-sm mb-6">Website review dan katalog produk affiliate terpercaya di Indonesia.</p>
+            <div class="border-t border-gray-800 pt-8 text-sm">
+                <p>© 2024 LinkAreaDiskon. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function articleApp() {
+            return {
+                article: null,
+                slug: '',
+
+                initArticle() {
+                    // Ambil slug dari URL (contoh: artikel.html?slug=laptop-untuk-programmer)
+                    const params = new URLSearchParams(window.location.search);
+                    this.slug = params.get('slug');
+                    
+                    // Cari data artikel berdasarkan slug
+                    const db = this.getDatabase();
+                    this.article = db.find(a => a.slug === this.slug) || null;
+
+                    // Update Title Tab Browser secara dinamis
+                    if(this.article) {
+                        document.title = this.article.title + " - KatalogPromo";
+                    } else {
+                        document.title = "Artikel Tidak Ditemukan - KatalogPromo";
+                    }
+                },
+
+                getDatabase() {
+                    return [
+                        {
+                            slug: 'laptop-untuk-programmer',
+                            title: '5 Laptop Terbaik untuk Programmer di Tahun 2024',
+                            category: 'Tips & Trik',
+                            date: '24 Okt 2023',
+                            readTime: '5 menit baca',
+                            image: 'https://via.placeholder.com/1200x600/2563EB/FFFFFF?text=Tips+Laptop+Programmer',
+                            // Konten menggunakan tag HTML dasar yang akan di-render oleh x-html
+                            content: `
+                                <p>Memilih laptop untuk coding bukan sekadar melihat spesifikasi RAM dan prosesor. Seorang developer membutuhkan mesin yang andal, portabel untuk bekerja di mana saja, dan keyboard yang nyaman sehingga jari tidak cepat lelah.</p>
+                                
+                                <h2 id="pengantar">Mengapa Pemilihan Laptop Sangat Krusial?</h2>
+                                <p>Bayangkan Anda sedang compile kode besar, atau menjalankan Docker sekaligus membuka belasan tab browser untuk dokumentasi. Laptop biasa pasti akan tersengal-sengal. Oleh karena itu, investasi laptop yang tepat akan meningkatkan produktivitas Anda secara drastis.</p>
+
+                                <blockquote>Pro Tip: Selalu prioritaskan RAM 16GB untuk development modern. 8GB sudah tidak cukup lagi jika Anda menggunakan IDE berat seperti IntelliJ atau menjalankan VM.</blockquote>
+
+                                <h2 id="kriteria">Kriteria Laptop untuk Programming</h2>
+                                <p>Berdasarkan survei dan pengalaman tim kami, berikut kriteria wajib yang harus dipenuhi:</p>
+                                <ul>
+                                    <li><strong>Prosesor:</strong> Minimal Intel Core i5 Gen 11/12 atau AMD Ryzen 5 5000/7000 series.</li>
+                                    <li><strong>RAM:</strong> 16GB adalah sweet spot. 32GB jika Anda bermain backend/VM.</li>
+                                    <li><strong>Storage:</strong> NVMe SSD wajib! Jangan pernah beli laptop HDD untuk coding.</li>
+                                    <li><strong>Baterai:</strong> Minimal 8 jam daya tahan untuk mobilitas di kafe atau coworking space.</li>
+                                </ul>
+
+                                <h2 id="rekomendasi">Rekomendasi Terbaik 2024</h2>
+                                <p>Menggunakan data dari katalog kami, berikut adalah pilihan terbaik yang memberikan value paling tinggi untuk uang Anda:</p>
+                                
+                                <h3>1. MacBook Air M2</h3>
+                                <p>Laptop ini adalah raja mobilitas. Chip M2 memberikan performa luar biasa tanpa kipas, artinya zero noise! Cocok untuk Web Developer dan Mobile Developer (khususnya iOS).</p>
+
+                                <h3>2. Asus Vivobook 14/15</h3>
+                                <p>Jika budget terbatas namun tetap menginginkan spesifikasi solid, seri Vivobook adalah pilihan tepat. Layar IPS-nya sangat nyaman dilihat berjam-jam.</p>
+
+                                <h2 id="kesimpulan">Kesimpulan</h2>
+                                <p>Pekerjaan programming menuntut alat yang reliable. Jangan tergoda laptop gaming murahan jika Anda jarang bermain game, karena bobotnya akan menyiksa saat dibawa meeting. Pilihlah laptop yang sesuai dengan *workflow* Anda sehari-hari.</p>
+                                <p>Jangan lupa cek harga promo untuk laptop-laptop di atas di <a href="index.html#produk">Katalog Produk</a> kami!</p>
+                            `
+                        },
+                        {
+                            slug: 'headphone-anc-worth-it',
+                            title: 'Headphone Noise Cancelling: Apakah Benar-Benar Worth It?',
+                            category: 'Review Mendalam',
+                            date: '18 Okt 2023',
+                            readTime: '7 menit baca',
+                            image: 'https://via.placeholder.com/1200x600/10B981/FFFFFF?text=Review+Audio+ANC',
+                            content: `
+                                <p>Teknologi Active Noise Cancelling (ANC) kini tidak hanya ada di headphone premium, tetapi juga merambah ke kelas mid-range. Pertanyaannya, apakah fitur ini benar-benar mengubah pengalaman mendengarkan, atau sekadar gimmick pemasaran?</p>
+                                
+                                <h2 id="pengantar">Apa itu ANC?</h2>
+                                <p>ANC adalah teknologi yang menggunakan mikrofon bawaan untuk menangkap suara bising di sekitar Anda, lalu menghasilkan gelombang suara terbalik untuk membatalkannya. Hasilnya? Keheningan yang magis.</p>
+
+                                <blockquote>Pengalaman kami: Menggunakan ANC di pesawat terbang atau kereta api commuter adalah *game-changer* mutlak. Dengungan mesin hampir hilang sepenuhnya.</blockquote>
+
+                                <h2 id="kriteria">Kapan Anda Membutuhkannya?</h2>
+                                <ul>
+                                    <li>Anda sering bekerja di kafe atau ruang kerja bersama (coworking space).</li>
+                                    <li>Anda penumpang setia transportasi umum.</li>
+                                    <li>Anda mudah terganggu suara ketika sedang fokus.</li>
+                                </ul>
+
+                                <h2 id="rekomendasi">Pilihan Terbaik di Katalog Kami</h2>
+                                <p>Jika Anda siap merasakan ketenangan, kami sangat merekomendasikan Sony WH-1000XM5. Kualitas suaranya luar biasa, dan ANC-nya adalah yang terbaik di kelasnya saat ini.</p>
+
+                                <h2 id="kesimpulan">Kesimpulan</h2>
+                                <p>Jika Anda mendengarkan musik di lingkungan bising, ANC bukan sekadar *want*, melainkan *need*. Investasi Anda akan terbayar dengan kenyamanan telinga yang jauh lebih baik.</p>
+                            `
+                        }
+                    ];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
