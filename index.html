@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="K6qPShZnWVjk4TMTT-MX4QrdSEt8VoV66Wfa3CkbbcQ" />
+     <!-- FAVICON DI SINI -->
+    <link rel="icon" type="image/jpeg" href="/images/logo.jpg">
     <title>LinkAreaDiskon - Temukan Produk Terbaik & Diskon</title>
     <meta name="description" content="Temukan produk elektronik dan gadget terbaik dengan harga promo dan review lengkap. Dapatkan diskon terbesar hari ini!">
     
@@ -12,12 +14,27 @@
     <meta property="og:url" content="https://Linkareadiskon.com/">
     <meta property="og:title" content="LinkAreaDiskon - Temukan Produk Terbaik & Diskon">
     <meta property="og:description" content="Temukan produk elektronik dan gadget terbaik dengan harga promo dan review lengkap.">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/2563EB/FFFFFF?text=LinkAreaDiskon">
+    <meta property="og:image" content="/images/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="LinkAreaDiskon - Temukan Produk Terbaik & Diskon">
     <meta property="twitter:description" content="Temukan produk elektronik dan gadget terbaik dengan harga promo dan review lengkap.">
+
+    <!-- Instagram -->
+    <meta property="instagram:card" content="summary_large_image">
+    <meta property="instagram:title" content="LinkAreaDiskon - Temukan Produk Terbaik & Diskon">
+    <meta property="instagram:description" content="jasa pembuatan video review produk untuk Instagram Reels. Tingkatkan penjualan dengan konten video yang menarik dan profesional. Hubungi kami untuk layanan kreator terbaik!">
+
+    <!-- YouTube -->
+    <meta property="youtube:card" content="summary_large_image">
+    <meta property="youtube:title" content="LinkAreaDiskon - Temukan Produk Terbaik & Diskon">
+    <meta property="youtube:description" content="Review jujur, perbandingan harga, dan link pembelian aman dari marketplace terpercaya. Temukan produk elektronik dan gadget terbaik dengan harga promo dan review lengkap. Dapatkan diskon terbesar hari ini!">
+
+     <!-- TikTok -->
+    <meta property="tiktok:card" content="summary_large_image">
+    <meta property="tiktok:title" content="LinkAreaDiskon - Temukan Produk Terbaik & Diskon">
+    <meta property="tiktok:description" content="Jasa Pembuatan Video Review Produk untuk TikTok dan Instagram Reels. Tingkatkan penjualan dengan konten video yang menarik dan profesional. Hubungi kami untuk layanan kreator terbaik!">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,7 +79,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center gap-2">
-                    <img src="images/logo.jpg"  alt="linkareadiskon.com"
+                    <img src="images/logo.jpg"  href="https://linkareadiskon.com/" alt="linkareadiskon.com"
                         class="h-10 w-10 
                         rounded-lg object-cover">
                     <span class="text-xl font-bold text-dark">Link<span class="text-primary">AreaDiskon
@@ -71,7 +88,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="https://linkareadiskon.com/" class="text-gray-600 hover:text-primary transition font-medium">Home</a>
                     <a href="katalog.html" class="text-gray-600 hover:text-primary transition font-medium">Produk</a>
-                    <a href="#blog" class="text-gray-600 hover:text-primary transition font-medium">Blog</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-primary transition font-medium">Blog</a>
                     <a href="#layanan" class="text-gray-600 hover:text-primary transition font-medium">Layanan Video</a>
                 </div>
                 <div class="md:hidden">
@@ -84,8 +101,8 @@
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" x-cloak class="md:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
             <a href="https://linkareadiskon.com/" @click="mobileMenu = false" class="block py-2 text-gray-600">Home</a>
-            <a href="#produk" @click="mobileMenu = false" class="block py-2 text-gray-600">Produk</a>
-            <a href="#blog" @click="mobileMenu = false" class="block py-2 text-gray-600">Blog</a>
+            <a href="katalog.html" @click="mobileMenu = false" class="block py-2 text-gray-600">Produk</a>
+            <a href="blog.html" @click="mobileMenu = false" class="block py-2 text-gray-600">Blog</a>
             <a href="#layanan" @click="mobileMenu = false" class="block py-2 text-gray-600">Layanan Video</a>
         </div>
     </nav>
